@@ -78,6 +78,10 @@
         <mat-icon>{{ isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
       </button>
 
+      <button mat-icon-button aria-label="Yazi boyutu" [matMenuTriggerFor]="fontSizeMenu">
+        <mat-icon>format_size</mat-icon>
+      </button>
+
       <button
         mat-icon-button
         aria-label="Bildirimler"
@@ -144,6 +148,18 @@
         <button mat-button (click)="markAllMessagesRead()">Tumunu okundu isaretle</button>
         <button mat-button (click)="openAllMessages()">Hepsini gor</button>
       </div>
+    </mat-menu>
+
+    <mat-menu #fontSizeMenu="matMenu">
+      <div class="menu-header">Yazi Boyutu</div>
+      @for (option of fontSizeOptions; track option.label) {
+        <button mat-menu-item (click)="setFontSize(option.label)">
+          <span>{{ option.label }}</span>
+          @if (selectedFontSize() === option.label) {
+            <mat-icon>check</mat-icon>
+          }
+        </button>
+      }
     </mat-menu>
 
     <main class="dashboard-main">

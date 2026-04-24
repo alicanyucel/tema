@@ -29,6 +29,13 @@ interface MessageItem {
   unread: boolean;
 }
 
+type FontSizeMode = 'Kompakt' | 'Standart' | 'Buyuk';
+
+interface FontSizeOption {
+  label: FontSizeMode;
+  scale: number;
+}
+
 @Component({
   selector: 'app-root',
   imports: [
@@ -51,6 +58,12 @@ export class App {
   private readonly document = inject(DOCUMENT);
   protected readonly sidebarOpen = signal(true);
   protected readonly isDarkMode = signal(this.getInitialThemeMode());
+  protected readonly fontSizeOptions: FontSizeOption[] = [
+    { label: 'Kompakt', scale: 0.93 },
+    { label: 'Standart', scale: 1 },
+    { label: 'Buyuk', scale: 1.08 }
+  ];
+  protected readonly selectedFontSize = signal<FontSizeMode>(this.getInitialFontSizeMode());
   protected readonly globalQuery = signal('');
 
   protected readonly searchIndex: SearchItem[] = [
@@ -133,6 +146,15 @@ export class App {
     }
   });
 
+  private readonly fontScaleEffect = effect(() => {
+    const mode = this.selectedFontSize();
+    const scale = this.fontSizeOptions.find((item) => item.label === mode)?.scale ?? 1;
+    this.document.documentElement.style.setProperty('--font-scale', `${scale}`);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('atlas-font-size', mode);
+    }
+  });
+
   protected readonly filteredSearchResults = computed(() => {
     const query = this.globalQuery().trim().toLowerCase();
     if (!query) {
@@ -148,6 +170,10 @@ export class App {
 
   protected toggleTheme(): void {
     this.isDarkMode.update((value) => !value);
+  }
+
+  protected setFontSize(mode: FontSizeMode): void {
+    this.selectedFontSize.set(mode);
   }
 
   protected onGlobalSearchInput(value: string): void {
@@ -197,5 +223,14 @@ export class App {
     }
 
     return false;
+  }
+
+  private getInitialFontSizeMode(): FontSizeMode {
+    const saved = typeof localStorage !== 'undefined' ? localStorage.getItem('atlas-font-size') : null;
+    if (saved === 'Kompakt' || saved === 'Standart' || saved === 'Buyuk') {
+      return saved;
+    }
+
+    return 'Standart';
   }
 }

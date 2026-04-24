@@ -210,6 +210,10 @@ a.active-link {
 	border-top: 1px solid var(--app-border);
 }
 
+.mat-mdc-menu-item .mat-icon {
+	margin-left: auto;
+}
+
 .spacer {
 	flex: 1;
 }

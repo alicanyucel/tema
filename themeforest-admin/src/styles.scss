@@ -7,6 +7,7 @@
 
 html {
   height: 100%;
+  font-size: calc(16px * var(--font-scale, 1));
   @include mat.theme(
     (
       color: (
@@ -20,6 +21,7 @@ html {
 }
 
 :root {
+  --font-scale: 1;
   --app-bg: #eef3f8;
   --app-text: #111827;
   --app-muted: #475569;
