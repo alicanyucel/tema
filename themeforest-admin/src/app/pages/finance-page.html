@@ -1,0 +1,58 @@
+<section class="page-head">
+  <h1>Finans</h1>
+  <p>Nakit akisi, tahsilat ve gider dengesi</p>
+</section>
+
+<section class="overview-grid">
+  <mat-card appearance="outlined">
+    <p>Bu Ay Gelir</p>
+    <h3>{{ 128450 | currency: '$' }}</h3>
+  </mat-card>
+  <mat-card appearance="outlined">
+    <p>Bu Ay Gider</p>
+    <h3>{{ 48920 | currency: '$' }}</h3>
+  </mat-card>
+  <mat-card appearance="outlined">
+    <p>Net Kar</p>
+    <h3>{{ 79530 | currency: '$' }}</h3>
+  </mat-card>
+</section>
+
+<mat-card appearance="outlined" class="budget-card">
+  <h3>Butce Kullanim Oranlari</h3>
+
+  <div class="row">
+    <span>Operasyon</span>
+    <span>%72</span>
+  </div>
+  <mat-progress-bar mode="determinate" [value]="72"></mat-progress-bar>
+
+  <div class="row">
+    <span>Pazarlama</span>
+    <span>%61</span>
+  </div>
+  <mat-progress-bar mode="determinate" [value]="61"></mat-progress-bar>
+
+  <div class="row">
+    <span>Ar-Ge</span>
+    <span>%44</span>
+  </div>
+  <mat-progress-bar mode="determinate" [value]="44"></mat-progress-bar>
+</mat-card>
+
+<mat-card appearance="outlined" class="tx-card">
+  <h3>Son Islemler</h3>
+  <div class="tx-list">
+    @for (tx of transactions; track tx.label) {
+      <article>
+        <div>
+          <strong>{{ tx.label }}</strong>
+          <small>{{ tx.date }}</small>
+        </div>
+        <span [class]="tx.type.toLowerCase()">
+          {{ tx.type === 'Gelir' ? '+' : '-' }}{{ tx.amount | currency: '$' }}
+        </span>
+      </article>
+    }
+  </div>
+</mat-card>

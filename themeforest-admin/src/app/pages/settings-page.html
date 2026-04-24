@@ -1,0 +1,40 @@
+<section class="page-head">
+  <h1>Ayarlar</h1>
+  <p>Sistem tercihleri ve bildirim yonetimi</p>
+</section>
+
+<section class="settings-grid">
+  <mat-card appearance="outlined" class="panel">
+    <h3>Sirket Bilgileri</h3>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Sirket Adi</mat-label>
+      <input matInput [(ngModel)]="companyName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Destek E-postasi</mat-label>
+      <input matInput [(ngModel)]="supportMail" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Dil</mat-label>
+      <mat-select [(value)]="language">
+        <mat-option value="tr">Turkce</mat-option>
+        <mat-option value="en">English</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="panel">
+    <h3>Bildirimler</h3>
+    <div class="toggle-row">
+      <span>E-posta Bildirimleri</span>
+      <mat-slide-toggle [(ngModel)]="mailNotifications"></mat-slide-toggle>
+    </div>
+    <div class="toggle-row">
+      <span>SMS Bildirimleri</span>
+      <mat-slide-toggle [(ngModel)]="smsNotifications"></mat-slide-toggle>
+    </div>
+  </mat-card>
+</section>

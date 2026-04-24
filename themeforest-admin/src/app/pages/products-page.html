@@ -1,0 +1,64 @@
+<section class="page-head">
+  <div>
+    <h1>Urunler</h1>
+    <p>Stok, fiyat ve kategori bazli urun yonetimi</p>
+  </div>
+  <button mat-flat-button>
+    <mat-icon>add</mat-icon>
+    Yeni Urun
+  </button>
+</section>
+
+<section class="summary-grid">
+  <mat-card appearance="outlined">
+    <p>Toplam Urun</p>
+    <h3>1,942</h3>
+  </mat-card>
+  <mat-card appearance="outlined">
+    <p>Az Stok Alarmi</p>
+    <h3>37</h3>
+  </mat-card>
+  <mat-card appearance="outlined">
+    <p>Pasif Urun</p>
+    <h3>12</h3>
+  </mat-card>
+</section>
+
+<mat-card appearance="outlined" class="table-wrap">
+  <table mat-table [dataSource]="products" class="table">
+    <ng-container matColumnDef="sku">
+      <th mat-header-cell *matHeaderCellDef>SKU</th>
+      <td mat-cell *matCellDef="let row">{{ row.sku }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Urun</th>
+      <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef>Kategori</th>
+      <td mat-cell *matCellDef="let row">{{ row.category }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="stock">
+      <th mat-header-cell *matHeaderCellDef>Stok</th>
+      <td mat-cell *matCellDef="let row">{{ row.stock }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Fiyat</th>
+      <td mat-cell *matCellDef="let row">{{ row.price | currency: '$' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Durum</th>
+      <td mat-cell *matCellDef="let row">
+        <mat-chip [class]="row.status.toLowerCase().replace(' ', '-')">{{ row.status }}</mat-chip>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns"></tr>
+  </table>
+</mat-card>

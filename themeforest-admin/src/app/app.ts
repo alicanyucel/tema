@@ -1,0 +1,201 @@
+import { DOCUMENT } from '@angular/common';
+import { Component, computed, effect, inject, signal } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+interface SearchItem {
+  label: string;
+  hint: string;
+  route: string;
+}
+
+interface NotificationItem {
+  title: string;
+  detail: string;
+  time: string;
+  unread: boolean;
+}
+
+interface MessageItem {
+  from: string;
+  text: string;
+  time: string;
+  unread: boolean;
+}
+
+@Component({
+  selector: 'app-root',
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    RouterOutlet,
+    MatBadgeModule,
+    MatDividerModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatToolbarModule
+  ],
+  templateUrl: './app.html',
+  styleUrl: './app.scss'
+})
+export class App {
+  private readonly router = inject(Router);
+  private readonly document = inject(DOCUMENT);
+  protected readonly sidebarOpen = signal(true);
+  protected readonly isDarkMode = signal(this.getInitialThemeMode());
+  protected readonly globalQuery = signal('');
+
+  protected readonly searchIndex: SearchItem[] = [
+    { label: 'Dashboard', hint: 'Genel KPI, gelir ve aktiviteler', route: '/dashboard' },
+    { label: 'Urunler', hint: 'Stok, kategori ve fiyat listesi', route: '/urunler' },
+    { label: 'Siparisler', hint: 'Siparis durumu ve odeme takibi', route: '/siparisler' },
+    { label: 'Finans', hint: 'Nakit akisi ve butce yonetimi', route: '/finans' },
+    { label: 'Ayarlar', hint: 'Sistem ve bildirim tercihleri', route: '/ayarlar' },
+    { label: 'Yeni Gorev', hint: 'Dashboard > Kritik Gorevler', route: '/dashboard' }
+  ];
+
+  protected readonly notifications = signal<NotificationItem[]>([
+    {
+      title: 'Yeni siparis onay bekliyor',
+      detail: 'SO-24103 nolu siparis finans onayi bekliyor.',
+      time: '2 dk once',
+      unread: true
+    },
+    {
+      title: 'Stok seviyesi kritik',
+      detail: 'PRD-1028 urunu 12 adedin altina dustu.',
+      time: '14 dk once',
+      unread: true
+    },
+    {
+      title: 'Muhasebe aktarimi tamamlandi',
+      detail: 'Gun sonu hareketleri ERP sistemine islendi.',
+      time: '31 dk once',
+      unread: true
+    },
+    {
+      title: 'Sunucu bakimi planlandi',
+      detail: 'Pazar gecesi 02:00-03:00 arasi planli kesinti var.',
+      time: '1 saat once',
+      unread: false
+    },
+    {
+      title: 'Iade talebi acildi',
+      detail: 'Nova Market icin 3 kalemde iade baslatildi.',
+      time: '2 saat once',
+      unread: false
+    }
+  ]);
+
+  protected readonly messages = signal<MessageItem[]>([
+    {
+      from: 'Mert Demir',
+      text: 'Depo senkronizasyon patchini canliya alabiliriz.',
+      time: '3 dk once',
+      unread: true
+    },
+    {
+      from: 'Aylin Kara',
+      text: 'Onboarding akisi icin son dokumani guncelledim.',
+      time: '9 dk once',
+      unread: true
+    },
+    {
+      from: 'Selin Usta',
+      text: 'Dashboard filtrelerinde mobile optimizasyon tamam.',
+      time: '26 dk once',
+      unread: true
+    },
+    {
+      from: 'Finans Ekip',
+      text: 'Bugun 16:00 toplantisi icin rapor hazir.',
+      time: '52 dk once',
+      unread: false
+    }
+  ]);
+
+  protected readonly notificationBadge = computed(() => this.notifications().filter((item) => item.unread).length);
+  protected readonly messageBadge = computed(() => this.messages().filter((item) => item.unread).length);
+
+  private readonly themeEffect = effect(() => {
+    const dark = this.isDarkMode();
+    this.document.body.classList.toggle('theme-dark', dark);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('atlas-theme', dark ? 'dark' : 'light');
+    }
+  });
+
+  protected readonly filteredSearchResults = computed(() => {
+    const query = this.globalQuery().trim().toLowerCase();
+    if (!query) {
+      return [] as SearchItem[];
+    }
+
+    return this.searchIndex.filter((item) => `${item.label} ${item.hint}`.toLowerCase().includes(query)).slice(0, 6);
+  });
+
+  protected toggleSidebar(): void {
+    this.sidebarOpen.update((state) => !state);
+  }
+
+  protected toggleTheme(): void {
+    this.isDarkMode.update((value) => !value);
+  }
+
+  protected onGlobalSearchInput(value: string): void {
+    this.globalQuery.set(value);
+  }
+
+  protected openSearchResult(item: SearchItem): void {
+    this.globalQuery.set('');
+    this.router.navigateByUrl(item.route);
+  }
+
+  protected openFirstSearchResult(): void {
+    const [first] = this.filteredSearchResults();
+    if (first) {
+      this.openSearchResult(first);
+    }
+  }
+
+  protected markAllNotificationsRead(): void {
+    this.notifications.update((items) => items.map((item) => ({ ...item, unread: false })));
+  }
+
+  protected markAllMessagesRead(): void {
+    this.messages.update((items) => items.map((item) => ({ ...item, unread: false })));
+  }
+
+  protected openAllNotifications(): void {
+    this.router.navigateByUrl('/siparisler');
+  }
+
+  protected openAllMessages(): void {
+    this.router.navigateByUrl('/dashboard');
+  }
+
+  private getInitialThemeMode(): boolean {
+    const savedTheme = typeof localStorage !== 'undefined' ? localStorage.getItem('atlas-theme') : null;
+    if (savedTheme === 'dark') {
+      return true;
+    }
+
+    if (savedTheme === 'light') {
+      return false;
+    }
+
+    if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    return false;
+  }
+}

@@ -1,0 +1,42 @@
+.page-head {
+  margin-bottom: 14px;
+
+  h1,
+  p {
+    margin: 0;
+  }
+
+  p {
+    margin-top: 4px;
+    opacity: 0.66;
+  }
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 14px;
+}
+
+.panel {
+  border-radius: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+@media (max-width: 900px) {
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}

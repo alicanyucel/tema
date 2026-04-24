@@ -1,0 +1,78 @@
+.page-head {
+  margin-bottom: 14px;
+
+  h1,
+  p {
+    margin: 0;
+  }
+
+  p {
+    margin-top: 4px;
+    opacity: 0.66;
+  }
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+
+  p,
+  h3 {
+    margin: 0;
+  }
+
+  p {
+    margin-bottom: 8px;
+    opacity: 0.66;
+  }
+}
+
+.budget-card,
+.tx-card {
+  margin-top: 14px;
+  border-radius: 18px;
+}
+
+.row {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tx-list {
+  display: grid;
+  gap: 10px;
+
+  article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.04);
+  }
+
+  strong,
+  small {
+    display: block;
+  }
+
+  small {
+    opacity: 0.66;
+  }
+}
+
+span.gelir {
+  color: #166534;
+}
+
+span.gider {
+  color: #991b1b;
+}
+
+@media (max-width: 900px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+}

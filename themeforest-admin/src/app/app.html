@@ -1,0 +1,153 @@
+<mat-sidenav-container class="dashboard-shell">
+  <mat-sidenav class="dashboard-sidebar" mode="side" [opened]="sidebarOpen()">
+    <div class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <h2>Atlas ERP</h2>
+        <p>Control Center</p>
+      </div>
+    </div>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon matListItemIcon>dashboard</mat-icon>
+        <span matListItemTitle>Dashboard</span>
+      </a>
+      <a mat-list-item routerLink="/urunler" routerLinkActive="active-link">
+        <mat-icon matListItemIcon>inventory_2</mat-icon>
+        <span matListItemTitle>Urunler</span>
+      </a>
+      <a mat-list-item routerLink="/siparisler" routerLinkActive="active-link">
+        <mat-icon matListItemIcon>shopping_bag</mat-icon>
+        <span matListItemTitle>Siparisler</span>
+      </a>
+      <a mat-list-item routerLink="/finans" routerLinkActive="active-link">
+        <mat-icon matListItemIcon>receipt_long</mat-icon>
+        <span matListItemTitle>Finans</span>
+      </a>
+      <a mat-list-item routerLink="/ayarlar" routerLinkActive="active-link">
+        <mat-icon matListItemIcon>settings</mat-icon>
+        <span matListItemTitle>Ayarlar</span>
+      </a>
+    </mat-nav-list>
+
+    <mat-divider></mat-divider>
+
+    <div class="sidebar-card">
+      <p class="label">Sistem Sagligi</p>
+      <h3>%99.92 Uptime</h3>
+      <p>Son 30 gunde kesintisiz calisma orani.</p>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="dashboard-content">
+    <mat-toolbar class="dashboard-toolbar" role="heading" aria-level="1">
+      <button mat-icon-button (click)="toggleSidebar()" aria-label="Yan menuyu ac veya kapat">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <div class="search-box" role="search">
+        <mat-icon>search</mat-icon>
+        <input
+          type="text"
+          placeholder="Modul, rapor veya kayit ara..."
+          [value]="globalQuery()"
+          (input)="onGlobalSearchInput($any($event.target).value)"
+          (keydown.enter)="openFirstSearchResult()"
+        />
+
+        @if (globalQuery().trim().length > 0) {
+          <div class="search-results">
+            @if (filteredSearchResults().length > 0) {
+              @for (item of filteredSearchResults(); track item.label + item.route) {
+                <button type="button" (click)="openSearchResult(item)">
+                  <strong>{{ item.label }}</strong>
+                  <small>{{ item.hint }}</small>
+                </button>
+              }
+            } @else {
+              <div class="no-result">Sonuc bulunamadi</div>
+            }
+          </div>
+        }
+      </div>
+
+      <span class="spacer"></span>
+
+      <button mat-icon-button aria-label="Tema degistir" (click)="toggleTheme()">
+        <mat-icon>{{ isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        aria-label="Bildirimler"
+        [matBadge]="notificationBadge()"
+        matBadgeColor="warn"
+        [matMenuTriggerFor]="notificationsMenu"
+      >
+        <mat-icon>notifications</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        aria-label="Mesajlar"
+        [matBadge]="messageBadge()"
+        matBadgeColor="accent"
+        [matMenuTriggerFor]="messagesMenu"
+      >
+        <mat-icon>chat</mat-icon>
+      </button>
+
+      <div class="profile-chip">
+        <div class="avatar">AC</div>
+        <div>
+          <strong>Ali Can</strong>
+          <small>Product Owner</small>
+        </div>
+      </div>
+    </mat-toolbar>
+
+    <mat-menu #notificationsMenu="matMenu" class="toolbar-menu">
+      <div class="menu-header">Bildirimler</div>
+      @for (item of notifications(); track item.title + item.time) {
+        <button mat-menu-item class="menu-entry">
+          <div>
+            <strong>{{ item.title }}</strong>
+            <small>{{ item.detail }}</small>
+            <span>{{ item.time }}</span>
+          </div>
+          @if (item.unread) {
+            <em class="dot"></em>
+          }
+        </button>
+      }
+      <div class="menu-actions">
+        <button mat-button (click)="markAllNotificationsRead()">Tumunu okundu isaretle</button>
+        <button mat-button (click)="openAllNotifications()">Hepsini gor</button>
+      </div>
+    </mat-menu>
+
+    <mat-menu #messagesMenu="matMenu" class="toolbar-menu">
+      <div class="menu-header">Mesajlar</div>
+      @for (message of messages(); track message.from + message.time) {
+        <button mat-menu-item class="menu-entry">
+          <div>
+            <strong>{{ message.from }}</strong>
+            <small>{{ message.text }}</small>
+            <span>{{ message.time }}</span>
+          </div>
+          @if (message.unread) {
+            <em class="dot"></em>
+          }
+        </button>
+      }
+      <div class="menu-actions">
+        <button mat-button (click)="markAllMessagesRead()">Tumunu okundu isaretle</button>
+        <button mat-button (click)="openAllMessages()">Hepsini gor</button>
+      </div>
+    </mat-menu>
+
+    <main class="dashboard-main">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

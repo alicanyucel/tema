@@ -1,0 +1,68 @@
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 14px;
+
+  h1,
+  p {
+    margin: 0;
+  }
+
+  p {
+    margin-top: 4px;
+    opacity: 0.66;
+  }
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+
+  mat-card {
+    border-radius: 16px;
+
+    p,
+    h3 {
+      margin: 0;
+    }
+
+    p {
+      opacity: 0.66;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.table-wrap {
+  border-radius: 18px;
+  overflow: auto;
+}
+
+.table {
+  background: transparent;
+}
+
+mat-chip.aktif {
+  background: rgba(34, 197, 94, 0.16);
+  color: #166534;
+}
+
+mat-chip.az-stok {
+  background: rgba(251, 191, 36, 0.2);
+  color: #92400e;
+}
+
+mat-chip.pasif {
+  background: rgba(148, 163, 184, 0.2);
+  color: #334155;
+}
+
+@media (max-width: 900px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}

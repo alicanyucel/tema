@@ -1,0 +1,94 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Manrope,
+      density: 0,
+    )
+  );
+}
+
+:root {
+  --app-bg: #eef3f8;
+  --app-text: #111827;
+  --app-muted: #475569;
+  --app-surface: rgba(255, 255, 255, 0.9);
+  --app-surface-strong: #ffffff;
+  --app-border: rgba(15, 23, 42, 0.12);
+  --app-shell-grad-a: rgba(0, 214, 179, 0.2);
+  --app-shell-grad-b: rgba(255, 132, 71, 0.18);
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  height: 100%;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+body.theme-dark {
+  color-scheme: dark;
+  --app-bg: #0b1220;
+  --app-text: #e5e7eb;
+  --app-muted: #94a3b8;
+  --app-surface: rgba(17, 24, 39, 0.88);
+  --app-surface-strong: #111827;
+  --app-border: rgba(148, 163, 184, 0.28);
+  --app-shell-grad-a: rgba(20, 184, 166, 0.16);
+  --app-shell-grad-b: rgba(251, 146, 60, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+body,
+input,
+button,
+textarea {
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+}
+
+.mat-mdc-card,
+.mat-mdc-menu-panel {
+  background: var(--app-surface);
+  color: var(--app-text);
+}
+
+.mat-mdc-table {
+  background: transparent;
+}
+/* You can add global styles to this file, and also import other style files */
