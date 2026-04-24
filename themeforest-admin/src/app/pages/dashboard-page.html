@@ -17,12 +17,12 @@
 <section class="content-grid">
   <mat-card class="revenue-card" appearance="outlined">
     <div class="section-head">
-      <h3>Gelir Performansi</h3>
+      <h3>{{ i18n.t('dashboard.revenuePerformance') }}</h3>
       <button mat-stroked-button (click)="toggleDetailedAnalysis()">
-        {{ showDetailedAnalysis() ? 'Analizi Gizle' : 'Detayli Analiz' }}
+        {{ showDetailedAnalysis() ? i18n.t('dashboard.hideAnalysis') : i18n.t('dashboard.detailedAnalysis') }}
       </button>
     </div>
-    <p class="subtitle">Son 7 ayin ortalama ciro trendi</p>
+    <p class="subtitle">{{ i18n.t('dashboard.last7Months') }}</p>
 
     <div class="chart-wrap" role="img" aria-label="Aylik gelir trendi">
       <div class="bar-chart">
@@ -45,13 +45,13 @@
           <article class="analysis-row">
             <header>
               <strong>{{ item.month }}</strong>
-              <small>{{ item.orders }} siparis</small>
+              <small>{{ item.orders }} {{ i18n.t('common.orders') }}</small>
             </header>
 
             <div class="analysis-values">
-              <p>Gelir: <b>${{ item.revenue | number: '1.0-0' }}</b></p>
-              <p>Hedef: <b>${{ item.target | number: '1.0-0' }}</b></p>
-              <p>Gider: <b>${{ item.expense | number: '1.0-0' }}</b></p>
+              <p>{{ i18n.t('dashboard.revenue') }}: <b>${{ item.revenue | number: '1.0-0' }}</b></p>
+              <p>{{ i18n.t('dashboard.target') }}: <b>${{ item.target | number: '1.0-0' }}</b></p>
+              <p>{{ i18n.t('dashboard.expense') }}: <b>${{ item.expense | number: '1.0-0' }}</b></p>
             </div>
           </article>
         }
@@ -60,7 +60,7 @@
   </mat-card>
 
   <mat-card class="activity-card" appearance="outlined">
-    <h3>Son Aktiviteler</h3>
+    <h3>{{ i18n.t('dashboard.recentActivities') }}</h3>
     <div class="activity-list">
       @for (item of activities; track item.title) {
         <article>
@@ -74,35 +74,35 @@
 
   <mat-card class="tasks-card" appearance="outlined">
     <div class="section-head">
-      <h3>Kritik Gorevler</h3>
-      <button mat-button (click)="openNewTaskDialog()">Yeni Gorev</button>
+      <h3>{{ i18n.t('dashboard.criticalTasks') }}</h3>
+      <button mat-button (click)="openNewTaskDialog()">{{ i18n.t('dashboard.newTask') }}</button>
     </div>
 
     <table mat-table [dataSource]="tasks()" class="task-table">
       <ng-container matColumnDef="task">
-        <th mat-header-cell *matHeaderCellDef>Gorev</th>
+        <th mat-header-cell *matHeaderCellDef>{{ i18n.t('dashboard.columnTask') }}</th>
         <td mat-cell *matCellDef="let row">{{ row.task }}</td>
       </ng-container>
 
       <ng-container matColumnDef="owner">
-        <th mat-header-cell *matHeaderCellDef>Sorumlu</th>
+        <th mat-header-cell *matHeaderCellDef>{{ i18n.t('dashboard.columnOwner') }}</th>
         <td mat-cell *matCellDef="let row">{{ row.owner }}</td>
       </ng-container>
 
       <ng-container matColumnDef="dueDate">
-        <th mat-header-cell *matHeaderCellDef>Teslim</th>
+        <th mat-header-cell *matHeaderCellDef>{{ i18n.t('dashboard.columnDueDate') }}</th>
         <td mat-cell *matCellDef="let row">{{ row.dueDate }}</td>
       </ng-container>
 
       <ng-container matColumnDef="priority">
-        <th mat-header-cell *matHeaderCellDef>Oncelik</th>
-        <td mat-cell *matCellDef="let row">{{ row.priority }}</td>
+        <th mat-header-cell *matHeaderCellDef>{{ i18n.t('dashboard.columnPriority') }}</th>
+        <td mat-cell *matCellDef="let row">{{ priorityLabel(row.priority) }}</td>
       </ng-container>
 
       <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef>Durum</th>
+        <th mat-header-cell *matHeaderCellDef>{{ i18n.t('dashboard.columnStatus') }}</th>
         <td mat-cell *matCellDef="let row">
-          <mat-chip [ngClass]="row.status.toLowerCase().replace(' ', '-')">{{ row.status }}</mat-chip>
+          <mat-chip [ngClass]="row.status.toLowerCase().replace(' ', '-')">{{ taskStatusLabel(row.status) }}</mat-chip>
         </td>
       </ng-container>
 
@@ -112,7 +112,7 @@
   </mat-card>
 
   <mat-card class="workload-card" appearance="outlined">
-    <h3>Takim Is Yuku</h3>
+    <h3>{{ i18n.t('dashboard.teamWorkload') }}</h3>
     @for (member of teamLoad; track member.name) {
       <div class="load-item">
         <div>

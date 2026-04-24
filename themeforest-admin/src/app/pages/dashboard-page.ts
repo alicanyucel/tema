@@ -7,6 +7,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
+import { I18nService } from '../i18n.service';
 import { NewTaskData, NewTaskDialogComponent } from './new-task-dialog';
 
 type TrendType = 'up' | 'down';
@@ -71,6 +72,7 @@ interface TeamLoad {
 })
 export class DashboardPageComponent {
   private readonly dialog = inject(MatDialog);
+  protected readonly i18n = inject(I18nService);
   protected readonly displayedColumns = ['task', 'owner', 'dueDate', 'priority', 'status'];
   protected readonly showDetailedAnalysis = signal(false);
 
@@ -179,5 +181,24 @@ export class DashboardPageComponent {
 
   protected toggleDetailedAnalysis(): void {
     this.showDetailedAnalysis.update((value) => !value);
+  }
+
+  protected priorityLabel(priority: TaskRow['priority']): string {
+    const map: Record<TaskRow['priority'], string> = {
+      Yuksek: 'enum.priority.high',
+      Orta: 'enum.priority.medium',
+      Dusuk: 'enum.priority.low'
+    };
+    return this.i18n.t(map[priority]);
+  }
+
+  protected taskStatusLabel(status: TaskRow['status']): string {
+    const map: Record<TaskRow['status'], string> = {
+      'Devam Ediyor': 'enum.status.inProgress',
+      Planlandi: 'enum.status.planned',
+      Gecikti: 'enum.status.delayed',
+      Tamamlandi: 'enum.status.completed'
+    };
+    return this.i18n.t(map[status]);
   }
 }

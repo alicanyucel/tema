@@ -1,34 +1,34 @@
 <section class="page-head">
-  <h1>Finans</h1>
-  <p>Nakit akisi, tahsilat ve gider dengesi</p>
+  <h1>{{ i18n.t('finance.title') }}</h1>
+  <p>{{ i18n.t('finance.subtitle') }}</p>
 </section>
 
 <section class="overview-grid">
   <mat-card appearance="outlined">
-    <p>Bu Ay Gelir</p>
+    <p>{{ i18n.t('finance.monthIncome') }}</p>
     <h3>{{ 128450 | currency: '$' }}</h3>
   </mat-card>
   <mat-card appearance="outlined">
-    <p>Bu Ay Gider</p>
+    <p>{{ i18n.t('finance.monthExpense') }}</p>
     <h3>{{ 48920 | currency: '$' }}</h3>
   </mat-card>
   <mat-card appearance="outlined">
-    <p>Net Kar</p>
+    <p>{{ i18n.t('finance.netProfit') }}</p>
     <h3>{{ 79530 | currency: '$' }}</h3>
   </mat-card>
 </section>
 
 <mat-card appearance="outlined" class="budget-card">
-  <h3>Butce Kullanim Oranlari</h3>
+  <h3>{{ i18n.t('finance.budgetUsage') }}</h3>
 
   <div class="row">
-    <span>Operasyon</span>
+    <span>{{ i18n.t('finance.operations') }}</span>
     <span>%72</span>
   </div>
   <mat-progress-bar mode="determinate" [value]="72"></mat-progress-bar>
 
   <div class="row">
-    <span>Pazarlama</span>
+    <span>{{ i18n.t('finance.marketing') }}</span>
     <span>%61</span>
   </div>
   <mat-progress-bar mode="determinate" [value]="61"></mat-progress-bar>
@@ -41,7 +41,7 @@
 </mat-card>
 
 <mat-card appearance="outlined" class="tx-card">
-  <h3>Son Islemler</h3>
+  <h3>{{ i18n.t('finance.recentTransactions') }}</h3>
   <div class="tx-list">
     @for (tx of transactions; track tx.label) {
       <article>

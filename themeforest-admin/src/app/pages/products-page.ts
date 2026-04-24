@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { I18nService } from '../i18n.service';
 
 interface ProductRow {
   sku: string;
@@ -23,6 +24,7 @@ interface ProductRow {
   styleUrl: './products-page.scss'
 })
 export class ProductsPageComponent {
+  protected readonly i18n = inject(I18nService);
   protected readonly columns = ['sku', 'name', 'category', 'stock', 'price', 'status'];
 
   protected readonly products: ProductRow[] = [
@@ -31,4 +33,13 @@ export class ProductsPageComponent {
     { sku: 'PRD-1091', name: 'Kasa Entegrasyon Modulu', category: 'POS', stock: 0, price: 79.0, status: 'Pasif' },
     { sku: 'PRD-1110', name: 'Satis Analiz Lisansi', category: 'Yazilim', stock: 340, price: 49.99, status: 'Aktif' }
   ];
+
+  protected statusLabel(status: ProductRow['status']): string {
+    const map: Record<ProductRow['status'], string> = {
+      Aktif: 'enum.status.active',
+      'Az Stok': 'enum.status.lowStock',
+      Pasif: 'enum.status.passive'
+    };
+    return this.i18n.t(map[status]);
+  }
 }

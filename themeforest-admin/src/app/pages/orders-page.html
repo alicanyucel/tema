@@ -1,29 +1,29 @@
 <section class="page-head">
-  <h1>Siparisler</h1>
-  <p>Anlik siparis takibi ve operasyon durumu</p>
+  <h1>{{ i18n.t('orders.title') }}</h1>
+  <p>{{ i18n.t('orders.subtitle') }}</p>
 </section>
 
 <section class="kpi-grid">
   <mat-card appearance="outlined">
-    <p>Bugun Gelen</p>
+    <p>{{ i18n.t('orders.todayIncoming') }}</p>
     <h3>218</h3>
   </mat-card>
   <mat-card appearance="outlined">
-    <p>Kargoda</p>
+    <p>{{ i18n.t('orders.inShipping') }}</p>
     <h3>74</h3>
   </mat-card>
   <mat-card appearance="outlined">
-    <p>Iade Bekleyen</p>
+    <p>{{ i18n.t('orders.returnWaiting') }}</p>
     <h3>9</h3>
   </mat-card>
 </section>
 
 <mat-form-field appearance="outline" class="search-field">
-  <mat-label>Siparis ara</mat-label>
+  <mat-label>{{ i18n.t('orders.searchLabel') }}</mat-label>
   <input
     matInput
     type="text"
-    placeholder="No, musteri, odeme veya durum"
+    [placeholder]="i18n.t('orders.searchPlaceholder')"
     [value]="searchText()"
     (input)="onSearchInput($any($event.target).value)"
   />
@@ -32,29 +32,29 @@
 <mat-card appearance="outlined" class="table-wrap">
   <table mat-table [dataSource]="filteredOrders()" class="table">
     <ng-container matColumnDef="orderNo">
-      <th mat-header-cell *matHeaderCellDef>No</th>
+      <th mat-header-cell *matHeaderCellDef>{{ i18n.t('orders.columnNo') }}</th>
       <td mat-cell *matCellDef="let row">{{ row.orderNo }}</td>
     </ng-container>
 
     <ng-container matColumnDef="customer">
-      <th mat-header-cell *matHeaderCellDef>Musteri</th>
+      <th mat-header-cell *matHeaderCellDef>{{ i18n.t('orders.columnCustomer') }}</th>
       <td mat-cell *matCellDef="let row">{{ row.customer }}</td>
     </ng-container>
 
     <ng-container matColumnDef="total">
-      <th mat-header-cell *matHeaderCellDef>Tutar</th>
+      <th mat-header-cell *matHeaderCellDef>{{ i18n.t('orders.columnTotal') }}</th>
       <td mat-cell *matCellDef="let row">{{ row.total | currency: '$' }}</td>
     </ng-container>
 
     <ng-container matColumnDef="payment">
-      <th mat-header-cell *matHeaderCellDef>Odeme</th>
-      <td mat-cell *matCellDef="let row">{{ row.payment }}</td>
+      <th mat-header-cell *matHeaderCellDef>{{ i18n.t('orders.columnPayment') }}</th>
+      <td mat-cell *matCellDef="let row">{{ paymentLabel(row.payment) }}</td>
     </ng-container>
 
     <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef>Durum</th>
+      <th mat-header-cell *matHeaderCellDef>{{ i18n.t('orders.columnStatus') }}</th>
       <td mat-cell *matCellDef="let row">
-        <mat-chip [class]="row.status.toLowerCase().replace(' ', '-')">{{ row.status }}</mat-chip>
+        <mat-chip [class]="row.status.toLowerCase().replace(' ', '-')">{{ statusLabel(row.status) }}</mat-chip>
       </td>
     </ng-container>
 
@@ -63,6 +63,6 @@
   </table>
 
   @if (filteredOrders().length === 0) {
-    <p class="empty-state">Arama kriterine uygun siparis bulunamadi.</p>
+    <p class="empty-state">{{ i18n.t('orders.emptySearch') }}</p>
   }
 </mat-card>

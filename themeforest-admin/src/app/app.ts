@@ -8,6 +8,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { AppLanguage, I18nService } from './i18n.service';
 
 interface SearchItem {
   label: string;
@@ -56,6 +57,7 @@ interface FontSizeOption {
 export class App {
   private readonly router = inject(Router);
   private readonly document = inject(DOCUMENT);
+  protected readonly i18n = inject(I18nService);
   protected readonly sidebarOpen = signal(true);
   protected readonly isDarkMode = signal(this.getInitialThemeMode());
   protected readonly fontSizeOptions: FontSizeOption[] = [
@@ -66,14 +68,38 @@ export class App {
   protected readonly selectedFontSize = signal<FontSizeMode>(this.getInitialFontSizeMode());
   protected readonly globalQuery = signal('');
 
-  protected readonly searchIndex: SearchItem[] = [
-    { label: 'Dashboard', hint: 'Genel KPI, gelir ve aktiviteler', route: '/dashboard' },
-    { label: 'Urunler', hint: 'Stok, kategori ve fiyat listesi', route: '/urunler' },
-    { label: 'Siparisler', hint: 'Siparis durumu ve odeme takibi', route: '/siparisler' },
-    { label: 'Finans', hint: 'Nakit akisi ve butce yonetimi', route: '/finans' },
-    { label: 'Ayarlar', hint: 'Sistem ve bildirim tercihleri', route: '/ayarlar' },
-    { label: 'Yeni Gorev', hint: 'Dashboard > Kritik Gorevler', route: '/dashboard' }
-  ];
+  protected readonly searchIndex = computed<SearchItem[]>(() => [
+    {
+      label: this.i18n.t('nav.dashboard'),
+      hint: this.i18n.language() === 'tr' ? 'Genel KPI, gelir ve aktiviteler' : 'General KPI, revenue and activity overview',
+      route: '/dashboard'
+    },
+    {
+      label: this.i18n.t('nav.products'),
+      hint: this.i18n.language() === 'tr' ? 'Stok, kategori ve fiyat listesi' : 'Stock, category and price listing',
+      route: '/urunler'
+    },
+    {
+      label: this.i18n.t('nav.orders'),
+      hint: this.i18n.language() === 'tr' ? 'Siparis durumu ve odeme takibi' : 'Order status and payment tracking',
+      route: '/siparisler'
+    },
+    {
+      label: this.i18n.t('nav.finance'),
+      hint: this.i18n.language() === 'tr' ? 'Nakit akisi ve butce yonetimi' : 'Cash flow and budget management',
+      route: '/finans'
+    },
+    {
+      label: this.i18n.t('nav.settings'),
+      hint: this.i18n.language() === 'tr' ? 'Sistem ve bildirim tercihleri' : 'System and notification preferences',
+      route: '/ayarlar'
+    },
+    {
+      label: this.i18n.t('dashboard.newTask'),
+      hint: this.i18n.language() === 'tr' ? 'Dashboard > Kritik Gorevler' : 'Dashboard > Critical Tasks',
+      route: '/dashboard'
+    }
+  ]);
 
   protected readonly notifications = signal<NotificationItem[]>([
     {
@@ -161,7 +187,7 @@ export class App {
       return [] as SearchItem[];
     }
 
-    return this.searchIndex.filter((item) => `${item.label} ${item.hint}`.toLowerCase().includes(query)).slice(0, 6);
+    return this.searchIndex().filter((item) => `${item.label} ${item.hint}`.toLowerCase().includes(query)).slice(0, 6);
   });
 
   protected toggleSidebar(): void {
@@ -174,6 +200,10 @@ export class App {
 
   protected setFontSize(mode: FontSizeMode): void {
     this.selectedFontSize.set(mode);
+  }
+
+  protected setLanguage(lang: AppLanguage): void {
+    this.i18n.setLanguage(lang);
   }
 
   protected onGlobalSearchInput(value: string): void {

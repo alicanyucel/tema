@@ -5,6 +5,7 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { I18nService } from '../i18n.service';
 
 export interface NewTaskData {
   task: string;
@@ -19,48 +20,48 @@ export interface NewTaskData {
   standalone: true,
   imports: [ReactiveFormsModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatSelectModule],
   template: `
-    <h2 mat-dialog-title>Yeni Gorev Ekle</h2>
+    <h2 mat-dialog-title>{{ i18n.t('dialog.newTaskTitle') }}</h2>
 
     <form [formGroup]="form" (ngSubmit)="submit()">
       <mat-dialog-content class="dialog-content">
         <mat-form-field appearance="outline">
-          <mat-label>Gorev Basligi</mat-label>
+          <mat-label>{{ i18n.t('dialog.taskTitle') }}</mat-label>
           <input matInput formControlName="task" />
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Sorumlu</mat-label>
+          <mat-label>{{ i18n.t('dialog.owner') }}</mat-label>
           <input matInput formControlName="owner" />
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Teslim Tarihi</mat-label>
-          <input matInput formControlName="dueDate" placeholder="Orn: 5 Mayis" />
+          <mat-label>{{ i18n.t('dialog.dueDate') }}</mat-label>
+          <input matInput formControlName="dueDate" [placeholder]="i18n.t('dialog.dueDateHint')" />
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Oncelik</mat-label>
+          <mat-label>{{ i18n.t('dialog.priority') }}</mat-label>
           <mat-select formControlName="priority">
-            <mat-option value="Yuksek">Yuksek</mat-option>
-            <mat-option value="Orta">Orta</mat-option>
-            <mat-option value="Dusuk">Dusuk</mat-option>
+            <mat-option value="Yuksek">{{ i18n.t('enum.priority.high') }}</mat-option>
+            <mat-option value="Orta">{{ i18n.t('enum.priority.medium') }}</mat-option>
+            <mat-option value="Dusuk">{{ i18n.t('enum.priority.low') }}</mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Durum</mat-label>
+          <mat-label>{{ i18n.t('dialog.status') }}</mat-label>
           <mat-select formControlName="status">
-            <mat-option value="Planlandi">Planlandi</mat-option>
-            <mat-option value="Devam Ediyor">Devam Ediyor</mat-option>
-            <mat-option value="Gecikti">Gecikti</mat-option>
-            <mat-option value="Tamamlandi">Tamamlandi</mat-option>
+            <mat-option value="Planlandi">{{ i18n.t('enum.status.planned') }}</mat-option>
+            <mat-option value="Devam Ediyor">{{ i18n.t('enum.status.inProgress') }}</mat-option>
+            <mat-option value="Gecikti">{{ i18n.t('enum.status.delayed') }}</mat-option>
+            <mat-option value="Tamamlandi">{{ i18n.t('enum.status.completed') }}</mat-option>
           </mat-select>
         </mat-form-field>
       </mat-dialog-content>
 
       <mat-dialog-actions align="end">
-        <button mat-button type="button" mat-dialog-close>Iptal</button>
-        <button mat-flat-button type="submit" [disabled]="form.invalid">Kaydet</button>
+        <button mat-button type="button" mat-dialog-close>{{ i18n.t('dialog.cancel') }}</button>
+        <button mat-flat-button type="submit" [disabled]="form.invalid">{{ i18n.t('dialog.save') }}</button>
       </mat-dialog-actions>
     </form>
   `,
@@ -83,6 +84,7 @@ export interface NewTaskData {
 export class NewTaskDialogComponent {
   private readonly fb = inject(FormBuilder);
   private readonly dialogRef = inject(MatDialogRef<NewTaskDialogComponent, NewTaskData>);
+  protected readonly i18n = inject(I18nService);
 
   protected readonly form = this.fb.nonNullable.group({
     task: ['', [Validators.required, Validators.minLength(4)]],

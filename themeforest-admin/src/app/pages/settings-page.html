@@ -1,25 +1,25 @@
 <section class="page-head">
-  <h1>Ayarlar</h1>
-  <p>Sistem tercihleri ve bildirim yonetimi</p>
+  <h1>{{ i18n.t('settings.title') }}</h1>
+  <p>{{ i18n.t('settings.subtitle') }}</p>
 </section>
 
 <section class="settings-grid">
   <mat-card appearance="outlined" class="panel">
-    <h3>Sirket Bilgileri</h3>
+    <h3>{{ i18n.t('settings.companyInfo') }}</h3>
 
     <mat-form-field appearance="outline">
-      <mat-label>Sirket Adi</mat-label>
+      <mat-label>{{ i18n.t('settings.companyName') }}</mat-label>
       <input matInput [(ngModel)]="companyName" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Destek E-postasi</mat-label>
+      <mat-label>{{ i18n.t('settings.supportEmail') }}</mat-label>
       <input matInput [(ngModel)]="supportMail" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Dil</mat-label>
-      <mat-select [(value)]="language">
+      <mat-label>{{ i18n.t('settings.language') }}</mat-label>
+      <mat-select [value]="i18n.language()" (valueChange)="setLanguage($event)">
         <mat-option value="tr">Turkce</mat-option>
         <mat-option value="en">English</mat-option>
       </mat-select>
@@ -27,13 +27,13 @@
   </mat-card>
 
   <mat-card appearance="outlined" class="panel">
-    <h3>Bildirimler</h3>
+    <h3>{{ i18n.t('settings.notifications') }}</h3>
     <div class="toggle-row">
-      <span>E-posta Bildirimleri</span>
+      <span>{{ i18n.t('settings.mailNotifications') }}</span>
       <mat-slide-toggle [(ngModel)]="mailNotifications"></mat-slide-toggle>
     </div>
     <div class="toggle-row">
-      <span>SMS Bildirimleri</span>
+      <span>{{ i18n.t('settings.smsNotifications') }}</span>
       <mat-slide-toggle [(ngModel)]="smsNotifications"></mat-slide-toggle>
     </div>
   </mat-card>

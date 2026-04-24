@@ -1,10 +1,11 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { I18nService } from '../i18n.service';
 
 interface OrderRow {
   orderNo: string;
@@ -22,6 +23,7 @@ interface OrderRow {
   styleUrl: './orders-page.scss'
 })
 export class OrdersPageComponent {
+  protected readonly i18n = inject(I18nService);
   protected readonly columns = ['orderNo', 'customer', 'total', 'payment', 'status'];
   protected readonly searchText = signal('');
 
@@ -45,5 +47,23 @@ export class OrdersPageComponent {
 
   protected onSearchInput(value: string): void {
     this.searchText.set(value);
+  }
+
+  protected paymentLabel(payment: OrderRow['payment']): string {
+    const map: Record<OrderRow['payment'], string> = {
+      'Kredi Karti': 'enum.payment.card',
+      Havale: 'enum.payment.bank',
+      Kapida: 'enum.payment.cod'
+    };
+    return this.i18n.t(map[payment]);
+  }
+
+  protected statusLabel(status: OrderRow['status']): string {
+    const map: Record<OrderRow['status'], string> = {
+      Hazirlaniyor: 'enum.status.preparing',
+      Kargoda: 'enum.status.shipping',
+      'Teslim Edildi': 'enum.status.delivered'
+    };
+    return this.i18n.t(map[status]);
   }
 }

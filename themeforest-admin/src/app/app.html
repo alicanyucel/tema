@@ -11,32 +11,32 @@
     <mat-nav-list>
       <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
         <mat-icon matListItemIcon>dashboard</mat-icon>
-        <span matListItemTitle>Dashboard</span>
+        <span matListItemTitle>{{ i18n.t('nav.dashboard') }}</span>
       </a>
       <a mat-list-item routerLink="/urunler" routerLinkActive="active-link">
         <mat-icon matListItemIcon>inventory_2</mat-icon>
-        <span matListItemTitle>Urunler</span>
+        <span matListItemTitle>{{ i18n.t('nav.products') }}</span>
       </a>
       <a mat-list-item routerLink="/siparisler" routerLinkActive="active-link">
         <mat-icon matListItemIcon>shopping_bag</mat-icon>
-        <span matListItemTitle>Siparisler</span>
+        <span matListItemTitle>{{ i18n.t('nav.orders') }}</span>
       </a>
       <a mat-list-item routerLink="/finans" routerLinkActive="active-link">
         <mat-icon matListItemIcon>receipt_long</mat-icon>
-        <span matListItemTitle>Finans</span>
+        <span matListItemTitle>{{ i18n.t('nav.finance') }}</span>
       </a>
       <a mat-list-item routerLink="/ayarlar" routerLinkActive="active-link">
         <mat-icon matListItemIcon>settings</mat-icon>
-        <span matListItemTitle>Ayarlar</span>
+        <span matListItemTitle>{{ i18n.t('nav.settings') }}</span>
       </a>
     </mat-nav-list>
 
     <mat-divider></mat-divider>
 
     <div class="sidebar-card">
-      <p class="label">Sistem Sagligi</p>
+      <p class="label">{{ i18n.t('shell.healthTitle') }}</p>
       <h3>%99.92 Uptime</h3>
-      <p>Son 30 gunde kesintisiz calisma orani.</p>
+      <p>{{ i18n.t('shell.healthDesc') }}</p>
     </div>
   </mat-sidenav>
 
@@ -50,7 +50,7 @@
         <mat-icon>search</mat-icon>
         <input
           type="text"
-          placeholder="Modul, rapor veya kayit ara..."
+          [placeholder]="i18n.t('shell.searchPlaceholder')"
           [value]="globalQuery()"
           (input)="onGlobalSearchInput($any($event.target).value)"
           (keydown.enter)="openFirstSearchResult()"
@@ -66,7 +66,7 @@
                 </button>
               }
             } @else {
-              <div class="no-result">Sonuc bulunamadi</div>
+              <div class="no-result">{{ i18n.language() === 'tr' ? 'Sonuc bulunamadi' : 'No results found' }}</div>
             }
           </div>
         }
@@ -80,6 +80,10 @@
 
       <button mat-icon-button aria-label="Yazi boyutu" [matMenuTriggerFor]="fontSizeMenu">
         <mat-icon>format_size</mat-icon>
+      </button>
+
+      <button mat-icon-button aria-label="Dil" [matMenuTriggerFor]="languageMenu">
+        <mat-icon>translate</mat-icon>
       </button>
 
       <button
@@ -111,7 +115,7 @@
     </mat-toolbar>
 
     <mat-menu #notificationsMenu="matMenu" class="toolbar-menu">
-      <div class="menu-header">Bildirimler</div>
+      <div class="menu-header">{{ i18n.t('shell.notifications') }}</div>
       @for (item of notifications(); track item.title + item.time) {
         <button mat-menu-item class="menu-entry">
           <div>
@@ -125,13 +129,13 @@
         </button>
       }
       <div class="menu-actions">
-        <button mat-button (click)="markAllNotificationsRead()">Tumunu okundu isaretle</button>
-        <button mat-button (click)="openAllNotifications()">Hepsini gor</button>
+        <button mat-button (click)="markAllNotificationsRead()">{{ i18n.t('shell.markAllRead') }}</button>
+        <button mat-button (click)="openAllNotifications()">{{ i18n.t('shell.viewAll') }}</button>
       </div>
     </mat-menu>
 
     <mat-menu #messagesMenu="matMenu" class="toolbar-menu">
-      <div class="menu-header">Mesajlar</div>
+      <div class="menu-header">{{ i18n.t('shell.messages') }}</div>
       @for (message of messages(); track message.from + message.time) {
         <button mat-menu-item class="menu-entry">
           <div>
@@ -145,21 +149,39 @@
         </button>
       }
       <div class="menu-actions">
-        <button mat-button (click)="markAllMessagesRead()">Tumunu okundu isaretle</button>
-        <button mat-button (click)="openAllMessages()">Hepsini gor</button>
+        <button mat-button (click)="markAllMessagesRead()">{{ i18n.t('shell.markAllRead') }}</button>
+        <button mat-button (click)="openAllMessages()">{{ i18n.t('shell.viewAll') }}</button>
       </div>
     </mat-menu>
 
     <mat-menu #fontSizeMenu="matMenu">
-      <div class="menu-header">Yazi Boyutu</div>
+      <div class="menu-header">{{ i18n.t('shell.fontSize') }}</div>
       @for (option of fontSizeOptions; track option.label) {
         <button mat-menu-item (click)="setFontSize(option.label)">
-          <span>{{ option.label }}</span>
+          <span>
+            {{ option.label === 'Kompakt' ? i18n.t('shell.fontCompact') : option.label === 'Buyuk' ? i18n.t('shell.fontLarge') : i18n.t('shell.fontStandard') }}
+          </span>
           @if (selectedFontSize() === option.label) {
             <mat-icon>check</mat-icon>
           }
         </button>
       }
+    </mat-menu>
+
+    <mat-menu #languageMenu="matMenu">
+      <div class="menu-header">{{ i18n.t('shell.language') }}</div>
+      <button mat-menu-item (click)="setLanguage('tr')">
+        <span>Turkce</span>
+        @if (i18n.language() === 'tr') {
+          <mat-icon>check</mat-icon>
+        }
+      </button>
+      <button mat-menu-item (click)="setLanguage('en')">
+        <span>English</span>
+        @if (i18n.language() === 'en') {
+          <mat-icon>check</mat-icon>
+        }
+      </button>
     </mat-menu>
 
     <main class="dashboard-main">
