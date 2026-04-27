@@ -77,6 +77,7 @@ export const ALL_MODULE_KEYS: string[] = [
   'nav.group.arsa-tarla',
   'nav.group.demirbaslar',
   'nav.group.hayvancilik',
+  'nav.group.email-yonetimi',
 ];
 
 @Injectable({ providedIn: 'root' })
