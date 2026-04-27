@@ -107,7 +107,22 @@ const TRANSLATIONS: Record<AppLanguage, TranslationMap> = {
     'enum.status.passive': 'Pasif',
     'enum.payment.card': 'Kredi Kartı',
     'enum.payment.bank': 'Havale',
-    'enum.payment.cod': 'Kapıda Ödeme'
+    'enum.payment.cod': 'Kapıda Ödeme',
+    'erp.search': 'Arama',
+    'erp.searchPlaceholder': 'Kayıt ara...',
+    'erp.addNew': 'Yeni Ekle',
+    'erp.actions': 'İşlemler',
+    'erp.view': 'İncele',
+    'erp.edit': 'Düzenle',
+    'erp.delete': 'Sil',
+    'erp.empty': 'Kayıt bulunamadı.',
+    'erp.close': 'Kapat',
+    'erp.cancel': 'İptal',
+    'erp.add': 'Ekle',
+    'erp.save': 'Kaydet',
+    'erp.addRecord': 'Yeni Kayıt Ekle',
+    'erp.editRecord': 'Kaydı Düzenle',
+    'erp.viewRecord': 'Kayıt Detayı'
   },
   en: {
     'nav.dashboard': 'Dashboard',
@@ -210,7 +225,22 @@ const TRANSLATIONS: Record<AppLanguage, TranslationMap> = {
     'enum.status.passive': 'Inactive',
     'enum.payment.card': 'Credit Card',
     'enum.payment.bank': 'Bank Transfer',
-    'enum.payment.cod': 'Cash on Delivery'
+    'enum.payment.cod': 'Cash on Delivery',
+    'erp.search': 'Search',
+    'erp.searchPlaceholder': 'Search records...',
+    'erp.addNew': 'Add New',
+    'erp.actions': 'Actions',
+    'erp.view': 'View',
+    'erp.edit': 'Edit',
+    'erp.delete': 'Delete',
+    'erp.empty': 'No records found.',
+    'erp.close': 'Close',
+    'erp.cancel': 'Cancel',
+    'erp.add': 'Add',
+    'erp.save': 'Save',
+    'erp.addRecord': 'Add New Record',
+    'erp.editRecord': 'Edit Record',
+    'erp.viewRecord': 'Record Details'
   },
   ar: {
     'nav.dashboard': 'لوحة التحكم',
@@ -313,7 +343,22 @@ const TRANSLATIONS: Record<AppLanguage, TranslationMap> = {
     'enum.status.passive': 'غير نشط',
     'enum.payment.card': 'بطاقة ائتمان',
     'enum.payment.bank': 'تحويل بنكي',
-    'enum.payment.cod': 'الدفع عند الاستلام'
+    'enum.payment.cod': 'الدفع عند الاستلام',
+    'erp.search': 'بحث',
+    'erp.searchPlaceholder': 'ابحث في السجلات...',
+    'erp.addNew': 'إضافة جديد',
+    'erp.actions': 'الإجراءات',
+    'erp.view': 'عرض',
+    'erp.edit': 'تعديل',
+    'erp.delete': 'حذف',
+    'erp.empty': 'لا توجد سجلات.',
+    'erp.close': 'إغلاق',
+    'erp.cancel': 'إلغاء',
+    'erp.add': 'إضافة',
+    'erp.save': 'حفظ',
+    'erp.addRecord': 'إضافة سجل جديد',
+    'erp.editRecord': 'تعديل السجل',
+    'erp.viewRecord': 'تفاصيل السجل'
   }
 };
 

@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { ErpField } from './erp-crud.component';
+import { I18nService } from '../../i18n.service';
 
 export interface ErpDialogData {
   mode: 'add' | 'edit' | 'view';
@@ -44,11 +45,11 @@ export interface ErpDialogData {
       }
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-      <button mat-button mat-dialog-close>{{ isView ? 'Kapat' : 'İptal' }}</button>
+      <button mat-button mat-dialog-close>{{ isView ? i18n.t('erp.close') : i18n.t('erp.cancel') }}</button>
       @if (!isView) {
         <button mat-flat-button color="primary" (click)="save()">
           <mat-icon>{{ data.mode === 'add' ? 'add' : 'save' }}</mat-icon>
-          {{ data.mode === 'add' ? 'Ekle' : 'Kaydet' }}
+          {{ data.mode === 'add' ? i18n.t('erp.add') : i18n.t('erp.save') }}
         </button>
       }
     </mat-dialog-actions>
@@ -65,6 +66,7 @@ export interface ErpDialogData {
 export class ErpCrudDialogComponent {
   row: Record<string, any>;
   get isView() { return this.data.mode === 'view'; }
+  readonly i18n = inject(I18nService);
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: ErpDialogData,
@@ -78,7 +80,11 @@ export class ErpCrudDialogComponent {
   }
 
   modeTitle(): string {
-    return this.data.mode === 'add' ? 'Yeni Kayıt Ekle' : this.data.mode === 'edit' ? 'Kaydı Düzenle' : 'Kayıt Detayı';
+    return this.data.mode === 'add'
+      ? this.i18n.t('erp.addRecord')
+      : this.data.mode === 'edit'
+        ? this.i18n.t('erp.editRecord')
+        : this.i18n.t('erp.viewRecord');
   }
 
   save() {

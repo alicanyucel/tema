@@ -12,6 +12,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
 import { ErpCrudDialogComponent, ErpDialogData } from './erp-crud-dialog.component';
+import { I18nService } from '../../i18n.service';
 
 export interface ErpColumn {
   key: string;
@@ -53,12 +54,12 @@ export interface ErpField {
 
     <div class="toolbar-row">
       <mat-form-field appearance="outline" class="search-field">
-        <mat-label>Arama</mat-label>
+        <mat-label>{{ i18n.t('erp.search') }}</mat-label>
         <mat-icon matPrefix>search</mat-icon>
-        <input matInput type="text" placeholder="Kayıt ara..." [(ngModel)]="searchText" />
+        <input matInput type="text" [placeholder]="i18n.t('erp.searchPlaceholder')" [(ngModel)]="searchText" />
       </mat-form-field>
       <button mat-flat-button color="primary" class="add-btn" (click)="openAdd()">
-        <mat-icon>add</mat-icon> Yeni Ekle
+        <mat-icon>add</mat-icon> {{ i18n.t('erp.addNew') }}
       </button>
     </div>
 
@@ -79,15 +80,15 @@ export interface ErpField {
           </ng-container>
         }
         <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef style="width:130px">İşlemler</th>
+          <th mat-header-cell *matHeaderCellDef style="width:130px">{{ i18n.t('erp.actions') }}</th>
           <td mat-cell *matCellDef="let row; let i = index">
-            <button mat-icon-button color="primary" matTooltip="İncele" (click)="openView(row)">
+            <button mat-icon-button color="primary" [matTooltip]="i18n.t('erp.view')" (click)="openView(row)">
               <mat-icon>visibility</mat-icon>
             </button>
-            <button mat-icon-button color="accent" matTooltip="Düzenle" (click)="openEdit(row)">
+            <button mat-icon-button color="accent" [matTooltip]="i18n.t('erp.edit')" (click)="openEdit(row)">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button color="warn" matTooltip="Sil" (click)="deleteRow(row)">
+            <button mat-icon-button color="warn" [matTooltip]="i18n.t('erp.delete')" (click)="deleteRow(row)">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
@@ -98,7 +99,7 @@ export interface ErpField {
       </table>
 
       @if (filteredRows().length === 0) {
-        <p class="empty-state">Kayıt bulunamadı.</p>
+        <p class="empty-state">{{ i18n.t('erp.empty') }}</p>
       }
 
       <mat-paginator
@@ -144,6 +145,7 @@ export class ErpCrudComponent implements OnInit {
   @Input() initialData: Record<string, any>[] = [];
 
   private dialog = inject(MatDialog);
+  readonly i18n = inject(I18nService);
 
   rows = signal<Record<string, any>[]>([]);
   searchText = '';
