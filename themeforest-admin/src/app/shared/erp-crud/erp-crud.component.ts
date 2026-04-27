@@ -56,7 +56,7 @@ export interface ErpField {
       <mat-form-field appearance="outline" class="search-field">
         <mat-label>{{ i18n.t('erp.search') }}</mat-label>
         <mat-icon matPrefix>search</mat-icon>
-        <input matInput type="text" [placeholder]="i18n.t('erp.searchPlaceholder')" [(ngModel)]="searchText" />
+        <input matInput type="text" [placeholder]="i18n.t('erp.searchPlaceholder')" [value]="searchText()" (input)="searchText.set($any($event.target).value)" />
       </mat-form-field>
       <button mat-flat-button color="primary" class="add-btn" (click)="openAdd()">
         <mat-icon>add</mat-icon> {{ i18n.t('erp.addNew') }}
@@ -148,7 +148,7 @@ export class ErpCrudComponent implements OnInit {
   readonly i18n = inject(I18nService);
 
   rows = signal<Record<string, any>[]>([]);
-  searchText = '';
+  searchText = signal('');
   pageSize = 10;
   pageIndex = signal(0);
 
@@ -159,7 +159,7 @@ export class ErpCrudComponent implements OnInit {
   displayedColumns = computed(() => [...this.columns.map(c => c.key), 'actions']);
 
   filteredRows = computed(() => {
-    const q = this.searchText.trim().toLowerCase();
+    const q = this.searchText().trim().toLowerCase();
     if (!q) return this.rows();
     return this.rows().filter(row =>
       Object.values(row).some(v => String(v).toLowerCase().includes(q))
