@@ -14,7 +14,7 @@
         <span matListItemTitle>{{ i18n.t('nav.dashboard') }}</span>
       </a>
 
-      @for (group of navGroups; track group.key) {
+      @for (group of visibleNavGroups(); track group.key) {
         <div class="nav-group-header" (click)="toggleGroup(group.key)">
           <mat-icon>{{ group.icon }}</mat-icon>
           <span>{{ i18n.t(group.key) }}</span>

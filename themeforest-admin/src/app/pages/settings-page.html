@@ -39,3 +39,44 @@
     </div>
   </mat-card>
 </section>
+
+<!-- Modül Seçimi -->
+<mat-card appearance="outlined" class="panel module-panel">
+  <div class="module-panel-header">
+    <div>
+      <h3>
+        <mat-icon>extension</mat-icon>
+        {{ i18n.language() === 'tr' ? 'Modül Yönetimi' : (i18n.language() === 'en' ? 'Module Management' : 'إدارة الوحدات') }}
+      </h3>
+      <p class="module-panel-desc">
+        {{ i18n.language() === 'tr' ? 'Sidebar\'da görünmesini istediğiniz modülleri seçin. Seçilmeyen modüller menüden gizlenir.' :
+           i18n.language() === 'en' ? 'Select the modules you want to see in the sidebar. Unselected modules will be hidden from the menu.' :
+           'اختر الوحدات التي تريد رؤيتها في الشريط الجانبي.' }}
+      </p>
+    </div>
+    <div class="module-panel-actions">
+      <button mat-stroked-button (click)="moduleSelection.enableAll()">
+        <mat-icon>check_box</mat-icon>
+        {{ i18n.language() === 'tr' ? 'Tümünü Seç' : (i18n.language() === 'en' ? 'Select All' : 'تحديد الكل') }}
+      </button>
+      <button mat-stroked-button (click)="moduleSelection.disableAll()">
+        <mat-icon>check_box_outline_blank</mat-icon>
+        {{ i18n.language() === 'tr' ? 'Tümünü Kaldır' : (i18n.language() === 'en' ? 'Deselect All' : 'إلغاء تحديد الكل') }}
+      </button>
+    </div>
+  </div>
+
+  <div class="module-grid">
+    @for (key of allModuleKeys; track key) {
+      <div class="module-item" [class.module-item--active]="moduleSelection.isEnabled(key)" (click)="moduleSelection.toggle(key)">
+        <mat-checkbox
+          [checked]="moduleSelection.isEnabled(key)"
+          (change)="moduleSelection.toggle(key)"
+          (click)="$event.stopPropagation()"
+          color="primary"
+        ></mat-checkbox>
+        <span>{{ i18n.t(key) }}</span>
+      </div>
+    }
+  </div>
+</mat-card>

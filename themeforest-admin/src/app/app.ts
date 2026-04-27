@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, computed, effect, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { ModuleSelectionService } from './module-selection.service';
 
 export interface NavGroup {
   key: string;
@@ -64,6 +65,7 @@ export class App {
   private readonly router = inject(Router);
   private readonly document = inject(DOCUMENT);
   protected readonly i18n = inject(I18nService);
+  protected readonly moduleSelection = inject(ModuleSelectionService);
   protected readonly sidebarOpen = signal(true);
   protected readonly isDarkMode = signal(this.getInitialThemeMode());
   protected readonly openGroups = signal<Set<string>>(new Set(['nav.group.finans']));
@@ -369,6 +371,11 @@ export class App {
       { key: 'nav.bakim-planlama-havac', route: '/erp/havacilik/bakim-planlama' },
     ]},
   ];
+
+  protected readonly visibleNavGroups = computed(() =>
+    this.navGroups.filter(g => this.moduleSelection.isEnabled(g.key))
+  );
+
   protected readonly fontSizeOptions: FontSizeOption[] = [
     { label: 'Kompakt', scale: 0.93 },
     { label: 'Standart', scale: 1 },
