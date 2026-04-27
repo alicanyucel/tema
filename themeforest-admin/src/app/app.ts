@@ -142,38 +142,55 @@ export class App {
   protected readonly selectedFontSize = signal<FontSizeMode>(this.getInitialFontSizeMode());
   protected readonly globalQuery = signal('');
 
-  protected readonly searchIndex = computed<SearchItem[]>(() => [
-    {
-      label: this.i18n.t('nav.dashboard'),
-      hint: this.i18n.language() === 'tr' ? 'Genel KPI, gelir ve aktiviteler' : 'General KPI, revenue and activity overview',
-      route: '/dashboard'
-    },
-    {
-      label: this.i18n.t('nav.products'),
-      hint: this.i18n.language() === 'tr' ? 'Stok, kategori ve fiyat listesi' : 'Stock, category and price listing',
-      route: '/urunler'
-    },
-    {
-      label: this.i18n.t('nav.orders'),
-      hint: this.i18n.language() === 'tr' ? 'Siparis durumu ve odeme takibi' : 'Order status and payment tracking',
-      route: '/siparisler'
-    },
-    {
-      label: this.i18n.t('nav.finance'),
-      hint: this.i18n.language() === 'tr' ? 'Nakit akisi ve butce yonetimi' : 'Cash flow and budget management',
-      route: '/finans'
-    },
-    {
-      label: this.i18n.t('nav.settings'),
-      hint: this.i18n.language() === 'tr' ? 'Sistem ve bildirim tercihleri' : 'System and notification preferences',
-      route: '/ayarlar'
-    },
-    {
-      label: this.i18n.t('dashboard.newTask'),
-      hint: this.i18n.language() === 'tr' ? 'Dashboard > Kritik Gorevler' : 'Dashboard > Critical Tasks',
-      route: '/dashboard'
-    }
-  ]);
+  protected readonly searchIndex = computed<SearchItem[]>(() => {
+    const t = (k: string) => this.i18n.t(k);
+    const g = (groupKey: string) => t(groupKey);
+    return [
+      { label: t('nav.dashboard'),            hint: t('nav.group.analitik'),            route: '/dashboard' },
+      { label: t('nav.settings'),             hint: t('nav.group.uyum'),                route: '/ayarlar' },
+      // Finans
+      { label: t('nav.genel-muhasebe'),       hint: t('nav.group.finans'),              route: '/erp/finans/genel-muhasebe' },
+      { label: t('nav.alacaklar'),            hint: t('nav.group.finans'),              route: '/erp/finans/alacaklar' },
+      { label: t('nav.borclar'),              hint: t('nav.group.finans'),              route: '/erp/finans/borclar' },
+      { label: t('nav.butce-yonetimi'),       hint: t('nav.group.finans'),              route: '/erp/finans/butce-yonetimi' },
+      { label: t('nav.sabit-kiymetler'),      hint: t('nav.group.finans'),              route: '/erp/finans/sabit-kiymetler' },
+      // Satış
+      { label: t('nav.satis-yonetimi'),       hint: t('nav.group.satis'),               route: '/erp/satis/satis-yonetimi' },
+      { label: t('nav.crm'),                  hint: t('nav.group.satis'),               route: '/erp/satis/crm' },
+      { label: t('nav.teklif-siparis'),       hint: t('nav.group.satis'),               route: '/erp/satis/teklif-siparis' },
+      { label: t('nav.kampanya-yonetimi'),    hint: t('nav.group.satis'),               route: '/erp/satis/kampanya-yonetimi' },
+      // Satın Alma
+      { label: t('nav.tedarikci-yonetimi'),  hint: t('nav.group.satinalma'),            route: '/erp/satinalma/tedarikci-yonetimi' },
+      { label: t('nav.satinalma-talepler'),   hint: t('nav.group.satinalma'),           route: '/erp/satinalma/satinalma-talepler' },
+      { label: t('nav.satinalma-siparisler'), hint: t('nav.group.satinalma'),           route: '/erp/satinalma/satinalma-siparisler' },
+      { label: t('nav.fiyat-sozlesme'),       hint: t('nav.group.satinalma'),           route: '/erp/satinalma/fiyat-sozlesme' },
+      // Stok
+      { label: t('nav.envanter-takibi'),      hint: t('nav.group.stok'),                route: '/erp/stok/envanter-takibi' },
+      { label: t('nav.depo-yonetimi'),        hint: t('nav.group.stok'),                route: '/erp/stok/depo-yonetimi' },
+      { label: t('nav.lojistik-sevkiyat'),    hint: t('nav.group.stok'),                route: '/erp/stok/lojistik-sevkiyat' },
+      // Üretim
+      { label: t('nav.uretim-planlama'),      hint: t('nav.group.uretim'),              route: '/erp/uretim/uretim-planlama' },
+      { label: t('nav.is-emirleri'),          hint: t('nav.group.uretim'),              route: '/erp/uretim/is-emirleri' },
+      { label: t('nav.kalite-kontrol'),       hint: t('nav.group.uretim'),              route: '/erp/uretim/kalite-kontrol' },
+      // İK
+      { label: t('nav.personel-yonetimi'),    hint: t('nav.group.ik'),                  route: '/erp/ik/personel-yonetimi' },
+      { label: t('nav.bordro'),               hint: t('nav.group.ik'),                  route: '/erp/ik/bordro' },
+      { label: t('nav.izin-mesai'),           hint: t('nav.group.ik'),                  route: '/erp/ik/izin-mesai' },
+      // Proje
+      { label: t('nav.proje-planlama'),       hint: t('nav.group.proje'),               route: '/erp/proje/proje-planlama' },
+      { label: t('nav.kaynak-yonetimi'),      hint: t('nav.group.proje'),               route: '/erp/proje/kaynak-yonetimi' },
+      // Bakım
+      { label: t('nav.teknik-servis'),        hint: t('nav.group.bakim'),               route: '/erp/bakim/teknik-servis' },
+      { label: t('nav.ariza-takibi'),         hint: t('nav.group.bakim'),               route: '/erp/bakim/ariza-takibi' },
+      // E-Ticaret
+      { label: t('nav.online-siparis'),       hint: t('nav.group.eticaret'),            route: '/erp/eticaret/online-siparis' },
+      // Analitik
+      { label: t('nav.kpi-takibi'),           hint: t('nav.group.analitik'),            route: '/erp/analitik/kpi-takibi' },
+      // Uyum
+      { label: t('nav.yetkilendirme'),        hint: t('nav.group.uyum'),                route: '/erp/uyum/yetkilendirme' },
+      { label: t('nav.denetim-izleri'),       hint: t('nav.group.uyum'),                route: '/erp/uyum/denetim-izleri' },
+    ];
+  });
 
   protected readonly notifications = signal<NotificationItem[]>([
     {
