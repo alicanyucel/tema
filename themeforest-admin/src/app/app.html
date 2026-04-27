@@ -175,7 +175,7 @@
     <mat-menu #languageMenu="matMenu">
       <div class="menu-header">{{ i18n.t('shell.language') }}</div>
       <button mat-menu-item (click)="setLanguage('tr')">
-        <span>Turkce</span>
+        <span>Türkçe</span>
         @if (i18n.language() === 'tr') {
           <mat-icon>check</mat-icon>
         }
@@ -183,6 +183,12 @@
       <button mat-menu-item (click)="setLanguage('en')">
         <span>English</span>
         @if (i18n.language() === 'en') {
+          <mat-icon>check</mat-icon>
+        }
+      </button>
+      <button mat-menu-item (click)="setLanguage('ar')">
+        <span>العربية</span>
+        @if (i18n.language() === 'ar') {
           <mat-icon>check</mat-icon>
         }
       </button>

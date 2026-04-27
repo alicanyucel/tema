@@ -20,8 +20,9 @@
     <mat-form-field appearance="outline">
       <mat-label>{{ i18n.t('settings.language') }}</mat-label>
       <mat-select [value]="i18n.language()" (valueChange)="setLanguage($event)">
-        <mat-option value="tr">Turkce</mat-option>
+        <mat-option value="tr">Türkçe</mat-option>
         <mat-option value="en">English</mat-option>
+        <mat-option value="ar">العربية</mat-option>
       </mat-select>
     </mat-form-field>
   </mat-card>
