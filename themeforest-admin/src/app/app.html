@@ -14,16 +14,16 @@
         <span matListItemTitle>{{ i18n.t('nav.dashboard') }}</span>
       </a>
 
-      @for (group of navGroups; track group.label) {
-        <div class="nav-group-header" (click)="toggleGroup(group.label)">
+      @for (group of navGroups; track group.key) {
+        <div class="nav-group-header" (click)="toggleGroup(group.key)">
           <mat-icon>{{ group.icon }}</mat-icon>
-          <span>{{ group.label }}</span>
-          <mat-icon class="chevron">{{ isGroupOpen(group.label) ? 'expand_less' : 'expand_more' }}</mat-icon>
+          <span>{{ i18n.t(group.key) }}</span>
+          <mat-icon class="chevron">{{ isGroupOpen(group.key) ? 'expand_less' : 'expand_more' }}</mat-icon>
         </div>
-        @if (isGroupOpen(group.label)) {
+        @if (isGroupOpen(group.key)) {
           @for (item of group.children; track item.route) {
             <a mat-list-item [routerLink]="item.route" routerLinkActive="active-link" class="nav-child">
-              <span matListItemTitle>{{ item.label }}</span>
+              <span matListItemTitle>{{ i18n.t(item.key) }}</span>
             </a>
           }
         }
@@ -36,6 +36,12 @@
     </mat-nav-list>
 
     <mat-divider></mat-divider>
+
+    <div class="sidebar-lang">
+      <button class="lang-btn" [class.active]="i18n.language() === 'tr'" (click)="setLanguage('tr')">TR</button>
+      <button class="lang-btn" [class.active]="i18n.language() === 'en'" (click)="setLanguage('en')">EN</button>
+      <button class="lang-btn" [class.active]="i18n.language() === 'ar'" (click)="setLanguage('ar')">AR</button>
+    </div>
 
     <div class="sidebar-card">
       <p class="label">{{ i18n.t('shell.healthTitle') }}</p>

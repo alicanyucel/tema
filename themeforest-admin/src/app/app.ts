@@ -3,9 +3,9 @@ import { Component, computed, effect, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 export interface NavGroup {
-  label: string;
+  key: string;
   icon: string;
-  children: { label: string; route: string }[];
+  children: { key: string; route: string }[];
 }
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatDividerModule } from '@angular/material/divider';
@@ -66,60 +66,60 @@ export class App {
   protected readonly i18n = inject(I18nService);
   protected readonly sidebarOpen = signal(true);
   protected readonly isDarkMode = signal(this.getInitialThemeMode());
-  protected readonly openGroups = signal<Set<string>>(new Set(['Finans']));
+  protected readonly openGroups = signal<Set<string>>(new Set(['nav.group.finans']));
 
   protected readonly navGroups: NavGroup[] = [
-    { label: 'Finans & Muhasebe', icon: 'account_balance', children: [
-      { label: 'Genel Muhasebe', route: '/erp/finans/genel-muhasebe' },
-      { label: 'Alacaklar', route: '/erp/finans/alacaklar' },
-      { label: 'Borçlar', route: '/erp/finans/borclar' },
-      { label: 'Bütçe Yönetimi', route: '/erp/finans/butce-yonetimi' },
-      { label: 'Sabit Kıymetler', route: '/erp/finans/sabit-kiymetler' },
+    { key: 'nav.group.finans', icon: 'account_balance', children: [
+      { key: 'nav.genel-muhasebe', route: '/erp/finans/genel-muhasebe' },
+      { key: 'nav.alacaklar', route: '/erp/finans/alacaklar' },
+      { key: 'nav.borclar', route: '/erp/finans/borclar' },
+      { key: 'nav.butce-yonetimi', route: '/erp/finans/butce-yonetimi' },
+      { key: 'nav.sabit-kiymetler', route: '/erp/finans/sabit-kiymetler' },
     ]},
-    { label: 'Satış & Pazarlama', icon: 'trending_up', children: [
-      { label: 'Satış Yönetimi', route: '/erp/satis/satis-yonetimi' },
-      { label: 'Müşteri İlişkileri (CRM)', route: '/erp/satis/crm' },
-      { label: 'Teklif ve Sipariş', route: '/erp/satis/teklif-siparis' },
-      { label: 'Kampanya Yönetimi', route: '/erp/satis/kampanya-yonetimi' },
+    { key: 'nav.group.satis', icon: 'trending_up', children: [
+      { key: 'nav.satis-yonetimi', route: '/erp/satis/satis-yonetimi' },
+      { key: 'nav.crm', route: '/erp/satis/crm' },
+      { key: 'nav.teklif-siparis', route: '/erp/satis/teklif-siparis' },
+      { key: 'nav.kampanya-yonetimi', route: '/erp/satis/kampanya-yonetimi' },
     ]},
-    { label: 'Satın Alma', icon: 'shopping_cart', children: [
-      { label: 'Tedarikçi Yönetimi', route: '/erp/satinalma/tedarikci-yonetimi' },
-      { label: 'Satın Alma Talepleri', route: '/erp/satinalma/satinalma-talepler' },
-      { label: 'Satın Alma Siparişleri', route: '/erp/satinalma/satinalma-siparisler' },
-      { label: 'Fiyat ve Sözleşme', route: '/erp/satinalma/fiyat-sozlesme' },
+    { key: 'nav.group.satinalma', icon: 'shopping_cart', children: [
+      { key: 'nav.tedarikci-yonetimi', route: '/erp/satinalma/tedarikci-yonetimi' },
+      { key: 'nav.satinalma-talepler', route: '/erp/satinalma/satinalma-talepler' },
+      { key: 'nav.satinalma-siparisler', route: '/erp/satinalma/satinalma-siparisler' },
+      { key: 'nav.fiyat-sozlesme', route: '/erp/satinalma/fiyat-sozlesme' },
     ]},
-    { label: 'Stok & Depo', icon: 'inventory_2', children: [
-      { label: 'Envanter Takibi', route: '/erp/stok/envanter-takibi' },
-      { label: 'Depo Yönetimi', route: '/erp/stok/depo-yonetimi' },
-      { label: 'Lojistik ve Sevkiyat', route: '/erp/stok/lojistik-sevkiyat' },
+    { key: 'nav.group.stok', icon: 'inventory_2', children: [
+      { key: 'nav.envanter-takibi', route: '/erp/stok/envanter-takibi' },
+      { key: 'nav.depo-yonetimi', route: '/erp/stok/depo-yonetimi' },
+      { key: 'nav.lojistik-sevkiyat', route: '/erp/stok/lojistik-sevkiyat' },
     ]},
-    { label: 'Üretim & Planlama', icon: 'factory', children: [
-      { label: 'Üretim Planlama (MRP)', route: '/erp/uretim/uretim-planlama' },
-      { label: 'İş Emirleri', route: '/erp/uretim/is-emirleri' },
-      { label: 'Kalite Kontrol', route: '/erp/uretim/kalite-kontrol' },
+    { key: 'nav.group.uretim', icon: 'factory', children: [
+      { key: 'nav.uretim-planlama', route: '/erp/uretim/uretim-planlama' },
+      { key: 'nav.is-emirleri', route: '/erp/uretim/is-emirleri' },
+      { key: 'nav.kalite-kontrol', route: '/erp/uretim/kalite-kontrol' },
     ]},
-    { label: 'İnsan Kaynakları', icon: 'groups', children: [
-      { label: 'Personel Yönetimi', route: '/erp/ik/personel-yonetimi' },
-      { label: 'Bordro', route: '/erp/ik/bordro' },
-      { label: 'İzin ve Mesai', route: '/erp/ik/izin-mesai' },
+    { key: 'nav.group.ik', icon: 'groups', children: [
+      { key: 'nav.personel-yonetimi', route: '/erp/ik/personel-yonetimi' },
+      { key: 'nav.bordro', route: '/erp/ik/bordro' },
+      { key: 'nav.izin-mesai', route: '/erp/ik/izin-mesai' },
     ]},
-    { label: 'Proje Yönetimi', icon: 'assignment', children: [
-      { label: 'Proje Planlama', route: '/erp/proje/proje-planlama' },
-      { label: 'Kaynak Yönetimi', route: '/erp/proje/kaynak-yonetimi' },
+    { key: 'nav.group.proje', icon: 'assignment', children: [
+      { key: 'nav.proje-planlama', route: '/erp/proje/proje-planlama' },
+      { key: 'nav.kaynak-yonetimi', route: '/erp/proje/kaynak-yonetimi' },
     ]},
-    { label: 'Bakım & Servis', icon: 'build', children: [
-      { label: 'Teknik Servis', route: '/erp/bakim/teknik-servis' },
-      { label: 'Arıza Takibi', route: '/erp/bakim/ariza-takibi' },
+    { key: 'nav.group.bakim', icon: 'build', children: [
+      { key: 'nav.teknik-servis', route: '/erp/bakim/teknik-servis' },
+      { key: 'nav.ariza-takibi', route: '/erp/bakim/ariza-takibi' },
     ]},
-    { label: 'E-Ticaret', icon: 'storefront', children: [
-      { label: 'Online Sipariş', route: '/erp/eticaret/online-siparis' },
+    { key: 'nav.group.eticaret', icon: 'storefront', children: [
+      { key: 'nav.online-siparis', route: '/erp/eticaret/online-siparis' },
     ]},
-    { label: 'Analitik', icon: 'bar_chart', children: [
-      { label: 'KPI Takibi', route: '/erp/analitik/kpi-takibi' },
+    { key: 'nav.group.analitik', icon: 'bar_chart', children: [
+      { key: 'nav.kpi-takibi', route: '/erp/analitik/kpi-takibi' },
     ]},
-    { label: 'Uyum & Güvenlik', icon: 'security', children: [
-      { label: 'Yetkilendirme', route: '/erp/uyum/yetkilendirme' },
-      { label: 'Denetim İzleri', route: '/erp/uyum/denetim-izleri' },
+    { key: 'nav.group.uyum', icon: 'security', children: [
+      { key: 'nav.yetkilendirme', route: '/erp/uyum/yetkilendirme' },
+      { key: 'nav.denetim-izleri', route: '/erp/uyum/denetim-izleri' },
     ]},
   ];
   protected readonly fontSizeOptions: FontSizeOption[] = [
