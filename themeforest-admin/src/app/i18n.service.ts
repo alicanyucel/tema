@@ -214,7 +214,203 @@ const TRANSLATIONS: Record<AppLanguage, TranslationMap> = {
     'erp.save': 'Kaydet',
     'erp.addRecord': 'Yeni Kayıt Ekle',
     'erp.editRecord': 'Kaydı Düzenle',
-    'erp.viewRecord': 'Kayıt Detayı'
+    'erp.viewRecord': 'Kayıt Detayı',
+    // İş Zekası
+    'nav.group.is-zekasi': 'İş Zekası',
+    'nav.veri-madenciligi': 'Veri Madenciliği',
+    'nav.raporlama-bi': 'Raporlama & BI',
+    // Mobil ERP
+    'nav.group.mobil-erp': 'Mobil ERP',
+    'nav.mobil-erp-yonetimi': 'Mobil ERP Yönetimi',
+    'nav.mobil-onay': 'Mobil Onay',
+    // Uluslararası
+    'nav.group.uluslararasi': 'Uluslararası İşlemler',
+    'nav.cok-para-birimi': 'Çok Para Birimi',
+    'nav.vergi-uyum': 'Vergi Uyumu',
+    // Sadakat
+    'nav.group.sadakat': 'Sadakat ve Kampanya',
+    'nav.sadakat-programi': 'Sadakat Programı',
+    'nav.kampanya-yonetimi-sadakat': 'Kampanya Yönetimi',
+    // Tedarikçi Portalı
+    'nav.group.tedarikci-portal': 'Tedarikçi Portalı',
+    'nav.tedarikci-portal': 'Tedarikçi Portalı',
+    'nav.tedarikci-teklifler': 'Tedarikçi Teklifleri',
+    // APS
+    'nav.group.aps': 'İleri Üretim Planlama (APS)',
+    'nav.uretim-cizelge': 'Üretim Çizelgeleme',
+    'nav.kapasite-planlama': 'Kapasite Planlama',
+    // Risk & Sigorta
+    'nav.group.risk-sigorta': 'Risk ve Sigorta',
+    'nav.risk-degerlendirme': 'Risk Değerlendirme',
+    'nav.sigorta-yonetimi': 'Sigorta Yönetimi',
+    // Enerji
+    'nav.group.enerji': 'Enerji Yönetimi',
+    'nav.enerji-tuketimi': 'Enerji Tüketimi',
+    'nav.kaynak-optimizasyon': 'Kaynak Optimizasyonu',
+    // Hukuk
+    'nav.group.hukuk': 'Hukuk ve Sözleşme',
+    'nav.sozlesme-yonetimi': 'Sözleşme Yönetimi',
+    'nav.hukuki-davalar': 'Hukuki Davalar',
+    // İnovasyon Startup
+    'nav.group.inovasyon-startup': 'İnovasyon & Startup',
+    'nav.startup-portfoy': 'Startup Portföyü',
+    'nav.ar-ge-yonetimi': 'Ar-Ge Yönetimi',
+    // Sosyal ERP
+    'nav.group.sosyal-erp': 'Sosyal ERP',
+    'nav.sosyal-medya-erp': 'Sosyal Medya ERP',
+    'nav.calisma-akisi': 'Çalışma Akışı',
+    // AI ERP
+    'nav.group.ai-erp': 'Yapay Zeka ERP',
+    'nav.ai-tahminleme': 'AI Tahminleme',
+    'nav.ai-optimizasyon': 'AI Optimizasyon',
+    // Müşteri UX
+    'nav.group.musteri-ux': 'Müşteri Deneyimi (UX)',
+    'nav.ux-analitik': 'UX Analitik',
+    'nav.deneyim-haritasi': 'Deneyim Haritası',
+    // IoT
+    'nav.group.iot': 'IoT Yönetimi',
+    'nav.iot-cihazlar': 'IoT Cihazlar',
+    'nav.sensor-veri': 'Sensör Verisi',
+    // AI-ML
+    'nav.group.ai-ml': 'Makine Öğrenmesi',
+    'nav.ml-modeller': 'ML Modeller',
+    'nav.veri-etiketleme': 'Veri Etiketleme',
+    // Blockchain
+    'nav.group.blockchain': 'Blockchain',
+    'nav.akilli-sozlesmeler': 'Akıllı Sözleşmeler',
+    'nav.dijital-varlik': 'Dijital Varlık',
+    // Müşteri Portalı
+    'nav.group.musteri-portal': 'Müşteri Portalı',
+    'nav.musteri-portal': 'Müşteri Portalı',
+    'nav.self-servis': 'Self Servis',
+    // Satış Sonrası
+    'nav.group.satis-sonrasi': 'Satış Sonrası',
+    'nav.satis-sonrasi-servis': 'Satış Sonrası Servis',
+    'nav.yedek-parca': 'Yedek Parça',
+    // Dijital Pazarlama
+    'nav.group.dijital-pazarlama': 'Dijital Pazarlama',
+    'nav.dijital-kampanya': 'Dijital Kampanya',
+    'nav.sosyal-medya-dp': 'Sosyal Medya',
+    // Veri Güvenliği
+    'nav.group.veri-guvenligi': 'Veri Güvenliği',
+    'nav.kvkk-uyum': 'KVKK Uyumu',
+    'nav.veri-siniflandirma': 'Veri Sınıflandırma',
+    // BPM
+    'nav.group.bpm': 'İş Süreç Yönetimi (BPM)',
+    'nav.bpm-surec': 'BPM Süreç',
+    'nav.otomasyon-izleme': 'Otomasyon İzleme',
+    // Sektörel
+    'nav.group.sektörel': 'Sektörel Çözümler',
+    'nav.sektor-modul': 'Sektör Modülü',
+    'nav.insaat-modulu': 'İnşaat Modülü',
+    // AI Tahmin
+    'nav.group.ai-tahmin': 'AI Talep Tahmini',
+    'nav.talep-tahmin-ai': 'Talep Tahmin AI',
+    'nav.fiyat-tahmin': 'Fiyat Tahmini',
+    // Dijital İkiz
+    'nav.group.dijital-ikiz': 'Dijital İkiz',
+    'nav.dijital-ikiz-sim': 'Dijital İkiz Simülasyon',
+    'nav.urun-ikiz': 'Ürün İkizi',
+    // ESG
+    'nav.group.esg': 'ESG & Sürdürülebilirlik',
+    'nav.esg-rapor': 'ESG Rapor',
+    'nav.karbon-ayak-izi': 'Karbon Ayak İzi',
+    // RPA
+    'nav.group.rpa': 'Robotik Süreç Otomasyonu (RPA)',
+    'nav.rpa-botlar': 'RPA Botlar',
+    'nav.rpa-surecleri': 'RPA Süreçleri',
+    // Omni-Channel
+    'nav.group.omni-channel': 'Omni-Channel',
+    'nav.omni-kanal': 'Omni Kanal',
+    'nav.siparis-yonetimi-omni': 'Sipariş Yönetimi',
+    // AI HR
+    'nav.group.ai-hr': 'AI İnsan Kaynakları',
+    'nav.ai-hr-yetenek': 'AI Yetenek Yönetimi',
+    'nav.performans-ai': 'Performans AI',
+    // Akıllı Lojistik
+    'nav.group.akilli-lojistik': 'Akıllı Lojistik',
+    'nav.filo-yonetimi': 'Filo Yönetimi',
+    'nav.rota-optimizasyon': 'Rota Optimizasyonu',
+    // Dijital Bankacılık
+    'nav.group.dijital-bankacilik': 'Dijital Bankacılık',
+    'nav.banka-entegrasyon': 'Banka Entegrasyonu',
+    'nav.odeme-ag-gecigi': 'Ödeme Ağ Geçidi',
+    // Kamu & Regülasyon
+    'nav.group.kamu-regulasyon': 'Kamu & Regülasyon',
+    'nav.kamu-ihale': 'Kamu İhalesi',
+    'nav.regulasyon-uyum': 'Regülasyon Uyumu',
+    // Endüstri 4.0
+    'nav.group.endustri40': 'Endüstri 4.0',
+    'nav.akilli-fabrika': 'Akıllı Fabrika',
+    'nav.cobotlar': 'Cobotlar',
+    // CSR
+    'nav.group.csr': 'Kurumsal Sosyal Sorumluluk',
+    'nav.gonulluler': 'Gönüllüler',
+    'nav.bagis-yonetimi': 'Bağış Yönetimi',
+    // Eğitim & İnovasyon
+    'nav.group.egitim-inovasyon': 'Eğitim & İnovasyon',
+    'nav.egitim-platform': 'Eğitim Platformu',
+    'nav.gamification': 'Gamification',
+    // AI Satış
+    'nav.group.ai-satis': 'AI Satış',
+    'nav.ai-satis-tahmini': 'AI Satış Tahmini',
+    'nav.musteri-skorlama': 'Müşteri Skorlama',
+    // VR/AR
+    'nav.group.vr-ar': 'VR/AR',
+    'nav.vr-egitim': 'VR Eğitim',
+    'nav.ar-bakim': 'AR Bakım',
+    // Siber Güvenlik
+    'nav.group.siber-guvenlik': 'Siber Güvenlik',
+    'nav.tehdit-merkezi': 'Tehdit Merkezi',
+    'nav.guvenlik-olaylari': 'Güvenlik Olayları',
+    // Dijital İletişim
+    'nav.group.dijital-iletisim': 'Dijital İletişim',
+    'nav.isbirligi-araclari': 'İşbirliği Araçları',
+    'nav.video-konferans': 'Video Konferans',
+    // Akıllı Enerji
+    'nav.group.akilli-enerji': 'Akıllı Enerji',
+    'nav.enerji-panel': 'Enerji Paneli',
+    'nav.sari-yonetimi': 'Şarj Yönetimi',
+    // Gümrük
+    'nav.group.gumruk': 'Gümrük İşlemleri',
+    'nav.gumruk-beyan': 'Gümrük Beyanı',
+    'nav.ithalat-ihracat': 'İthalat & İhracat',
+    // AI Müşteri
+    'nav.group.ai-musteri': 'AI Müşteri Hizmetleri',
+    'nav.chatbot-musteri': 'Chatbot Müşteri',
+    'nav.duygu-analizi': 'Duygu Analizi',
+    // Dijital Sağlık
+    'nav.group.dijital-saglik': 'Dijital Sağlık',
+    'nav.saglik-takip': 'Sağlık Takip',
+    'nav.wellbeing-programi': 'Wellbeing Programı',
+    // Tarım ERP
+    'nav.group.tarim-erp': 'Tarım ERP',
+    'nav.tarim-arazi': 'Tarım & Arazi',
+    'nav.hasat-planlama': 'Hasat Planlama',
+    // Akıllı Şehir
+    'nav.group.akilli-sehir': 'Akıllı Şehir',
+    'nav.sehir-hizmetleri': 'Şehir Hizmetleri',
+    'nav.altyapi-yonetimi': 'Altyapı Yönetimi',
+    // Fintech
+    'nav.group.fintech': 'Fintech',
+    'nav.kripto-fintech': 'Kripto Fintech',
+    'nav.mikro-finans': 'Mikro Finans',
+    // Kültür & Sanat
+    'nav.group.kultur-sanat': 'Kültür & Sanat',
+    'nav.etkinlik-yonetimi': 'Etkinlik Yönetimi',
+    'nav.koleksiyon-yonetimi': 'Koleksiyon Yönetimi',
+    // Spor & Fitness
+    'nav.group.spor-fitness': 'Spor & Fitness',
+    'nav.uye-fitness': 'Üye Fitness',
+    'nav.antreyman-plani': 'Antrenman Planı',
+    // Turizm
+    'nav.group.turizm': 'Turizm & Otelcilik',
+    'nav.rezervasyon': 'Rezervasyon',
+    'nav.oda-yonetimi': 'Oda Yönetimi',
+    // Havacılık
+    'nav.group.havacilik': 'Havacılık',
+    'nav.ucus-yonetimi': 'Uçuş Yönetimi',
+    'nav.bakim-planlama-havac': 'Bakım Planlama'
   },
   en: {
     'nav.dashboard': 'Dashboard',
