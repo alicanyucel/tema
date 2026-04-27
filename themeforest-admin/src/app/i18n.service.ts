@@ -410,7 +410,21 @@ const TRANSLATIONS: Record<AppLanguage, TranslationMap> = {
     // Havacılık
     'nav.group.havacilik': 'Havacılık',
     'nav.ucus-yonetimi': 'Uçuş Yönetimi',
-    'nav.bakim-planlama-havac': 'Bakım Planlama'
+    'nav.bakim-planlama-havac': 'Bakım Planlama',
+    // Arsa & Tarla
+    'nav.group.arsa-tarla': 'Arsa & Tarla',
+    'nav.arsa-takip': 'Arsa/Parsel Takibi',
+    'nav.tapu-islemleri': 'Tapu İşlemleri',
+    // Demirbaş
+    'nav.group.demirbaslar': 'Demirbaş',
+    'nav.demirbaslar': 'Demirbaş Listesi',
+    'nav.zimmet': 'Zimmet Yönetimi',
+    'nav.amortisman': 'Amortisman Takibi',
+    // Hayvancılık
+    'nav.group.hayvancilik': 'Hayvancılık',
+    'nav.hayvan-takip': 'Hayvan Takibi',
+    'nav.yem-yonetimi': 'Yem Yönetimi',
+    'nav.saglik-asi': 'Sağlık & Aşı Takibi'
   },
   en: {
     'nav.dashboard': 'Dashboard',
@@ -816,7 +830,21 @@ const TRANSLATIONS: Record<AppLanguage, TranslationMap> = {
     // Aviation
     'nav.group.havacilik': 'Aviation',
     'nav.ucus-yonetimi': 'Flight Management',
-    'nav.bakim-planlama-havac': 'Maintenance Planning'
+    'nav.bakim-planlama-havac': 'Maintenance Planning',
+    // Land & Field
+    'nav.group.arsa-tarla': 'Land & Field',
+    'nav.arsa-takip': 'Land/Plot Tracking',
+    'nav.tapu-islemleri': 'Title Deed Operations',
+    // Fixed Assets
+    'nav.group.demirbaslar': 'Fixed Assets',
+    'nav.demirbaslar': 'Asset List',
+    'nav.zimmet': 'Assignment Management',
+    'nav.amortisman': 'Depreciation Tracking',
+    // Livestock
+    'nav.group.hayvancilik': 'Livestock',
+    'nav.hayvan-takip': 'Animal Tracking',
+    'nav.yem-yonetimi': 'Feed Management',
+    'nav.saglik-asi': 'Health & Vaccination'
   },
   ar: {
     'nav.dashboard': 'لوحة التحكم',
@@ -1222,7 +1250,21 @@ const TRANSLATIONS: Record<AppLanguage, TranslationMap> = {
     // الطيران
     'nav.group.havacilik': 'الطيران',
     'nav.ucus-yonetimi': 'إدارة الرحلات',
-    'nav.bakim-planlama-havac': 'تخطيط الصيانة'
+    'nav.bakim-planlama-havac': 'تخطيط الصيانة',
+    // الأراضي والمزارع
+    'nav.group.arsa-tarla': 'الأراضي والمزارع',
+    'nav.arsa-takip': 'تتبع الأراضي',
+    'nav.tapu-islemleri': 'معاملات السند',
+    // الأصول الثابتة
+    'nav.group.demirbaslar': 'الأصول الثابتة',
+    'nav.demirbaslar': 'قائمة الأصول',
+    'nav.zimmet': 'إدارة التسليم',
+    'nav.amortisman': 'تتبع الاستهلاك',
+    // الثروة الحيوانية
+    'nav.group.hayvancilik': 'الثروة الحيوانية',
+    'nav.hayvan-takip': 'تتبع الحيوانات',
+    'nav.yem-yonetimi': 'إدارة الأعلاف',
+    'nav.saglik-asi': 'الصحة والتطعيم'
   }
 };
 

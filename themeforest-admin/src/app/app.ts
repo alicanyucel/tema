@@ -370,6 +370,20 @@ export class App {
       { key: 'nav.ucus-yonetimi', route: '/erp/havacilik/ucus-yonetimi' },
       { key: 'nav.bakim-planlama-havac', route: '/erp/havacilik/bakim-planlama' },
     ]},
+    { key: 'nav.group.arsa-tarla', icon: 'landscape', children: [
+      { key: 'nav.arsa-takip', route: '/erp/arsa-tarla/arsa-takip' },
+      { key: 'nav.tapu-islemleri', route: '/erp/arsa-tarla/tapu-islemleri' },
+    ]},
+    { key: 'nav.group.demirbaslar', icon: 'construction', children: [
+      { key: 'nav.demirbaslar', route: '/erp/demirbaslar/demirbaslar' },
+      { key: 'nav.zimmet', route: '/erp/demirbaslar/zimmet' },
+      { key: 'nav.amortisman', route: '/erp/demirbaslar/amortisman' },
+    ]},
+    { key: 'nav.group.hayvancilik', icon: 'pets', children: [
+      { key: 'nav.hayvan-takip', route: '/erp/hayvancilik/hayvan-takip' },
+      { key: 'nav.yem-yonetimi', route: '/erp/hayvancilik/yem-yonetimi' },
+      { key: 'nav.saglik-asi', route: '/erp/hayvancilik/saglik-asi' },
+    ]},
   ];
 
   protected readonly visibleNavGroups = computed(() =>
@@ -631,6 +645,17 @@ export class App {
       // Havacılık
       { label: t('nav.ucus-yonetimi'),         hint: t('nav.group.havacilik'),           route: '/erp/havacilik/ucus-yonetimi' },
       { label: t('nav.bakim-planlama-havac'),  hint: t('nav.group.havacilik'),           route: '/erp/havacilik/bakim-planlama' },
+      // Arsa & Tarla
+      { label: t('nav.arsa-takip'),            hint: t('nav.group.arsa-tarla'),          route: '/erp/arsa-tarla/arsa-takip' },
+      { label: t('nav.tapu-islemleri'),        hint: t('nav.group.arsa-tarla'),          route: '/erp/arsa-tarla/tapu-islemleri' },
+      // Demirbaş
+      { label: t('nav.demirbaslar'),           hint: t('nav.group.demirbaslar'),         route: '/erp/demirbaslar/demirbaslar' },
+      { label: t('nav.zimmet'),                hint: t('nav.group.demirbaslar'),         route: '/erp/demirbaslar/zimmet' },
+      { label: t('nav.amortisman'),            hint: t('nav.group.demirbaslar'),         route: '/erp/demirbaslar/amortisman' },
+      // Hayvancılık
+      { label: t('nav.hayvan-takip'),          hint: t('nav.group.hayvancilik'),         route: '/erp/hayvancilik/hayvan-takip' },
+      { label: t('nav.yem-yonetimi'),          hint: t('nav.group.hayvancilik'),         route: '/erp/hayvancilik/yem-yonetimi' },
+      { label: t('nav.saglik-asi'),            hint: t('nav.group.hayvancilik'),         route: '/erp/hayvancilik/saglik-asi' },
     ];
   });
 

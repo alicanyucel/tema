@@ -74,6 +74,9 @@ export const ALL_MODULE_KEYS: string[] = [
   'nav.group.spor-fitness',
   'nav.group.turizm',
   'nav.group.havacilik',
+  'nav.group.arsa-tarla',
+  'nav.group.demirbaslar',
+  'nav.group.hayvancilik',
 ];
 
 @Injectable({ providedIn: 'root' })

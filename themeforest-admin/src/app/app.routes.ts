@@ -166,6 +166,14 @@ import { RezervasyonComponent } from './pages/erp/turizm/rezervasyon.component';
 import { OdaYonetimiComponent } from './pages/erp/turizm/oda-yonetimi.component';
 import { UcusYonetimiComponent } from './pages/erp/havacilik/ucus-yonetimi.component';
 import { BakimPlanlamaHavacComponent } from './pages/erp/havacilik/bakim-planlama-havac.component';
+import { ArsaTakipComponent } from './pages/erp/arsa-tarla/arsa-takip.component';
+import { TapuIslemleriComponent } from './pages/erp/arsa-tarla/tapu-islemleri.component';
+import { DemirbaslarComponent } from './pages/erp/demirbaslar/demirbaslar.component';
+import { ZimmetComponent } from './pages/erp/demirbaslar/zimmet.component';
+import { AmortismanComponent } from './pages/erp/demirbaslar/amortisman.component';
+import { HayvanTakipComponent } from './pages/erp/hayvancilik/hayvan-takip.component';
+import { YemYonetimiComponent } from './pages/erp/hayvancilik/yem-yonetimi.component';
+import { SaglikAsiComponent } from './pages/erp/hayvancilik/saglik-asi.component';
 
 export const routes: Routes = [
 	{ path: '', pathMatch: 'full', redirectTo: 'dashboard' },
@@ -333,5 +341,13 @@ export const routes: Routes = [
 	{ path: 'erp/turizm/oda-yonetimi', component: OdaYonetimiComponent },
 	{ path: 'erp/havacilik/ucus-yonetimi', component: UcusYonetimiComponent },
 	{ path: 'erp/havacilik/bakim-planlama', component: BakimPlanlamaHavacComponent },
+	{ path: 'erp/arsa-tarla/arsa-takip', component: ArsaTakipComponent },
+	{ path: 'erp/arsa-tarla/tapu-islemleri', component: TapuIslemleriComponent },
+	{ path: 'erp/demirbaslar/demirbaslar', component: DemirbaslarComponent },
+	{ path: 'erp/demirbaslar/zimmet', component: ZimmetComponent },
+	{ path: 'erp/demirbaslar/amortisman', component: AmortismanComponent },
+	{ path: 'erp/hayvancilik/hayvan-takip', component: HayvanTakipComponent },
+	{ path: 'erp/hayvancilik/yem-yonetimi', component: YemYonetimiComponent },
+	{ path: 'erp/hayvancilik/saglik-asi', component: SaglikAsiComponent },
 	{ path: '**', redirectTo: 'dashboard' }
 ];
