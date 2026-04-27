@@ -68,6 +68,105 @@ import { OneriSistemiComponent } from './pages/erp/inovasyon/oneri-sistemi.compo
 import { InovasyonProjeleriComponent } from './pages/erp/inovasyon/inovasyon-projeleri.component';
 import { DegerlendirmeOdullendirmeComponent } from './pages/erp/inovasyon/degerlendirme-odullendirme.component';
 
+import { VeriMadenciligiComponent } from './pages/erp/is-zekasi/veri-madenciligi.component';
+import { RaporlamaBiComponent } from './pages/erp/is-zekasi/raporlama-bi.component';
+import { MobilErpYonetimiComponent } from './pages/erp/mobil-erp/mobil-erp-yonetimi.component';
+import { MobilOnayComponent } from './pages/erp/mobil-erp/mobil-onay.component';
+import { CokParaBirimiComponent } from './pages/erp/uluslararasi/cok-para-birimi.component';
+import { VergiUyumComponent } from './pages/erp/uluslararasi/vergi-uyum.component';
+import { SadakatProgramiComponent } from './pages/erp/sadakat/sadakat-programi.component';
+import { KampanyaYonetimiSadakatComponent } from './pages/erp/sadakat/kampanya-yonetimi-sadakat.component';
+import { TedarikciPortalComponent } from './pages/erp/tedarikci-portal/tedarikci-portal.component';
+import { TedarikciTekliflerComponent } from './pages/erp/tedarikci-portal/tedarikci-teklifler.component';
+import { UretimCizelgeComponent } from './pages/erp/aps/uretim-cizelge.component';
+import { KapasitePlanlamaComponent } from './pages/erp/aps/kapasite-planlama.component';
+import { RiskDegerlendirmeComponent } from './pages/erp/risk-sigorta/risk-degerlendirme.component';
+import { SigortaYonetimiComponent } from './pages/erp/risk-sigorta/sigorta-yonetimi.component';
+import { EnerjiTuketimiComponent } from './pages/erp/enerji/enerji-tuketimi.component';
+import { KaynakOptimizasyonComponent } from './pages/erp/enerji/kaynak-optimizasyon.component';
+import { SozlesmeYonetimiComponent } from './pages/erp/hukuk/sozlesme-yonetimi.component';
+import { HukukiDavalarComponent } from './pages/erp/hukuk/hukuki-davalar.component';
+import { StartupPortfoyComponent } from './pages/erp/inovasyon-startup/startup-portfoy.component';
+import { ArGeYonetimiComponent } from './pages/erp/inovasyon-startup/ar-ge-yonetimi.component';
+import { SosyalMedyaErpComponent } from './pages/erp/sosyal-erp/sosyal-medya-erp.component';
+import { CalismAkisiComponent } from './pages/erp/sosyal-erp/calisma-akisi.component';
+import { AiTahminlemeComponent } from './pages/erp/ai-erp/ai-tahminleme.component';
+import { AiOptimizasyonComponent } from './pages/erp/ai-erp/ai-optimizasyon.component';
+import { UxAnalitikComponent } from './pages/erp/musteri-ux/ux-analitik.component';
+import { DeneyimHaritasiComponent } from './pages/erp/musteri-ux/deneyim-haritasi.component';
+import { IotCihazlarComponent } from './pages/erp/iot/iot-cihazlar.component';
+import { SensorVeriComponent } from './pages/erp/iot/sensor-veri.component';
+import { MlModellerComponent } from './pages/erp/ai-ml/ml-modeller.component';
+import { VeriEtiketlemeComponent } from './pages/erp/ai-ml/veri-etiketleme.component';
+import { AkilliSozlesmelerComponent } from './pages/erp/blockchain/akilli-sozlesmeler.component';
+import { DijitalVarlikComponent } from './pages/erp/blockchain/dijital-varlik.component';
+import { MusteriPortalComponent } from './pages/erp/musteri-portal/musteri-portal.component';
+import { SelfServisComponent } from './pages/erp/musteri-portal/self-servis.component';
+import { SatisSonrasiServisComponent } from './pages/erp/satis-sonrasi/satis-sonrasi-servis.component';
+import { YedekParcaComponent } from './pages/erp/satis-sonrasi/yedek-parca.component';
+import { DijitalKampanyaComponent } from './pages/erp/dijital-pazarlama/dijital-kampanya.component';
+import { SosyalMedyaDpComponent } from './pages/erp/dijital-pazarlama/sosyal-medya-dp.component';
+import { KvkkUyumComponent } from './pages/erp/veri-guvenligi/kvkk-uyum.component';
+import { VeriSiniflandirmaComponent } from './pages/erp/veri-guvenligi/veri-siniflandirma.component';
+import { BpmSurecComponent } from './pages/erp/bpm/bpm-surec.component';
+import { OtomasyonIzlemeComponent } from './pages/erp/bpm/otomasyon-izleme.component';
+import { SektorModulComponent } from './pages/erp/sektörel/sektor-modul.component';
+import { InsaatModuluComponent } from './pages/erp/sektörel/insaat-modulu.component';
+import { TalepTahminAiComponent } from './pages/erp/ai-tahmin/talep-tahmin-ai.component';
+import { FiyatTahminComponent } from './pages/erp/ai-tahmin/fiyat-tahmin.component';
+import { DijitalIkizSimComponent } from './pages/erp/dijital-ikiz/dijital-ikiz-sim.component';
+import { UrunIkizComponent } from './pages/erp/dijital-ikiz/urun-ikiz.component';
+import { EsgRaporComponent } from './pages/erp/esg/esg-rapor.component';
+import { KarbonAyakIziComponent } from './pages/erp/esg/karbon-ayak-izi.component';
+import { RpaBotlarComponent } from './pages/erp/rpa/rpa-botlar.component';
+import { RpaSurecleriComponent } from './pages/erp/rpa/rpa-surecleri.component';
+import { OmniKanalComponent } from './pages/erp/omni-channel/omni-kanal.component';
+import { SiparisYonetimiOmniComponent } from './pages/erp/omni-channel/siparis-yonetimi-omni.component';
+import { AiHrYetenekComponent } from './pages/erp/ai-hr/ai-hr-yetenek.component';
+import { PerformansAiComponent } from './pages/erp/ai-hr/performans-ai.component';
+import { FiloYonetimiComponent } from './pages/erp/akilli-lojistik/filo-yonetimi.component';
+import { RotaOptimizasyonComponent } from './pages/erp/akilli-lojistik/rota-optimizasyon.component';
+import { BankaEntegrasyonComponent } from './pages/erp/dijital-bankacilik/banka-entegrasyon.component';
+import { OdemeAgGecigiComponent } from './pages/erp/dijital-bankacilik/odeme-ag-gecigi.component';
+import { KamuIhaleComponent } from './pages/erp/kamu-regulasyon/kamu-ihale.component';
+import { RegulasyonUyumComponent } from './pages/erp/kamu-regulasyon/regulasyon-uyum.component';
+import { AkilliFabrikaComponent } from './pages/erp/endustri40/akilli-fabrika.component';
+import { CobotlarComponent } from './pages/erp/endustri40/cobotlar.component';
+import { GonullularComponent } from './pages/erp/csr/gonulluler.component';
+import { BagisYonetimiComponent } from './pages/erp/csr/bagis-yonetimi.component';
+import { EgitimPlatformComponent } from './pages/erp/egitim-inovasyon/egitim-platform.component';
+import { GamificationComponent } from './pages/erp/egitim-inovasyon/gamification.component';
+import { AiSatisTahminiComponent } from './pages/erp/ai-satis/ai-satis-tahmini.component';
+import { MusteriSkorlamaComponent } from './pages/erp/ai-satis/musteri-skorlama.component';
+import { VrEgitimComponent } from './pages/erp/vr-ar/vr-egitim.component';
+import { ArBakimComponent } from './pages/erp/vr-ar/ar-bakim.component';
+import { TehditMerkeziComponent } from './pages/erp/siber-guvenlik/tehdit-merkezi.component';
+import { GuvenlikOlaylariComponent } from './pages/erp/siber-guvenlik/guvenlik-olaylari.component';
+import { IsbirligiAraclariComponent } from './pages/erp/dijital-iletisim/isbirligi-araclari.component';
+import { VideoKonferansComponent } from './pages/erp/dijital-iletisim/video-konferans.component';
+import { EnerjiPanelComponent } from './pages/erp/akilli-enerji/enerji-panel.component';
+import { SariYonetimiComponent } from './pages/erp/akilli-enerji/sari-yonetimi.component';
+import { GumrukBeyanComponent } from './pages/erp/gumruk/gumruk-beyan.component';
+import { IthalatIhracatComponent } from './pages/erp/gumruk/ithalat-ihracat.component';
+import { ChatbotMusteriComponent } from './pages/erp/ai-musteri/chatbot-musteri.component';
+import { DuyguAnaliziComponent } from './pages/erp/ai-musteri/duygu-analizi.component';
+import { SaglikTakipComponent } from './pages/erp/dijital-saglik/saglik-takip.component';
+import { WellbeingProgramiComponent } from './pages/erp/dijital-saglik/wellbeing-programi.component';
+import { TarimAraziComponent } from './pages/erp/tarim-erp/tarim-arazi.component';
+import { HasatPlanlamaComponent } from './pages/erp/tarim-erp/hasat-planlama.component';
+import { SehirHizmetleriComponent } from './pages/erp/akilli-sehir/sehir-hizmetleri.component';
+import { AltyapiYonetimiComponent } from './pages/erp/akilli-sehir/altyapi-yonetimi.component';
+import { KriptoFintechComponent } from './pages/erp/fintech/kripto-fintech.component';
+import { MikroFinansComponent } from './pages/erp/fintech/mikro-finans.component';
+import { EtkinlikYonetimiComponent } from './pages/erp/kultur-sanat/etkinlik-yonetimi.component';
+import { KoleksiyonYonetimiComponent } from './pages/erp/kultur-sanat/koleksiyon-yonetimi.component';
+import { UyeFitnessComponent } from './pages/erp/spor-fitness/uye-fitness.component';
+import { AntreymanPlaniComponent } from './pages/erp/spor-fitness/antreyman-plani.component';
+import { RezervasyonComponent } from './pages/erp/turizm/rezervasyon.component';
+import { OdaYonetimiComponent } from './pages/erp/turizm/oda-yonetimi.component';
+import { UcusYonetimiComponent } from './pages/erp/havacilik/ucus-yonetimi.component';
+import { BakimPlanlamaHavacComponent } from './pages/erp/havacilik/bakim-planlama-havac.component';
+
 export const routes: Routes = [
 	{ path: '', pathMatch: 'full', redirectTo: 'dashboard' },
 	{ path: 'dashboard', component: DashboardPageComponent },
@@ -136,5 +235,103 @@ export const routes: Routes = [
 	{ path: 'erp/inovasyon/oneri-sistemi', component: OneriSistemiComponent },
 	{ path: 'erp/inovasyon/inovasyon-projeleri', component: InovasyonProjeleriComponent },
 	{ path: 'erp/inovasyon/degerlendirme-odullendirme', component: DegerlendirmeOdullendirmeComponent },
+	{ path: 'erp/is-zekasi/veri-madenciligi', component: VeriMadenciligiComponent },
+	{ path: 'erp/is-zekasi/raporlama-bi', component: RaporlamaBiComponent },
+	{ path: 'erp/mobil-erp/mobil-erp-yonetimi', component: MobilErpYonetimiComponent },
+	{ path: 'erp/mobil-erp/mobil-onay', component: MobilOnayComponent },
+	{ path: 'erp/uluslararasi/cok-para-birimi', component: CokParaBirimiComponent },
+	{ path: 'erp/uluslararasi/vergi-uyum', component: VergiUyumComponent },
+	{ path: 'erp/sadakat/sadakat-programi', component: SadakatProgramiComponent },
+	{ path: 'erp/sadakat/kampanya-yonetimi', component: KampanyaYonetimiSadakatComponent },
+	{ path: 'erp/tedarikci-portal/tedarikci-portal', component: TedarikciPortalComponent },
+	{ path: 'erp/tedarikci-portal/tedarikci-teklifler', component: TedarikciTekliflerComponent },
+	{ path: 'erp/aps/uretim-cizelge', component: UretimCizelgeComponent },
+	{ path: 'erp/aps/kapasite-planlama', component: KapasitePlanlamaComponent },
+	{ path: 'erp/risk-sigorta/risk-degerlendirme', component: RiskDegerlendirmeComponent },
+	{ path: 'erp/risk-sigorta/sigorta-yonetimi', component: SigortaYonetimiComponent },
+	{ path: 'erp/enerji/enerji-tuketimi', component: EnerjiTuketimiComponent },
+	{ path: 'erp/enerji/kaynak-optimizasyon', component: KaynakOptimizasyonComponent },
+	{ path: 'erp/hukuk/sozlesme-yonetimi', component: SozlesmeYonetimiComponent },
+	{ path: 'erp/hukuk/hukuki-davalar', component: HukukiDavalarComponent },
+	{ path: 'erp/inovasyon-startup/startup-portfoy', component: StartupPortfoyComponent },
+	{ path: 'erp/inovasyon-startup/ar-ge-yonetimi', component: ArGeYonetimiComponent },
+	{ path: 'erp/sosyal-erp/sosyal-medya', component: SosyalMedyaErpComponent },
+	{ path: 'erp/sosyal-erp/calisma-akisi', component: CalismAkisiComponent },
+	{ path: 'erp/ai-erp/ai-tahminleme', component: AiTahminlemeComponent },
+	{ path: 'erp/ai-erp/ai-optimizasyon', component: AiOptimizasyonComponent },
+	{ path: 'erp/musteri-ux/ux-analitik', component: UxAnalitikComponent },
+	{ path: 'erp/musteri-ux/deneyim-haritasi', component: DeneyimHaritasiComponent },
+	{ path: 'erp/iot/iot-cihazlar', component: IotCihazlarComponent },
+	{ path: 'erp/iot/sensor-veri', component: SensorVeriComponent },
+	{ path: 'erp/ai-ml/ml-modeller', component: MlModellerComponent },
+	{ path: 'erp/ai-ml/veri-etiketleme', component: VeriEtiketlemeComponent },
+	{ path: 'erp/blockchain/akilli-sozlesmeler', component: AkilliSozlesmelerComponent },
+	{ path: 'erp/blockchain/dijital-varlik', component: DijitalVarlikComponent },
+	{ path: 'erp/musteri-portal/musteri-portal', component: MusteriPortalComponent },
+	{ path: 'erp/musteri-portal/self-servis', component: SelfServisComponent },
+	{ path: 'erp/satis-sonrasi/satis-sonrasi-servis', component: SatisSonrasiServisComponent },
+	{ path: 'erp/satis-sonrasi/yedek-parca', component: YedekParcaComponent },
+	{ path: 'erp/dijital-pazarlama/dijital-kampanya', component: DijitalKampanyaComponent },
+	{ path: 'erp/dijital-pazarlama/sosyal-medya', component: SosyalMedyaDpComponent },
+	{ path: 'erp/veri-guvenligi/kvkk-uyum', component: KvkkUyumComponent },
+	{ path: 'erp/veri-guvenligi/veri-siniflandirma', component: VeriSiniflandirmaComponent },
+	{ path: 'erp/bpm/bpm-surec', component: BpmSurecComponent },
+	{ path: 'erp/bpm/otomasyon-izleme', component: OtomasyonIzlemeComponent },
+	{ path: 'erp/sektörel/sektor-modul', component: SektorModulComponent },
+	{ path: 'erp/sektörel/insaat-modulu', component: InsaatModuluComponent },
+	{ path: 'erp/ai-tahmin/talep-tahmin-ai', component: TalepTahminAiComponent },
+	{ path: 'erp/ai-tahmin/fiyat-tahmin', component: FiyatTahminComponent },
+	{ path: 'erp/dijital-ikiz/dijital-ikiz-sim', component: DijitalIkizSimComponent },
+	{ path: 'erp/dijital-ikiz/urun-ikiz', component: UrunIkizComponent },
+	{ path: 'erp/esg/esg-rapor', component: EsgRaporComponent },
+	{ path: 'erp/esg/karbon-ayak-izi', component: KarbonAyakIziComponent },
+	{ path: 'erp/rpa/rpa-botlar', component: RpaBotlarComponent },
+	{ path: 'erp/rpa/rpa-surecleri', component: RpaSurecleriComponent },
+	{ path: 'erp/omni-channel/omni-kanal', component: OmniKanalComponent },
+	{ path: 'erp/omni-channel/siparis-yonetimi', component: SiparisYonetimiOmniComponent },
+	{ path: 'erp/ai-hr/ai-hr-yetenek', component: AiHrYetenekComponent },
+	{ path: 'erp/ai-hr/performans-ai', component: PerformansAiComponent },
+	{ path: 'erp/akilli-lojistik/filo-yonetimi', component: FiloYonetimiComponent },
+	{ path: 'erp/akilli-lojistik/rota-optimizasyon', component: RotaOptimizasyonComponent },
+	{ path: 'erp/dijital-bankacilik/banka-entegrasyon', component: BankaEntegrasyonComponent },
+	{ path: 'erp/dijital-bankacilik/odeme-ag-gecigi', component: OdemeAgGecigiComponent },
+	{ path: 'erp/kamu-regulasyon/kamu-ihale', component: KamuIhaleComponent },
+	{ path: 'erp/kamu-regulasyon/regulasyon-uyum', component: RegulasyonUyumComponent },
+	{ path: 'erp/endustri40/akilli-fabrika', component: AkilliFabrikaComponent },
+	{ path: 'erp/endustri40/cobotlar', component: CobotlarComponent },
+	{ path: 'erp/csr/gonulluler', component: GonullularComponent },
+	{ path: 'erp/csr/bagis-yonetimi', component: BagisYonetimiComponent },
+	{ path: 'erp/egitim-inovasyon/egitim-platform', component: EgitimPlatformComponent },
+	{ path: 'erp/egitim-inovasyon/gamification', component: GamificationComponent },
+	{ path: 'erp/ai-satis/ai-satis-tahmini', component: AiSatisTahminiComponent },
+	{ path: 'erp/ai-satis/musteri-skorlama', component: MusteriSkorlamaComponent },
+	{ path: 'erp/vr-ar/vr-egitim', component: VrEgitimComponent },
+	{ path: 'erp/vr-ar/ar-bakim', component: ArBakimComponent },
+	{ path: 'erp/siber-guvenlik/tehdit-merkezi', component: TehditMerkeziComponent },
+	{ path: 'erp/siber-guvenlik/guvenlik-olaylari', component: GuvenlikOlaylariComponent },
+	{ path: 'erp/dijital-iletisim/isbirligi-araclari', component: IsbirligiAraclariComponent },
+	{ path: 'erp/dijital-iletisim/video-konferans', component: VideoKonferansComponent },
+	{ path: 'erp/akilli-enerji/enerji-panel', component: EnerjiPanelComponent },
+	{ path: 'erp/akilli-enerji/sari-yonetimi', component: SariYonetimiComponent },
+	{ path: 'erp/gumruk/gumruk-beyan', component: GumrukBeyanComponent },
+	{ path: 'erp/gumruk/ithalat-ihracat', component: IthalatIhracatComponent },
+	{ path: 'erp/ai-musteri/chatbot-musteri', component: ChatbotMusteriComponent },
+	{ path: 'erp/ai-musteri/duygu-analizi', component: DuyguAnaliziComponent },
+	{ path: 'erp/dijital-saglik/saglik-takip', component: SaglikTakipComponent },
+	{ path: 'erp/dijital-saglik/wellbeing-programi', component: WellbeingProgramiComponent },
+	{ path: 'erp/tarim-erp/tarim-arazi', component: TarimAraziComponent },
+	{ path: 'erp/tarim-erp/hasat-planlama', component: HasatPlanlamaComponent },
+	{ path: 'erp/akilli-sehir/sehir-hizmetleri', component: SehirHizmetleriComponent },
+	{ path: 'erp/akilli-sehir/altyapi-yonetimi', component: AltyapiYonetimiComponent },
+	{ path: 'erp/fintech/kripto-fintech', component: KriptoFintechComponent },
+	{ path: 'erp/fintech/mikro-finans', component: MikroFinansComponent },
+	{ path: 'erp/kultur-sanat/etkinlik-yonetimi', component: EtkinlikYonetimiComponent },
+	{ path: 'erp/kultur-sanat/koleksiyon-yonetimi', component: KoleksiyonYonetimiComponent },
+	{ path: 'erp/spor-fitness/uye-fitness', component: UyeFitnessComponent },
+	{ path: 'erp/spor-fitness/antreyman-plani', component: AntreymanPlaniComponent },
+	{ path: 'erp/turizm/rezervasyon', component: RezervasyonComponent },
+	{ path: 'erp/turizm/oda-yonetimi', component: OdaYonetimiComponent },
+	{ path: 'erp/havacilik/ucus-yonetimi', component: UcusYonetimiComponent },
+	{ path: 'erp/havacilik/bakim-planlama', component: BakimPlanlamaHavacComponent },
 	{ path: '**', redirectTo: 'dashboard' }
 ];
