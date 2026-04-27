@@ -620,7 +620,203 @@ const TRANSLATIONS: Record<AppLanguage, TranslationMap> = {
     'erp.save': 'Save',
     'erp.addRecord': 'Add New Record',
     'erp.editRecord': 'Edit Record',
-    'erp.viewRecord': 'Record Details'
+    'erp.viewRecord': 'Record Details',
+    // Business Intelligence
+    'nav.group.is-zekasi': 'Business Intelligence',
+    'nav.veri-madenciligi': 'Data Mining',
+    'nav.raporlama-bi': 'Reporting & BI',
+    // Mobile ERP
+    'nav.group.mobil-erp': 'Mobile ERP',
+    'nav.mobil-erp-yonetimi': 'Mobile ERP Management',
+    'nav.mobil-onay': 'Mobile Approval',
+    // International
+    'nav.group.uluslararasi': 'International Operations',
+    'nav.cok-para-birimi': 'Multi Currency',
+    'nav.vergi-uyum': 'Tax Compliance',
+    // Loyalty
+    'nav.group.sadakat': 'Loyalty & Campaigns',
+    'nav.sadakat-programi': 'Loyalty Program',
+    'nav.kampanya-yonetimi-sadakat': 'Campaign Management',
+    // Supplier Portal
+    'nav.group.tedarikci-portal': 'Supplier Portal',
+    'nav.tedarikci-portal': 'Supplier Portal',
+    'nav.tedarikci-teklifler': 'Supplier Quotes',
+    // APS
+    'nav.group.aps': 'Advanced Planning & Scheduling (APS)',
+    'nav.uretim-cizelge': 'Production Scheduling',
+    'nav.kapasite-planlama': 'Capacity Planning',
+    // Risk & Insurance
+    'nav.group.risk-sigorta': 'Risk & Insurance',
+    'nav.risk-degerlendirme': 'Risk Assessment',
+    'nav.sigorta-yonetimi': 'Insurance Management',
+    // Energy
+    'nav.group.enerji': 'Energy Management',
+    'nav.enerji-tuketimi': 'Energy Consumption',
+    'nav.kaynak-optimizasyon': 'Resource Optimization',
+    // Legal
+    'nav.group.hukuk': 'Legal & Contracts',
+    'nav.sozlesme-yonetimi': 'Contract Management',
+    'nav.hukuki-davalar': 'Legal Cases',
+    // Innovation Startup
+    'nav.group.inovasyon-startup': 'Innovation & Startup',
+    'nav.startup-portfoy': 'Startup Portfolio',
+    'nav.ar-ge-yonetimi': 'R&D Management',
+    // Social ERP
+    'nav.group.sosyal-erp': 'Social ERP',
+    'nav.sosyal-medya-erp': 'Social Media ERP',
+    'nav.calisma-akisi': 'Workflow',
+    // AI ERP
+    'nav.group.ai-erp': 'AI ERP',
+    'nav.ai-tahminleme': 'AI Forecasting',
+    'nav.ai-optimizasyon': 'AI Optimization',
+    // Customer UX
+    'nav.group.musteri-ux': 'Customer Experience (UX)',
+    'nav.ux-analitik': 'UX Analytics',
+    'nav.deneyim-haritasi': 'Experience Map',
+    // IoT
+    'nav.group.iot': 'IoT Management',
+    'nav.iot-cihazlar': 'IoT Devices',
+    'nav.sensor-veri': 'Sensor Data',
+    // AI-ML
+    'nav.group.ai-ml': 'Machine Learning',
+    'nav.ml-modeller': 'ML Models',
+    'nav.veri-etiketleme': 'Data Labeling',
+    // Blockchain
+    'nav.group.blockchain': 'Blockchain',
+    'nav.akilli-sozlesmeler': 'Smart Contracts',
+    'nav.dijital-varlik': 'Digital Assets',
+    // Customer Portal
+    'nav.group.musteri-portal': 'Customer Portal',
+    'nav.musteri-portal': 'Customer Portal',
+    'nav.self-servis': 'Self Service',
+    // After Sales
+    'nav.group.satis-sonrasi': 'After Sales',
+    'nav.satis-sonrasi-servis': 'After Sales Service',
+    'nav.yedek-parca': 'Spare Parts',
+    // Digital Marketing
+    'nav.group.dijital-pazarlama': 'Digital Marketing',
+    'nav.dijital-kampanya': 'Digital Campaign',
+    'nav.sosyal-medya-dp': 'Social Media',
+    // Data Security
+    'nav.group.veri-guvenligi': 'Data Security',
+    'nav.kvkk-uyum': 'GDPR Compliance',
+    'nav.veri-siniflandirma': 'Data Classification',
+    // BPM
+    'nav.group.bpm': 'Business Process Management (BPM)',
+    'nav.bpm-surec': 'BPM Process',
+    'nav.otomasyon-izleme': 'Automation Monitoring',
+    // Sector
+    'nav.group.sektörel': 'Sector Solutions',
+    'nav.sektor-modul': 'Sector Module',
+    'nav.insaat-modulu': 'Construction Module',
+    // AI Forecasting
+    'nav.group.ai-tahmin': 'AI Demand Forecasting',
+    'nav.talep-tahmin-ai': 'Demand Forecast AI',
+    'nav.fiyat-tahmin': 'Price Forecast',
+    // Digital Twin
+    'nav.group.dijital-ikiz': 'Digital Twin',
+    'nav.dijital-ikiz-sim': 'Digital Twin Simulation',
+    'nav.urun-ikiz': 'Product Twin',
+    // ESG
+    'nav.group.esg': 'ESG & Sustainability',
+    'nav.esg-rapor': 'ESG Report',
+    'nav.karbon-ayak-izi': 'Carbon Footprint',
+    // RPA
+    'nav.group.rpa': 'Robotic Process Automation (RPA)',
+    'nav.rpa-botlar': 'RPA Bots',
+    'nav.rpa-surecleri': 'RPA Processes',
+    // Omni-Channel
+    'nav.group.omni-channel': 'Omni-Channel',
+    'nav.omni-kanal': 'Omni Channel',
+    'nav.siparis-yonetimi-omni': 'Order Management',
+    // AI HR
+    'nav.group.ai-hr': 'AI Human Resources',
+    'nav.ai-hr-yetenek': 'AI Talent Management',
+    'nav.performans-ai': 'Performance AI',
+    // Smart Logistics
+    'nav.group.akilli-lojistik': 'Smart Logistics',
+    'nav.filo-yonetimi': 'Fleet Management',
+    'nav.rota-optimizasyon': 'Route Optimization',
+    // Digital Banking
+    'nav.group.dijital-bankacilik': 'Digital Banking',
+    'nav.banka-entegrasyon': 'Bank Integration',
+    'nav.odeme-ag-gecigi': 'Payment Gateway',
+    // Government & Regulation
+    'nav.group.kamu-regulasyon': 'Government & Regulation',
+    'nav.kamu-ihale': 'Public Procurement',
+    'nav.regulasyon-uyum': 'Regulatory Compliance',
+    // Industry 4.0
+    'nav.group.endustri40': 'Industry 4.0',
+    'nav.akilli-fabrika': 'Smart Factory',
+    'nav.cobotlar': 'Cobots',
+    // CSR
+    'nav.group.csr': 'Corporate Social Responsibility',
+    'nav.gonulluler': 'Volunteers',
+    'nav.bagis-yonetimi': 'Donation Management',
+    // Education & Innovation
+    'nav.group.egitim-inovasyon': 'Education & Innovation',
+    'nav.egitim-platform': 'Education Platform',
+    'nav.gamification': 'Gamification',
+    // AI Sales
+    'nav.group.ai-satis': 'AI Sales',
+    'nav.ai-satis-tahmini': 'AI Sales Forecast',
+    'nav.musteri-skorlama': 'Customer Scoring',
+    // VR/AR
+    'nav.group.vr-ar': 'VR/AR',
+    'nav.vr-egitim': 'VR Training',
+    'nav.ar-bakim': 'AR Maintenance',
+    // Cybersecurity
+    'nav.group.siber-guvenlik': 'Cybersecurity',
+    'nav.tehdit-merkezi': 'Threat Center',
+    'nav.guvenlik-olaylari': 'Security Incidents',
+    // Digital Communication
+    'nav.group.dijital-iletisim': 'Digital Communication',
+    'nav.isbirligi-araclari': 'Collaboration Tools',
+    'nav.video-konferans': 'Video Conference',
+    // Smart Energy
+    'nav.group.akilli-enerji': 'Smart Energy',
+    'nav.enerji-panel': 'Energy Dashboard',
+    'nav.sari-yonetimi': 'Charge Management',
+    // Customs
+    'nav.group.gumruk': 'Customs Operations',
+    'nav.gumruk-beyan': 'Customs Declaration',
+    'nav.ithalat-ihracat': 'Import & Export',
+    // AI Customer
+    'nav.group.ai-musteri': 'AI Customer Services',
+    'nav.chatbot-musteri': 'Customer Chatbot',
+    'nav.duygu-analizi': 'Sentiment Analysis',
+    // Digital Health
+    'nav.group.dijital-saglik': 'Digital Health',
+    'nav.saglik-takip': 'Health Tracking',
+    'nav.wellbeing-programi': 'Wellbeing Program',
+    // Agriculture ERP
+    'nav.group.tarim-erp': 'Agriculture ERP',
+    'nav.tarim-arazi': 'Farm & Land',
+    'nav.hasat-planlama': 'Harvest Planning',
+    // Smart City
+    'nav.group.akilli-sehir': 'Smart City',
+    'nav.sehir-hizmetleri': 'City Services',
+    'nav.altyapi-yonetimi': 'Infrastructure Management',
+    // Fintech
+    'nav.group.fintech': 'Fintech',
+    'nav.kripto-fintech': 'Crypto Fintech',
+    'nav.mikro-finans': 'Microfinance',
+    // Culture & Arts
+    'nav.group.kultur-sanat': 'Culture & Arts',
+    'nav.etkinlik-yonetimi': 'Event Management',
+    'nav.koleksiyon-yonetimi': 'Collection Management',
+    // Sports & Fitness
+    'nav.group.spor-fitness': 'Sports & Fitness',
+    'nav.uye-fitness': 'Member Fitness',
+    'nav.antreyman-plani': 'Training Plan',
+    // Tourism
+    'nav.group.turizm': 'Tourism & Hospitality',
+    'nav.rezervasyon': 'Reservation',
+    'nav.oda-yonetimi': 'Room Management',
+    // Aviation
+    'nav.group.havacilik': 'Aviation',
+    'nav.ucus-yonetimi': 'Flight Management',
+    'nav.bakim-planlama-havac': 'Maintenance Planning'
   },
   ar: {
     'nav.dashboard': 'لوحة التحكم',
