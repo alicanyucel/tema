@@ -1026,7 +1026,203 @@ const TRANSLATIONS: Record<AppLanguage, TranslationMap> = {
     'erp.save': 'حفظ',
     'erp.addRecord': 'إضافة سجل جديد',
     'erp.editRecord': 'تعديل السجل',
-    'erp.viewRecord': 'تفاصيل السجل'
+    'erp.viewRecord': 'تفاصيل السجل',
+    // ذكاء الأعمال
+    'nav.group.is-zekasi': 'ذكاء الأعمال',
+    'nav.veri-madenciligi': 'تعدين البيانات',
+    'nav.raporlama-bi': 'التقارير وذكاء الأعمال',
+    // ERP المحمول
+    'nav.group.mobil-erp': 'ERP المحمول',
+    'nav.mobil-erp-yonetimi': 'إدارة ERP المحمول',
+    'nav.mobil-onay': 'الموافقة عبر الجوال',
+    // العمليات الدولية
+    'nav.group.uluslararasi': 'العمليات الدولية',
+    'nav.cok-para-birimi': 'متعدد العملات',
+    'nav.vergi-uyum': 'الامتثال الضريبي',
+    // الولاء
+    'nav.group.sadakat': 'الولاء والحملات',
+    'nav.sadakat-programi': 'برنامج الولاء',
+    'nav.kampanya-yonetimi-sadakat': 'إدارة الحملات',
+    // بوابة الموردين
+    'nav.group.tedarikci-portal': 'بوابة الموردين',
+    'nav.tedarikci-portal': 'بوابة الموردين',
+    'nav.tedarikci-teklifler': 'عروض الموردين',
+    // APS
+    'nav.group.aps': 'التخطيط والجدولة المتقدمة (APS)',
+    'nav.uretim-cizelge': 'جدولة الإنتاج',
+    'nav.kapasite-planlama': 'تخطيط الطاقة الإنتاجية',
+    // المخاطر والتأمين
+    'nav.group.risk-sigorta': 'المخاطر والتأمين',
+    'nav.risk-degerlendirme': 'تقييم المخاطر',
+    'nav.sigorta-yonetimi': 'إدارة التأمين',
+    // إدارة الطاقة
+    'nav.group.enerji': 'إدارة الطاقة',
+    'nav.enerji-tuketimi': 'استهلاك الطاقة',
+    'nav.kaynak-optimizasyon': 'تحسين الموارد',
+    // القانون والعقود
+    'nav.group.hukuk': 'القانون والعقود',
+    'nav.sozlesme-yonetimi': 'إدارة العقود',
+    'nav.hukuki-davalar': 'القضايا القانونية',
+    // الابتكار وريادة الأعمال
+    'nav.group.inovasyon-startup': 'الابتكار وريادة الأعمال',
+    'nav.startup-portfoy': 'محفظة الشركات الناشئة',
+    'nav.ar-ge-yonetimi': 'إدارة البحث والتطوير',
+    // ERP الاجتماعي
+    'nav.group.sosyal-erp': 'ERP الاجتماعي',
+    'nav.sosyal-medya-erp': 'وسائل التواصل الاجتماعي ERP',
+    'nav.calisma-akisi': 'تدفق العمل',
+    // الذكاء الاصطناعي ERP
+    'nav.group.ai-erp': 'الذكاء الاصطناعي ERP',
+    'nav.ai-tahminleme': 'التنبؤ بالذكاء الاصطناعي',
+    'nav.ai-optimizasyon': 'تحسين الذكاء الاصطناعي',
+    // تجربة العملاء
+    'nav.group.musteri-ux': 'تجربة العملاء (UX)',
+    'nav.ux-analitik': 'تحليل تجربة المستخدم',
+    'nav.deneyim-haritasi': 'خريطة التجربة',
+    // إنترنت الأشياء
+    'nav.group.iot': 'إدارة إنترنت الأشياء',
+    'nav.iot-cihazlar': 'أجهزة إنترنت الأشياء',
+    'nav.sensor-veri': 'بيانات الاستشعار',
+    // تعلم الآلة
+    'nav.group.ai-ml': 'تعلم الآلة',
+    'nav.ml-modeller': 'نماذج تعلم الآلة',
+    'nav.veri-etiketleme': 'تصنيف البيانات',
+    // بلوكشين
+    'nav.group.blockchain': 'بلوكشين',
+    'nav.akilli-sozlesmeler': 'العقود الذكية',
+    'nav.dijital-varlik': 'الأصول الرقمية',
+    // بوابة العملاء
+    'nav.group.musteri-portal': 'بوابة العملاء',
+    'nav.musteri-portal': 'بوابة العملاء',
+    'nav.self-servis': 'الخدمة الذاتية',
+    // ما بعد البيع
+    'nav.group.satis-sonrasi': 'ما بعد البيع',
+    'nav.satis-sonrasi-servis': 'خدمة ما بعد البيع',
+    'nav.yedek-parca': 'قطع الغيار',
+    // التسويق الرقمي
+    'nav.group.dijital-pazarlama': 'التسويق الرقمي',
+    'nav.dijital-kampanya': 'الحملة الرقمية',
+    'nav.sosyal-medya-dp': 'وسائل التواصل الاجتماعي',
+    // أمان البيانات
+    'nav.group.veri-guvenligi': 'أمان البيانات',
+    'nav.kvkk-uyum': 'امتثال حماية البيانات',
+    'nav.veri-siniflandirma': 'تصنيف البيانات',
+    // إدارة العمليات التجارية
+    'nav.group.bpm': 'إدارة العمليات التجارية (BPM)',
+    'nav.bpm-surec': 'عملية BPM',
+    'nav.otomasyon-izleme': 'مراقبة الأتمتة',
+    // الحلول القطاعية
+    'nav.group.sektörel': 'الحلول القطاعية',
+    'nav.sektor-modul': 'وحدة القطاع',
+    'nav.insaat-modulu': 'وحدة البناء',
+    // توقع الطلب
+    'nav.group.ai-tahmin': 'توقع الطلب بالذكاء الاصطناعي',
+    'nav.talep-tahmin-ai': 'توقع الطلب بالذكاء الاصطناعي',
+    'nav.fiyat-tahmin': 'توقع الأسعار',
+    // التوأم الرقمي
+    'nav.group.dijital-ikiz': 'التوأم الرقمي',
+    'nav.dijital-ikiz-sim': 'محاكاة التوأم الرقمي',
+    'nav.urun-ikiz': 'توأم المنتج',
+    // ESG
+    'nav.group.esg': 'ESG والاستدامة',
+    'nav.esg-rapor': 'تقرير ESG',
+    'nav.karbon-ayak-izi': 'البصمة الكربونية',
+    // أتمتة العمليات الروبوتية
+    'nav.group.rpa': 'أتمتة العمليات الروبوتية (RPA)',
+    'nav.rpa-botlar': 'روبوتات RPA',
+    'nav.rpa-surecleri': 'عمليات RPA',
+    // متعدد القنوات
+    'nav.group.omni-channel': 'متعدد القنوات',
+    'nav.omni-kanal': 'متعدد القنوات',
+    'nav.siparis-yonetimi-omni': 'إدارة الطلبات',
+    // الموارد البشرية بالذكاء الاصطناعي
+    'nav.group.ai-hr': 'الموارد البشرية بالذكاء الاصطناعي',
+    'nav.ai-hr-yetenek': 'إدارة المواهب بالذكاء الاصطناعي',
+    'nav.performans-ai': 'أداء الذكاء الاصطناعي',
+    // اللوجستيات الذكية
+    'nav.group.akilli-lojistik': 'اللوجستيات الذكية',
+    'nav.filo-yonetimi': 'إدارة الأسطول',
+    'nav.rota-optimizasyon': 'تحسين المسار',
+    // الخدمات المصرفية الرقمية
+    'nav.group.dijital-bankacilik': 'الخدمات المصرفية الرقمية',
+    'nav.banka-entegrasyon': 'تكامل البنك',
+    'nav.odeme-ag-gecigi': 'بوابة الدفع',
+    // الحكومة والتنظيم
+    'nav.group.kamu-regulasyon': 'الحكومة والتنظيم',
+    'nav.kamu-ihale': 'المشتريات الحكومية',
+    'nav.regulasyon-uyum': 'الامتثال التنظيمي',
+    // الصناعة 4.0
+    'nav.group.endustri40': 'الصناعة 4.0',
+    'nav.akilli-fabrika': 'المصنع الذكي',
+    'nav.cobotlar': 'الروبوتات التعاونية',
+    // المسؤولية الاجتماعية
+    'nav.group.csr': 'المسؤولية الاجتماعية للشركات',
+    'nav.gonulluler': 'المتطوعون',
+    'nav.bagis-yonetimi': 'إدارة التبرعات',
+    // التعليم والابتكار
+    'nav.group.egitim-inovasyon': 'التعليم والابتكار',
+    'nav.egitim-platform': 'منصة التعليم',
+    'nav.gamification': 'تحفيز الألعاب',
+    // مبيعات الذكاء الاصطناعي
+    'nav.group.ai-satis': 'مبيعات الذكاء الاصطناعي',
+    'nav.ai-satis-tahmini': 'توقع مبيعات الذكاء الاصطناعي',
+    'nav.musteri-skorlama': 'تسجيل نقاط العملاء',
+    // الواقع الافتراضي والمعزز
+    'nav.group.vr-ar': 'الواقع الافتراضي والمعزز',
+    'nav.vr-egitim': 'تدريب الواقع الافتراضي',
+    'nav.ar-bakim': 'صيانة الواقع المعزز',
+    // الأمن السيبراني
+    'nav.group.siber-guvenlik': 'الأمن السيبراني',
+    'nav.tehdit-merkezi': 'مركز التهديدات',
+    'nav.guvenlik-olaylari': 'الحوادث الأمنية',
+    // الاتصال الرقمي
+    'nav.group.dijital-iletisim': 'الاتصال الرقمي',
+    'nav.isbirligi-araclari': 'أدوات التعاون',
+    'nav.video-konferans': 'مؤتمر الفيديو',
+    // الطاقة الذكية
+    'nav.group.akilli-enerji': 'الطاقة الذكية',
+    'nav.enerji-panel': 'لوحة الطاقة',
+    'nav.sari-yonetimi': 'إدارة الشحن',
+    // عمليات الجمارك
+    'nav.group.gumruk': 'عمليات الجمارك',
+    'nav.gumruk-beyan': 'التصريح الجمركي',
+    'nav.ithalat-ihracat': 'الاستيراد والتصدير',
+    // خدمات العملاء بالذكاء الاصطناعي
+    'nav.group.ai-musteri': 'خدمات العملاء بالذكاء الاصطناعي',
+    'nav.chatbot-musteri': 'روبوت محادثة العملاء',
+    'nav.duygu-analizi': 'تحليل المشاعر',
+    // الصحة الرقمية
+    'nav.group.dijital-saglik': 'الصحة الرقمية',
+    'nav.saglik-takip': 'تتبع الصحة',
+    'nav.wellbeing-programi': 'برنامج العافية',
+    // ERP الزراعة
+    'nav.group.tarim-erp': 'ERP الزراعة',
+    'nav.tarim-arazi': 'الزراعة والأراضي',
+    'nav.hasat-planlama': 'تخطيط الحصاد',
+    // المدينة الذكية
+    'nav.group.akilli-sehir': 'المدينة الذكية',
+    'nav.sehir-hizmetleri': 'خدمات المدينة',
+    'nav.altyapi-yonetimi': 'إدارة البنية التحتية',
+    // التكنولوجيا المالية
+    'nav.group.fintech': 'التكنولوجيا المالية',
+    'nav.kripto-fintech': 'التشفير المالي',
+    'nav.mikro-finans': 'التمويل الأصغر',
+    // الثقافة والفنون
+    'nav.group.kultur-sanat': 'الثقافة والفنون',
+    'nav.etkinlik-yonetimi': 'إدارة الفعاليات',
+    'nav.koleksiyon-yonetimi': 'إدارة المجموعات',
+    // الرياضة واللياقة البدنية
+    'nav.group.spor-fitness': 'الرياضة واللياقة البدنية',
+    'nav.uye-fitness': 'لياقة الأعضاء',
+    'nav.antreyman-plani': 'خطة التدريب',
+    // السياحة والضيافة
+    'nav.group.turizm': 'السياحة والضيافة',
+    'nav.rezervasyon': 'الحجز',
+    'nav.oda-yonetimi': 'إدارة الغرف',
+    // الطيران
+    'nav.group.havacilik': 'الطيران',
+    'nav.ucus-yonetimi': 'إدارة الرحلات',
+    'nav.bakim-planlama-havac': 'تخطيط الصيانة'
   }
 };
 
