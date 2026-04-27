@@ -36,6 +36,38 @@ import { KpiTakibiComponent } from './pages/erp/analitik/kpi-takibi.component';
 import { YetkilendirmeComponent } from './pages/erp/uyum/yetkilendirme.component';
 import { DenetimIzleriComponent } from './pages/erp/uyum/denetim-izleri.component';
 
+import { BelgeArsivlemeComponent } from './pages/erp/dokuman/belge-arsivleme.component';
+import { VersiyonKontrolComponent } from './pages/erp/dokuman/versiyon-kontrol.component';
+import { ElektronikImzaComponent } from './pages/erp/dokuman/elektronik-imza.component';
+import { IsoUyumComponent } from './pages/erp/kalite/iso-uyum.component';
+import { DenetimSertifikasyonComponent } from './pages/erp/kalite/denetim-sertifikasyon.component';
+import { SurekliIyilestirmeComponent } from './pages/erp/kalite/surekli-iyilestirme.component';
+import { IsSagligiGuvenligiComponent } from './pages/erp/ehs/is-sagligi-guvenligi.component';
+import { CevreselEtkiComponent } from './pages/erp/ehs/cevresel-etki.component';
+import { RiskYonetimiComponent } from './pages/erp/ehs/risk-yonetimi.component';
+import { UrunTasarimiComponent } from './pages/erp/plm/urun-tasarimi.component';
+import { PlmVersiyonlamaComponent } from './pages/erp/plm/versiyonlama.component';
+import { UrunGelistirmeComponent } from './pages/erp/plm/urun-gelistirme.component';
+import { TalepTahminiComponent } from './pages/erp/scm/talep-tahmini.component';
+import { LojistikOptimizasyonComponent } from './pages/erp/scm/lojistik-optimizasyon.component';
+import { TedarikciPerformansComponent } from './pages/erp/scm/tedarikci-performans.component';
+import { CagriMerkeziComponent } from './pages/erp/musteri-destek/cagri-merkezi.component';
+import { TicketYonetimiComponent } from './pages/erp/musteri-destek/ticket-yonetimi.component';
+import { ChatbotAiComponent } from './pages/erp/musteri-destek/chatbot-ai.component';
+import { EFaturaComponent } from './pages/erp/efatura/e-fatura.component';
+import { EArsivComponent } from './pages/erp/efatura/e-arsiv.component';
+import { EIrsaliyeComponent } from './pages/erp/efatura/e-irsaliye.component';
+import { EMutabakatComponent } from './pages/erp/efatura/e-mutabakat.component';
+import { OnlineBankaComponent } from './pages/erp/odeme/online-banka.component';
+import { SanalPosComponent } from './pages/erp/odeme/sanal-pos.component';
+import { OtomatikTahsilatComponent } from './pages/erp/odeme/otomatik-tahsilat.component';
+import { CalisanEgitimiComponent } from './pages/erp/lms/calisan-egitimi.component';
+import { SertifikaTakibiComponent } from './pages/erp/lms/sertifika-takibi.component';
+import { OnlineEgitimComponent } from './pages/erp/lms/online-egitim.component';
+import { OneriSistemiComponent } from './pages/erp/inovasyon/oneri-sistemi.component';
+import { InovasyonProjeleriComponent } from './pages/erp/inovasyon/inovasyon-projeleri.component';
+import { DegerlendirmeOdullendirmeComponent } from './pages/erp/inovasyon/degerlendirme-odullendirme.component';
+
 export const routes: Routes = [
 	{ path: '', pathMatch: 'full', redirectTo: 'dashboard' },
 	{ path: 'dashboard', component: DashboardPageComponent },
@@ -73,5 +105,36 @@ export const routes: Routes = [
 	{ path: 'erp/analitik/kpi-takibi', component: KpiTakibiComponent },
 	{ path: 'erp/uyum/yetkilendirme', component: YetkilendirmeComponent },
 	{ path: 'erp/uyum/denetim-izleri', component: DenetimIzleriComponent },
+	{ path: 'erp/dokuman/belge-arsivleme', component: BelgeArsivlemeComponent },
+	{ path: 'erp/dokuman/versiyon-kontrol', component: VersiyonKontrolComponent },
+	{ path: 'erp/dokuman/elektronik-imza', component: ElektronikImzaComponent },
+	{ path: 'erp/kalite/iso-uyum', component: IsoUyumComponent },
+	{ path: 'erp/kalite/denetim-sertifikasyon', component: DenetimSertifikasyonComponent },
+	{ path: 'erp/kalite/surekli-iyilestirme', component: SurekliIyilestirmeComponent },
+	{ path: 'erp/ehs/is-sagligi-guvenligi', component: IsSagligiGuvenligiComponent },
+	{ path: 'erp/ehs/cevresel-etki', component: CevreselEtkiComponent },
+	{ path: 'erp/ehs/risk-yonetimi', component: RiskYonetimiComponent },
+	{ path: 'erp/plm/urun-tasarimi', component: UrunTasarimiComponent },
+	{ path: 'erp/plm/versiyonlama', component: PlmVersiyonlamaComponent },
+	{ path: 'erp/plm/urun-gelistirme', component: UrunGelistirmeComponent },
+	{ path: 'erp/scm/talep-tahmini', component: TalepTahminiComponent },
+	{ path: 'erp/scm/lojistik-optimizasyon', component: LojistikOptimizasyonComponent },
+	{ path: 'erp/scm/tedarikci-performans', component: TedarikciPerformansComponent },
+	{ path: 'erp/musteri-destek/cagri-merkezi', component: CagriMerkeziComponent },
+	{ path: 'erp/musteri-destek/ticket-yonetimi', component: TicketYonetimiComponent },
+	{ path: 'erp/musteri-destek/chatbot-ai', component: ChatbotAiComponent },
+	{ path: 'erp/efatura/e-fatura', component: EFaturaComponent },
+	{ path: 'erp/efatura/e-arsiv', component: EArsivComponent },
+	{ path: 'erp/efatura/e-irsaliye', component: EIrsaliyeComponent },
+	{ path: 'erp/efatura/e-mutabakat', component: EMutabakatComponent },
+	{ path: 'erp/odeme/online-banka', component: OnlineBankaComponent },
+	{ path: 'erp/odeme/sanal-pos', component: SanalPosComponent },
+	{ path: 'erp/odeme/otomatik-tahsilat', component: OtomatikTahsilatComponent },
+	{ path: 'erp/lms/calisan-egitimi', component: CalisanEgitimiComponent },
+	{ path: 'erp/lms/sertifika-takibi', component: SertifikaTakibiComponent },
+	{ path: 'erp/lms/online-egitim', component: OnlineEgitimComponent },
+	{ path: 'erp/inovasyon/oneri-sistemi', component: OneriSistemiComponent },
+	{ path: 'erp/inovasyon/inovasyon-projeleri', component: InovasyonProjeleriComponent },
+	{ path: 'erp/inovasyon/degerlendirme-odullendirme', component: DegerlendirmeOdullendirmeComponent },
 	{ path: '**', redirectTo: 'dashboard' }
 ];

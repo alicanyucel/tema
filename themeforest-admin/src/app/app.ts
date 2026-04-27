@@ -121,6 +121,57 @@ export class App {
       { key: 'nav.yetkilendirme', route: '/erp/uyum/yetkilendirme' },
       { key: 'nav.denetim-izleri', route: '/erp/uyum/denetim-izleri' },
     ]},
+    { key: 'nav.group.dokuman', icon: 'folder', children: [
+      { key: 'nav.belge-arsivleme', route: '/erp/dokuman/belge-arsivleme' },
+      { key: 'nav.versiyon-kontrol', route: '/erp/dokuman/versiyon-kontrol' },
+      { key: 'nav.elektronik-imza', route: '/erp/dokuman/elektronik-imza' },
+    ]},
+    { key: 'nav.group.kalite', icon: 'verified', children: [
+      { key: 'nav.iso-uyum', route: '/erp/kalite/iso-uyum' },
+      { key: 'nav.denetim-sertifikasyon', route: '/erp/kalite/denetim-sertifikasyon' },
+      { key: 'nav.surekli-iyilestirme', route: '/erp/kalite/surekli-iyilestirme' },
+    ]},
+    { key: 'nav.group.ehs', icon: 'health_and_safety', children: [
+      { key: 'nav.is-sagligi-guvenligi', route: '/erp/ehs/is-sagligi-guvenligi' },
+      { key: 'nav.cevresel-etki', route: '/erp/ehs/cevresel-etki' },
+      { key: 'nav.risk-yonetimi', route: '/erp/ehs/risk-yonetimi' },
+    ]},
+    { key: 'nav.group.plm', icon: 'precision_manufacturing', children: [
+      { key: 'nav.urun-tasarimi', route: '/erp/plm/urun-tasarimi' },
+      { key: 'nav.plm-versiyonlama', route: '/erp/plm/versiyonlama' },
+      { key: 'nav.urun-gelistirme', route: '/erp/plm/urun-gelistirme' },
+    ]},
+    { key: 'nav.group.scm', icon: 'local_shipping', children: [
+      { key: 'nav.talep-tahmini', route: '/erp/scm/talep-tahmini' },
+      { key: 'nav.lojistik-optimizasyon', route: '/erp/scm/lojistik-optimizasyon' },
+      { key: 'nav.tedarikci-performans', route: '/erp/scm/tedarikci-performans' },
+    ]},
+    { key: 'nav.group.musteri-destek', icon: 'support_agent', children: [
+      { key: 'nav.cagri-merkezi', route: '/erp/musteri-destek/cagri-merkezi' },
+      { key: 'nav.ticket-yonetimi', route: '/erp/musteri-destek/ticket-yonetimi' },
+      { key: 'nav.chatbot-ai', route: '/erp/musteri-destek/chatbot-ai' },
+    ]},
+    { key: 'nav.group.efatura', icon: 'receipt', children: [
+      { key: 'nav.e-fatura', route: '/erp/efatura/e-fatura' },
+      { key: 'nav.e-arsiv', route: '/erp/efatura/e-arsiv' },
+      { key: 'nav.e-irsaliye', route: '/erp/efatura/e-irsaliye' },
+      { key: 'nav.e-mutabakat', route: '/erp/efatura/e-mutabakat' },
+    ]},
+    { key: 'nav.group.odeme', icon: 'payments', children: [
+      { key: 'nav.online-banka', route: '/erp/odeme/online-banka' },
+      { key: 'nav.sanal-pos', route: '/erp/odeme/sanal-pos' },
+      { key: 'nav.otomatik-tahsilat', route: '/erp/odeme/otomatik-tahsilat' },
+    ]},
+    { key: 'nav.group.lms', icon: 'school', children: [
+      { key: 'nav.calisan-egitimi', route: '/erp/lms/calisan-egitimi' },
+      { key: 'nav.sertifika-takibi', route: '/erp/lms/sertifika-takibi' },
+      { key: 'nav.online-egitim', route: '/erp/lms/online-egitim' },
+    ]},
+    { key: 'nav.group.inovasyon', icon: 'lightbulb', children: [
+      { key: 'nav.oneri-sistemi', route: '/erp/inovasyon/oneri-sistemi' },
+      { key: 'nav.inovasyon-projeleri', route: '/erp/inovasyon/inovasyon-projeleri' },
+      { key: 'nav.degerlendirme-odullendirme', route: '/erp/inovasyon/degerlendirme-odullendirme' },
+    ]},
   ];
   protected readonly fontSizeOptions: FontSizeOption[] = [
     { label: 'Kompakt', scale: 0.93 },
@@ -189,6 +240,47 @@ export class App {
       // Uyum
       { label: t('nav.yetkilendirme'),        hint: t('nav.group.uyum'),                route: '/erp/uyum/yetkilendirme' },
       { label: t('nav.denetim-izleri'),       hint: t('nav.group.uyum'),                route: '/erp/uyum/denetim-izleri' },
+      // Doküman
+      { label: t('nav.belge-arsivleme'),       hint: t('nav.group.dokuman'),             route: '/erp/dokuman/belge-arsivleme' },
+      { label: t('nav.versiyon-kontrol'),      hint: t('nav.group.dokuman'),             route: '/erp/dokuman/versiyon-kontrol' },
+      { label: t('nav.elektronik-imza'),       hint: t('nav.group.dokuman'),             route: '/erp/dokuman/elektronik-imza' },
+      // Kalite
+      { label: t('nav.iso-uyum'),              hint: t('nav.group.kalite'),              route: '/erp/kalite/iso-uyum' },
+      { label: t('nav.denetim-sertifikasyon'), hint: t('nav.group.kalite'),              route: '/erp/kalite/denetim-sertifikasyon' },
+      { label: t('nav.surekli-iyilestirme'),   hint: t('nav.group.kalite'),              route: '/erp/kalite/surekli-iyilestirme' },
+      // EHS
+      { label: t('nav.is-sagligi-guvenligi'),  hint: t('nav.group.ehs'),                route: '/erp/ehs/is-sagligi-guvenligi' },
+      { label: t('nav.cevresel-etki'),         hint: t('nav.group.ehs'),                route: '/erp/ehs/cevresel-etki' },
+      { label: t('nav.risk-yonetimi'),         hint: t('nav.group.ehs'),                route: '/erp/ehs/risk-yonetimi' },
+      // PLM
+      { label: t('nav.urun-tasarimi'),         hint: t('nav.group.plm'),                route: '/erp/plm/urun-tasarimi' },
+      { label: t('nav.plm-versiyonlama'),      hint: t('nav.group.plm'),                route: '/erp/plm/versiyonlama' },
+      { label: t('nav.urun-gelistirme'),       hint: t('nav.group.plm'),                route: '/erp/plm/urun-gelistirme' },
+      // SCM
+      { label: t('nav.talep-tahmini'),         hint: t('nav.group.scm'),                route: '/erp/scm/talep-tahmini' },
+      { label: t('nav.lojistik-optimizasyon'), hint: t('nav.group.scm'),                route: '/erp/scm/lojistik-optimizasyon' },
+      { label: t('nav.tedarikci-performans'),  hint: t('nav.group.scm'),                route: '/erp/scm/tedarikci-performans' },
+      // Müşteri Destek
+      { label: t('nav.cagri-merkezi'),         hint: t('nav.group.musteri-destek'),     route: '/erp/musteri-destek/cagri-merkezi' },
+      { label: t('nav.ticket-yonetimi'),       hint: t('nav.group.musteri-destek'),     route: '/erp/musteri-destek/ticket-yonetimi' },
+      { label: t('nav.chatbot-ai'),            hint: t('nav.group.musteri-destek'),     route: '/erp/musteri-destek/chatbot-ai' },
+      // E-Fatura
+      { label: t('nav.e-fatura'),              hint: t('nav.group.efatura'),            route: '/erp/efatura/e-fatura' },
+      { label: t('nav.e-arsiv'),               hint: t('nav.group.efatura'),            route: '/erp/efatura/e-arsiv' },
+      { label: t('nav.e-irsaliye'),            hint: t('nav.group.efatura'),            route: '/erp/efatura/e-irsaliye' },
+      { label: t('nav.e-mutabakat'),           hint: t('nav.group.efatura'),            route: '/erp/efatura/e-mutabakat' },
+      // Ödeme
+      { label: t('nav.online-banka'),          hint: t('nav.group.odeme'),              route: '/erp/odeme/online-banka' },
+      { label: t('nav.sanal-pos'),             hint: t('nav.group.odeme'),              route: '/erp/odeme/sanal-pos' },
+      { label: t('nav.otomatik-tahsilat'),     hint: t('nav.group.odeme'),              route: '/erp/odeme/otomatik-tahsilat' },
+      // LMS
+      { label: t('nav.calisan-egitimi'),       hint: t('nav.group.lms'),                route: '/erp/lms/calisan-egitimi' },
+      { label: t('nav.sertifika-takibi'),      hint: t('nav.group.lms'),                route: '/erp/lms/sertifika-takibi' },
+      { label: t('nav.online-egitim'),         hint: t('nav.group.lms'),                route: '/erp/lms/online-egitim' },
+      // İnovasyon
+      { label: t('nav.oneri-sistemi'),             hint: t('nav.group.inovasyon'),      route: '/erp/inovasyon/oneri-sistemi' },
+      { label: t('nav.inovasyon-projeleri'),        hint: t('nav.group.inovasyon'),      route: '/erp/inovasyon/inovasyon-projeleri' },
+      { label: t('nav.degerlendirme-odullendirme'), hint: t('nav.group.inovasyon'),      route: '/erp/inovasyon/degerlendirme-odullendirme' },
     ];
   });
 
