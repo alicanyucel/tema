@@ -1,6 +1,8 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, computed, effect, inject, signal } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { InboxModalComponent } from './shared/inbox-modal.component';
 import { ModuleSelectionService } from './module-selection.service';
 
 export interface NavGroup {
@@ -63,6 +65,7 @@ interface FontSizeOption {
 })
 export class App {
   private readonly router = inject(Router);
+  private readonly dialog = inject(MatDialog);
   private readonly document = inject(DOCUMENT);
   protected readonly i18n = inject(I18nService);
   protected readonly moduleSelection = inject(ModuleSelectionService);
@@ -384,6 +387,11 @@ export class App {
       { key: 'nav.yem-yonetimi', route: '/erp/hayvancilik/yem-yonetimi' },
       { key: 'nav.saglik-asi', route: '/erp/hayvancilik/saglik-asi' },
     ]},
+    { key: 'nav.group.email-yonetimi', icon: 'mail', children: [
+      { key: 'nav.gelen-kutusu', route: '/erp/email-yonetimi/gelen-kutusu' },
+      { key: 'nav.mail-gonderim', route: '/erp/email-yonetimi/mail-gonderim' },
+      { key: 'nav.spam-engellenen', route: '/erp/email-yonetimi/spam-engellenen' },
+    ]},
   ];
 
   protected readonly visibleNavGroups = computed(() =>
@@ -656,6 +664,10 @@ export class App {
       { label: t('nav.hayvan-takip'),          hint: t('nav.group.hayvancilik'),         route: '/erp/hayvancilik/hayvan-takip' },
       { label: t('nav.yem-yonetimi'),          hint: t('nav.group.hayvancilik'),         route: '/erp/hayvancilik/yem-yonetimi' },
       { label: t('nav.saglik-asi'),            hint: t('nav.group.hayvancilik'),         route: '/erp/hayvancilik/saglik-asi' },
+      // Email Yönetimi
+      { label: t('nav.gelen-kutusu'),          hint: t('nav.group.email-yonetimi'),      route: '/erp/email-yonetimi/gelen-kutusu' },
+      { label: t('nav.mail-gonderim'),         hint: t('nav.group.email-yonetimi'),      route: '/erp/email-yonetimi/mail-gonderim' },
+      { label: t('nav.spam-engellenen'),       hint: t('nav.group.email-yonetimi'),      route: '/erp/email-yonetimi/spam-engellenen' },
     ];
   });
 
@@ -789,11 +801,44 @@ export class App {
   }
 
   protected openAllNotifications(): void {
-    this.router.navigateByUrl('/siparisler');
+    this.openNotificationsPanel();
   }
 
   protected openAllMessages(): void {
-    this.router.navigateByUrl('/dashboard');
+    this.openMessagesPanel();
+  }
+
+  protected openNotificationsPanel(): void {
+    this.dialog.open(InboxModalComponent, {
+      maxWidth: '96vw',
+      data: {
+        type: 'notification',
+        title: this.i18n.t('shell.notifications'),
+        items: this.notifications().map((item) => ({
+          title: item.title,
+          detail: item.detail,
+          time: item.time,
+          unread: item.unread
+        }))
+      }
+    });
+  }
+
+  protected openMessagesPanel(): void {
+    this.dialog.open(InboxModalComponent, {
+      maxWidth: '96vw',
+      data: {
+        type: 'message',
+        title: this.i18n.t('shell.messages'),
+        items: this.messages().map((item) => ({
+          title: item.from,
+          from: item.from,
+          detail: item.text,
+          time: item.time,
+          unread: item.unread
+        }))
+      }
+    });
   }
 
   private getInitialThemeMode(): boolean {
