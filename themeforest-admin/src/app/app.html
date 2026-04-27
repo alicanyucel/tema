@@ -101,7 +101,7 @@
         aria-label="Bildirimler"
         [matBadge]="notificationBadge()"
         matBadgeColor="warn"
-        [matMenuTriggerFor]="notificationsMenu"
+        (click)="openNotificationsPanel()"
       >
         <mat-icon>notifications</mat-icon>
       </button>
@@ -110,7 +110,7 @@
         aria-label="Mesajlar"
         [matBadge]="messageBadge()"
         matBadgeColor="accent"
-        [matMenuTriggerFor]="messagesMenu"
+        (click)="openMessagesPanel()"
       >
         <mat-icon>chat</mat-icon>
       </button>
@@ -123,46 +123,6 @@
         </div>
       </div>
     </mat-toolbar>
-
-    <mat-menu #notificationsMenu="matMenu" class="toolbar-menu">
-      <div class="menu-header">{{ i18n.t('shell.notifications') }}</div>
-      @for (item of notifications(); track item.title + item.time) {
-        <button mat-menu-item class="menu-entry">
-          <div>
-            <strong>{{ item.title }}</strong>
-            <small>{{ item.detail }}</small>
-            <span>{{ item.time }}</span>
-          </div>
-          @if (item.unread) {
-            <em class="dot"></em>
-          }
-        </button>
-      }
-      <div class="menu-actions">
-        <button mat-button (click)="markAllNotificationsRead()">{{ i18n.t('shell.markAllRead') }}</button>
-        <button mat-button (click)="openAllNotifications()">{{ i18n.t('shell.viewAll') }}</button>
-      </div>
-    </mat-menu>
-
-    <mat-menu #messagesMenu="matMenu" class="toolbar-menu">
-      <div class="menu-header">{{ i18n.t('shell.messages') }}</div>
-      @for (message of messages(); track message.from + message.time) {
-        <button mat-menu-item class="menu-entry">
-          <div>
-            <strong>{{ message.from }}</strong>
-            <small>{{ message.text }}</small>
-            <span>{{ message.time }}</span>
-          </div>
-          @if (message.unread) {
-            <em class="dot"></em>
-          }
-        </button>
-      }
-      <div class="menu-actions">
-        <button mat-button (click)="markAllMessagesRead()">{{ i18n.t('shell.markAllRead') }}</button>
-        <button mat-button (click)="openAllMessages()">{{ i18n.t('shell.viewAll') }}</button>
-      </div>
-    </mat-menu>
 
     <mat-menu #fontSizeMenu="matMenu">
       <div class="menu-header">{{ i18n.t('shell.fontSize') }}</div>

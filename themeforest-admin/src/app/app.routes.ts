@@ -174,6 +174,9 @@ import { AmortismanComponent } from './pages/erp/demirbaslar/amortisman.componen
 import { HayvanTakipComponent } from './pages/erp/hayvancilik/hayvan-takip.component';
 import { YemYonetimiComponent } from './pages/erp/hayvancilik/yem-yonetimi.component';
 import { SaglikAsiComponent } from './pages/erp/hayvancilik/saglik-asi.component';
+import { GelenKutusuComponent } from './pages/erp/email-yonetimi/gelen-kutusu.component';
+import { MailGonderimComponent } from './pages/erp/email-yonetimi/mail-gonderim.component';
+import { SpamEngellenenComponent } from './pages/erp/email-yonetimi/spam-engellenen.component';
 
 export const routes: Routes = [
 	{ path: '', pathMatch: 'full', redirectTo: 'dashboard' },
@@ -349,5 +352,8 @@ export const routes: Routes = [
 	{ path: 'erp/hayvancilik/hayvan-takip', component: HayvanTakipComponent },
 	{ path: 'erp/hayvancilik/yem-yonetimi', component: YemYonetimiComponent },
 	{ path: 'erp/hayvancilik/saglik-asi', component: SaglikAsiComponent },
+	{ path: 'erp/email-yonetimi/gelen-kutusu', component: GelenKutusuComponent },
+	{ path: 'erp/email-yonetimi/mail-gonderim', component: MailGonderimComponent },
+	{ path: 'erp/email-yonetimi/spam-engellenen', component: SpamEngellenenComponent },
 	{ path: '**', redirectTo: 'dashboard' }
 ];
