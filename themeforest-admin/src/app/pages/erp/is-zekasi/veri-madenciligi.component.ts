@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ErpCrudComponent, ErpColumn, ErpField } from '../../../shared/erp-crud/erp-crud.component';
 @Component({ selector: 'app-veri-madenciligi', standalone: true, imports: [ErpCrudComponent],
   template: `<app-erp-crud title="Veri Madenciliği" subtitle="Büyük veri analizi ve veri madenciliği işlemleri" [columns]="cols" [fields]="fields" [initialData]="data" />` })
-export class VeriMadenciIigiComponent {
+export class VeriMadenciligiComponent {
   cols: ErpColumn[] = [
     { key: 'analizAdi', label: 'Analiz Adı' }, { key: 'veriKaynagi', label: 'Veri Kaynağı' },
     { key: 'kayitSayisi', label: 'Kayıt Sayısı' }, { key: 'tarih', label: 'Tarih' }, { key: 'durum', label: 'Durum', type: 'badge' }];
