@@ -172,6 +172,202 @@ export class App {
       { key: 'nav.inovasyon-projeleri', route: '/erp/inovasyon/inovasyon-projeleri' },
       { key: 'nav.degerlendirme-odullendirme', route: '/erp/inovasyon/degerlendirme-odullendirme' },
     ]},
+    { key: 'nav.group.is-zekasi', icon: 'analytics', children: [
+      { key: 'nav.veri-madenciligi', route: '/erp/is-zekasi/veri-madenciligi' },
+      { key: 'nav.raporlama-bi', route: '/erp/is-zekasi/raporlama-bi' },
+    ]},
+    { key: 'nav.group.mobil-erp', icon: 'smartphone', children: [
+      { key: 'nav.mobil-erp-yonetimi', route: '/erp/mobil-erp/mobil-erp-yonetimi' },
+      { key: 'nav.mobil-onay', route: '/erp/mobil-erp/mobil-onay' },
+    ]},
+    { key: 'nav.group.uluslararasi', icon: 'public', children: [
+      { key: 'nav.cok-para-birimi', route: '/erp/uluslararasi/cok-para-birimi' },
+      { key: 'nav.vergi-uyum', route: '/erp/uluslararasi/vergi-uyum' },
+    ]},
+    { key: 'nav.group.sadakat', icon: 'loyalty', children: [
+      { key: 'nav.sadakat-programi', route: '/erp/sadakat/sadakat-programi' },
+      { key: 'nav.kampanya-yonetimi-sadakat', route: '/erp/sadakat/kampanya-yonetimi' },
+    ]},
+    { key: 'nav.group.tedarikci-portal', icon: 'store', children: [
+      { key: 'nav.tedarikci-portal', route: '/erp/tedarikci-portal/tedarikci-portal' },
+      { key: 'nav.tedarikci-teklifler', route: '/erp/tedarikci-portal/tedarikci-teklifler' },
+    ]},
+    { key: 'nav.group.aps', icon: 'schedule', children: [
+      { key: 'nav.uretim-cizelge', route: '/erp/aps/uretim-cizelge' },
+      { key: 'nav.kapasite-planlama', route: '/erp/aps/kapasite-planlama' },
+    ]},
+    { key: 'nav.group.risk-sigorta', icon: 'shield', children: [
+      { key: 'nav.risk-degerlendirme', route: '/erp/risk-sigorta/risk-degerlendirme' },
+      { key: 'nav.sigorta-yonetimi', route: '/erp/risk-sigorta/sigorta-yonetimi' },
+    ]},
+    { key: 'nav.group.enerji', icon: 'bolt', children: [
+      { key: 'nav.enerji-tuketimi', route: '/erp/enerji/enerji-tuketimi' },
+      { key: 'nav.kaynak-optimizasyon', route: '/erp/enerji/kaynak-optimizasyon' },
+    ]},
+    { key: 'nav.group.hukuk', icon: 'gavel', children: [
+      { key: 'nav.sozlesme-yonetimi', route: '/erp/hukuk/sozlesme-yonetimi' },
+      { key: 'nav.hukuki-davalar', route: '/erp/hukuk/hukuki-davalar' },
+    ]},
+    { key: 'nav.group.inovasyon-startup', icon: 'rocket_launch', children: [
+      { key: 'nav.startup-portfoy', route: '/erp/inovasyon-startup/startup-portfoy' },
+      { key: 'nav.ar-ge-yonetimi', route: '/erp/inovasyon-startup/ar-ge-yonetimi' },
+    ]},
+    { key: 'nav.group.sosyal-erp', icon: 'groups', children: [
+      { key: 'nav.sosyal-medya-erp', route: '/erp/sosyal-erp/sosyal-medya' },
+      { key: 'nav.calisma-akisi', route: '/erp/sosyal-erp/calisma-akisi' },
+    ]},
+    { key: 'nav.group.ai-erp', icon: 'smart_toy', children: [
+      { key: 'nav.ai-tahminleme', route: '/erp/ai-erp/ai-tahminleme' },
+      { key: 'nav.ai-optimizasyon', route: '/erp/ai-erp/ai-optimizasyon' },
+    ]},
+    { key: 'nav.group.musteri-ux', icon: 'touch_app', children: [
+      { key: 'nav.ux-analitik', route: '/erp/musteri-ux/ux-analitik' },
+      { key: 'nav.deneyim-haritasi', route: '/erp/musteri-ux/deneyim-haritasi' },
+    ]},
+    { key: 'nav.group.iot', icon: 'device_hub', children: [
+      { key: 'nav.iot-cihazlar', route: '/erp/iot/iot-cihazlar' },
+      { key: 'nav.sensor-veri', route: '/erp/iot/sensor-veri' },
+    ]},
+    { key: 'nav.group.ai-ml', icon: 'psychology', children: [
+      { key: 'nav.ml-modeller', route: '/erp/ai-ml/ml-modeller' },
+      { key: 'nav.veri-etiketleme', route: '/erp/ai-ml/veri-etiketleme' },
+    ]},
+    { key: 'nav.group.blockchain', icon: 'link', children: [
+      { key: 'nav.akilli-sozlesmeler', route: '/erp/blockchain/akilli-sozlesmeler' },
+      { key: 'nav.dijital-varlik', route: '/erp/blockchain/dijital-varlik' },
+    ]},
+    { key: 'nav.group.musteri-portal', icon: 'person', children: [
+      { key: 'nav.musteri-portal', route: '/erp/musteri-portal/musteri-portal' },
+      { key: 'nav.self-servis', route: '/erp/musteri-portal/self-servis' },
+    ]},
+    { key: 'nav.group.satis-sonrasi', icon: 'build_circle', children: [
+      { key: 'nav.satis-sonrasi-servis', route: '/erp/satis-sonrasi/satis-sonrasi-servis' },
+      { key: 'nav.yedek-parca', route: '/erp/satis-sonrasi/yedek-parca' },
+    ]},
+    { key: 'nav.group.dijital-pazarlama', icon: 'campaign', children: [
+      { key: 'nav.dijital-kampanya', route: '/erp/dijital-pazarlama/dijital-kampanya' },
+      { key: 'nav.sosyal-medya-dp', route: '/erp/dijital-pazarlama/sosyal-medya' },
+    ]},
+    { key: 'nav.group.veri-guvenligi', icon: 'lock', children: [
+      { key: 'nav.kvkk-uyum', route: '/erp/veri-guvenligi/kvkk-uyum' },
+      { key: 'nav.veri-siniflandirma', route: '/erp/veri-guvenligi/veri-siniflandirma' },
+    ]},
+    { key: 'nav.group.bpm', icon: 'account_tree', children: [
+      { key: 'nav.bpm-surec', route: '/erp/bpm/bpm-surec' },
+      { key: 'nav.otomasyon-izleme', route: '/erp/bpm/otomasyon-izleme' },
+    ]},
+    { key: 'nav.group.sektörel', icon: 'category', children: [
+      { key: 'nav.sektor-modul', route: '/erp/sektörel/sektor-modul' },
+      { key: 'nav.insaat-modulu', route: '/erp/sektörel/insaat-modulu' },
+    ]},
+    { key: 'nav.group.ai-tahmin', icon: 'trending_up', children: [
+      { key: 'nav.talep-tahmin-ai', route: '/erp/ai-tahmin/talep-tahmin-ai' },
+      { key: 'nav.fiyat-tahmin', route: '/erp/ai-tahmin/fiyat-tahmin' },
+    ]},
+    { key: 'nav.group.dijital-ikiz', icon: 'content_copy', children: [
+      { key: 'nav.dijital-ikiz-sim', route: '/erp/dijital-ikiz/dijital-ikiz-sim' },
+      { key: 'nav.urun-ikiz', route: '/erp/dijital-ikiz/urun-ikiz' },
+    ]},
+    { key: 'nav.group.esg', icon: 'eco', children: [
+      { key: 'nav.esg-rapor', route: '/erp/esg/esg-rapor' },
+      { key: 'nav.karbon-ayak-izi', route: '/erp/esg/karbon-ayak-izi' },
+    ]},
+    { key: 'nav.group.rpa', icon: 'precision_manufacturing', children: [
+      { key: 'nav.rpa-botlar', route: '/erp/rpa/rpa-botlar' },
+      { key: 'nav.rpa-surecleri', route: '/erp/rpa/rpa-surecleri' },
+    ]},
+    { key: 'nav.group.omni-channel', icon: 'shopping_cart', children: [
+      { key: 'nav.omni-kanal', route: '/erp/omni-channel/omni-kanal' },
+      { key: 'nav.siparis-yonetimi-omni', route: '/erp/omni-channel/siparis-yonetimi' },
+    ]},
+    { key: 'nav.group.ai-hr', icon: 'people', children: [
+      { key: 'nav.ai-hr-yetenek', route: '/erp/ai-hr/ai-hr-yetenek' },
+      { key: 'nav.performans-ai', route: '/erp/ai-hr/performans-ai' },
+    ]},
+    { key: 'nav.group.akilli-lojistik', icon: 'local_shipping', children: [
+      { key: 'nav.filo-yonetimi', route: '/erp/akilli-lojistik/filo-yonetimi' },
+      { key: 'nav.rota-optimizasyon', route: '/erp/akilli-lojistik/rota-optimizasyon' },
+    ]},
+    { key: 'nav.group.dijital-bankacilik', icon: 'account_balance', children: [
+      { key: 'nav.banka-entegrasyon', route: '/erp/dijital-bankacilik/banka-entegrasyon' },
+      { key: 'nav.odeme-ag-gecigi', route: '/erp/dijital-bankacilik/odeme-ag-gecigi' },
+    ]},
+    { key: 'nav.group.kamu-regulasyon', icon: 'policy', children: [
+      { key: 'nav.kamu-ihale', route: '/erp/kamu-regulasyon/kamu-ihale' },
+      { key: 'nav.regulasyon-uyum', route: '/erp/kamu-regulasyon/regulasyon-uyum' },
+    ]},
+    { key: 'nav.group.endustri40', icon: 'factory', children: [
+      { key: 'nav.akilli-fabrika', route: '/erp/endustri40/akilli-fabrika' },
+      { key: 'nav.cobotlar', route: '/erp/endustri40/cobotlar' },
+    ]},
+    { key: 'nav.group.csr', icon: 'volunteer_activism', children: [
+      { key: 'nav.gonulluler', route: '/erp/csr/gonulluler' },
+      { key: 'nav.bagis-yonetimi', route: '/erp/csr/bagis-yonetimi' },
+    ]},
+    { key: 'nav.group.egitim-inovasyon', icon: 'auto_stories', children: [
+      { key: 'nav.egitim-platform', route: '/erp/egitim-inovasyon/egitim-platform' },
+      { key: 'nav.gamification', route: '/erp/egitim-inovasyon/gamification' },
+    ]},
+    { key: 'nav.group.ai-satis', icon: 'sell', children: [
+      { key: 'nav.ai-satis-tahmini', route: '/erp/ai-satis/ai-satis-tahmini' },
+      { key: 'nav.musteri-skorlama', route: '/erp/ai-satis/musteri-skorlama' },
+    ]},
+    { key: 'nav.group.vr-ar', icon: 'view_in_ar', children: [
+      { key: 'nav.vr-egitim', route: '/erp/vr-ar/vr-egitim' },
+      { key: 'nav.ar-bakim', route: '/erp/vr-ar/ar-bakim' },
+    ]},
+    { key: 'nav.group.siber-guvenlik', icon: 'security', children: [
+      { key: 'nav.tehdit-merkezi', route: '/erp/siber-guvenlik/tehdit-merkezi' },
+      { key: 'nav.guvenlik-olaylari', route: '/erp/siber-guvenlik/guvenlik-olaylari' },
+    ]},
+    { key: 'nav.group.dijital-iletisim', icon: 'chat', children: [
+      { key: 'nav.isbirligi-araclari', route: '/erp/dijital-iletisim/isbirligi-araclari' },
+      { key: 'nav.video-konferans', route: '/erp/dijital-iletisim/video-konferans' },
+    ]},
+    { key: 'nav.group.akilli-enerji', icon: 'electrical_services', children: [
+      { key: 'nav.enerji-panel', route: '/erp/akilli-enerji/enerji-panel' },
+      { key: 'nav.sari-yonetimi', route: '/erp/akilli-enerji/sari-yonetimi' },
+    ]},
+    { key: 'nav.group.gumruk', icon: 'flight_takeoff', children: [
+      { key: 'nav.gumruk-beyan', route: '/erp/gumruk/gumruk-beyan' },
+      { key: 'nav.ithalat-ihracat', route: '/erp/gumruk/ithalat-ihracat' },
+    ]},
+    { key: 'nav.group.ai-musteri', icon: 'support_agent', children: [
+      { key: 'nav.chatbot-musteri', route: '/erp/ai-musteri/chatbot-musteri' },
+      { key: 'nav.duygu-analizi', route: '/erp/ai-musteri/duygu-analizi' },
+    ]},
+    { key: 'nav.group.dijital-saglik', icon: 'favorite', children: [
+      { key: 'nav.saglik-takip', route: '/erp/dijital-saglik/saglik-takip' },
+      { key: 'nav.wellbeing-programi', route: '/erp/dijital-saglik/wellbeing-programi' },
+    ]},
+    { key: 'nav.group.tarim-erp', icon: 'grass', children: [
+      { key: 'nav.tarim-arazi', route: '/erp/tarim-erp/tarim-arazi' },
+      { key: 'nav.hasat-planlama', route: '/erp/tarim-erp/hasat-planlama' },
+    ]},
+    { key: 'nav.group.akilli-sehir', icon: 'location_city', children: [
+      { key: 'nav.sehir-hizmetleri', route: '/erp/akilli-sehir/sehir-hizmetleri' },
+      { key: 'nav.altyapi-yonetimi', route: '/erp/akilli-sehir/altyapi-yonetimi' },
+    ]},
+    { key: 'nav.group.fintech', icon: 'currency_bitcoin', children: [
+      { key: 'nav.kripto-fintech', route: '/erp/fintech/kripto-fintech' },
+      { key: 'nav.mikro-finans', route: '/erp/fintech/mikro-finans' },
+    ]},
+    { key: 'nav.group.kultur-sanat', icon: 'palette', children: [
+      { key: 'nav.etkinlik-yonetimi', route: '/erp/kultur-sanat/etkinlik-yonetimi' },
+      { key: 'nav.koleksiyon-yonetimi', route: '/erp/kultur-sanat/koleksiyon-yonetimi' },
+    ]},
+    { key: 'nav.group.spor-fitness', icon: 'fitness_center', children: [
+      { key: 'nav.uye-fitness', route: '/erp/spor-fitness/uye-fitness' },
+      { key: 'nav.antreyman-plani', route: '/erp/spor-fitness/antreyman-plani' },
+    ]},
+    { key: 'nav.group.turizm', icon: 'hotel', children: [
+      { key: 'nav.rezervasyon', route: '/erp/turizm/rezervasyon' },
+      { key: 'nav.oda-yonetimi', route: '/erp/turizm/oda-yonetimi' },
+    ]},
+    { key: 'nav.group.havacilik', icon: 'flight', children: [
+      { key: 'nav.ucus-yonetimi', route: '/erp/havacilik/ucus-yonetimi' },
+      { key: 'nav.bakim-planlama-havac', route: '/erp/havacilik/bakim-planlama' },
+    ]},
   ];
   protected readonly fontSizeOptions: FontSizeOption[] = [
     { label: 'Kompakt', scale: 0.93 },
@@ -281,6 +477,153 @@ export class App {
       { label: t('nav.oneri-sistemi'),             hint: t('nav.group.inovasyon'),      route: '/erp/inovasyon/oneri-sistemi' },
       { label: t('nav.inovasyon-projeleri'),        hint: t('nav.group.inovasyon'),      route: '/erp/inovasyon/inovasyon-projeleri' },
       { label: t('nav.degerlendirme-odullendirme'), hint: t('nav.group.inovasyon'),      route: '/erp/inovasyon/degerlendirme-odullendirme' },
+      // İş Zekası
+      { label: t('nav.veri-madenciligi'),      hint: t('nav.group.is-zekasi'),           route: '/erp/is-zekasi/veri-madenciligi' },
+      { label: t('nav.raporlama-bi'),          hint: t('nav.group.is-zekasi'),           route: '/erp/is-zekasi/raporlama-bi' },
+      // Mobil ERP
+      { label: t('nav.mobil-erp-yonetimi'),   hint: t('nav.group.mobil-erp'),           route: '/erp/mobil-erp/mobil-erp-yonetimi' },
+      { label: t('nav.mobil-onay'),            hint: t('nav.group.mobil-erp'),           route: '/erp/mobil-erp/mobil-onay' },
+      // Uluslararası
+      { label: t('nav.cok-para-birimi'),       hint: t('nav.group.uluslararasi'),        route: '/erp/uluslararasi/cok-para-birimi' },
+      { label: t('nav.vergi-uyum'),            hint: t('nav.group.uluslararasi'),        route: '/erp/uluslararasi/vergi-uyum' },
+      // Sadakat
+      { label: t('nav.sadakat-programi'),      hint: t('nav.group.sadakat'),             route: '/erp/sadakat/sadakat-programi' },
+      { label: t('nav.kampanya-yonetimi-sadakat'), hint: t('nav.group.sadakat'),         route: '/erp/sadakat/kampanya-yonetimi' },
+      // Tedarikçi Portalı
+      { label: t('nav.tedarikci-portal'),      hint: t('nav.group.tedarikci-portal'),    route: '/erp/tedarikci-portal/tedarikci-portal' },
+      { label: t('nav.tedarikci-teklifler'),   hint: t('nav.group.tedarikci-portal'),    route: '/erp/tedarikci-portal/tedarikci-teklifler' },
+      // APS
+      { label: t('nav.uretim-cizelge'),        hint: t('nav.group.aps'),                 route: '/erp/aps/uretim-cizelge' },
+      { label: t('nav.kapasite-planlama'),     hint: t('nav.group.aps'),                 route: '/erp/aps/kapasite-planlama' },
+      // Risk & Sigorta
+      { label: t('nav.risk-degerlendirme'),    hint: t('nav.group.risk-sigorta'),        route: '/erp/risk-sigorta/risk-degerlendirme' },
+      { label: t('nav.sigorta-yonetimi'),      hint: t('nav.group.risk-sigorta'),        route: '/erp/risk-sigorta/sigorta-yonetimi' },
+      // Enerji
+      { label: t('nav.enerji-tuketimi'),       hint: t('nav.group.enerji'),              route: '/erp/enerji/enerji-tuketimi' },
+      { label: t('nav.kaynak-optimizasyon'),   hint: t('nav.group.enerji'),              route: '/erp/enerji/kaynak-optimizasyon' },
+      // Hukuk
+      { label: t('nav.sozlesme-yonetimi'),     hint: t('nav.group.hukuk'),               route: '/erp/hukuk/sozlesme-yonetimi' },
+      { label: t('nav.hukuki-davalar'),        hint: t('nav.group.hukuk'),               route: '/erp/hukuk/hukuki-davalar' },
+      // İnovasyon & Startup
+      { label: t('nav.startup-portfoy'),       hint: t('nav.group.inovasyon-startup'),   route: '/erp/inovasyon-startup/startup-portfoy' },
+      { label: t('nav.ar-ge-yonetimi'),        hint: t('nav.group.inovasyon-startup'),   route: '/erp/inovasyon-startup/ar-ge-yonetimi' },
+      // Sosyal ERP
+      { label: t('nav.sosyal-medya-erp'),      hint: t('nav.group.sosyal-erp'),          route: '/erp/sosyal-erp/sosyal-medya' },
+      { label: t('nav.calisma-akisi'),         hint: t('nav.group.sosyal-erp'),          route: '/erp/sosyal-erp/calisma-akisi' },
+      // AI ERP
+      { label: t('nav.ai-tahminleme'),         hint: t('nav.group.ai-erp'),              route: '/erp/ai-erp/ai-tahminleme' },
+      { label: t('nav.ai-optimizasyon'),       hint: t('nav.group.ai-erp'),              route: '/erp/ai-erp/ai-optimizasyon' },
+      // Müşteri UX
+      { label: t('nav.ux-analitik'),           hint: t('nav.group.musteri-ux'),          route: '/erp/musteri-ux/ux-analitik' },
+      { label: t('nav.deneyim-haritasi'),      hint: t('nav.group.musteri-ux'),          route: '/erp/musteri-ux/deneyim-haritasi' },
+      // IoT
+      { label: t('nav.iot-cihazlar'),          hint: t('nav.group.iot'),                 route: '/erp/iot/iot-cihazlar' },
+      { label: t('nav.sensor-veri'),           hint: t('nav.group.iot'),                 route: '/erp/iot/sensor-veri' },
+      // AI & ML
+      { label: t('nav.ml-modeller'),           hint: t('nav.group.ai-ml'),               route: '/erp/ai-ml/ml-modeller' },
+      { label: t('nav.veri-etiketleme'),       hint: t('nav.group.ai-ml'),               route: '/erp/ai-ml/veri-etiketleme' },
+      // Blockchain
+      { label: t('nav.akilli-sozlesmeler'),    hint: t('nav.group.blockchain'),          route: '/erp/blockchain/akilli-sozlesmeler' },
+      { label: t('nav.dijital-varlik'),        hint: t('nav.group.blockchain'),          route: '/erp/blockchain/dijital-varlik' },
+      // Müşteri Portalı
+      { label: t('nav.musteri-portal'),        hint: t('nav.group.musteri-portal'),      route: '/erp/musteri-portal/musteri-portal' },
+      { label: t('nav.self-servis'),           hint: t('nav.group.musteri-portal'),      route: '/erp/musteri-portal/self-servis' },
+      // Satış Sonrası
+      { label: t('nav.satis-sonrasi-servis'),  hint: t('nav.group.satis-sonrasi'),       route: '/erp/satis-sonrasi/satis-sonrasi-servis' },
+      { label: t('nav.yedek-parca'),           hint: t('nav.group.satis-sonrasi'),       route: '/erp/satis-sonrasi/yedek-parca' },
+      // Dijital Pazarlama
+      { label: t('nav.dijital-kampanya'),      hint: t('nav.group.dijital-pazarlama'),   route: '/erp/dijital-pazarlama/dijital-kampanya' },
+      { label: t('nav.sosyal-medya-dp'),       hint: t('nav.group.dijital-pazarlama'),   route: '/erp/dijital-pazarlama/sosyal-medya' },
+      // Veri Güvenliği
+      { label: t('nav.kvkk-uyum'),             hint: t('nav.group.veri-guvenligi'),      route: '/erp/veri-guvenligi/kvkk-uyum' },
+      { label: t('nav.veri-siniflandirma'),    hint: t('nav.group.veri-guvenligi'),      route: '/erp/veri-guvenligi/veri-siniflandirma' },
+      // BPM
+      { label: t('nav.bpm-surec'),             hint: t('nav.group.bpm'),                 route: '/erp/bpm/bpm-surec' },
+      { label: t('nav.otomasyon-izleme'),      hint: t('nav.group.bpm'),                 route: '/erp/bpm/otomasyon-izleme' },
+      // Sektörel
+      { label: t('nav.sektor-modul'),          hint: t('nav.group.sektörel'),            route: '/erp/sektörel/sektor-modul' },
+      { label: t('nav.insaat-modulu'),         hint: t('nav.group.sektörel'),            route: '/erp/sektörel/insaat-modulu' },
+      // AI Tahmin
+      { label: t('nav.talep-tahmin-ai'),       hint: t('nav.group.ai-tahmin'),           route: '/erp/ai-tahmin/talep-tahmin-ai' },
+      { label: t('nav.fiyat-tahmin'),          hint: t('nav.group.ai-tahmin'),           route: '/erp/ai-tahmin/fiyat-tahmin' },
+      // Dijital İkiz
+      { label: t('nav.dijital-ikiz-sim'),      hint: t('nav.group.dijital-ikiz'),        route: '/erp/dijital-ikiz/dijital-ikiz-sim' },
+      { label: t('nav.urun-ikiz'),             hint: t('nav.group.dijital-ikiz'),        route: '/erp/dijital-ikiz/urun-ikiz' },
+      // ESG
+      { label: t('nav.esg-rapor'),             hint: t('nav.group.esg'),                 route: '/erp/esg/esg-rapor' },
+      { label: t('nav.karbon-ayak-izi'),       hint: t('nav.group.esg'),                 route: '/erp/esg/karbon-ayak-izi' },
+      // RPA
+      { label: t('nav.rpa-botlar'),            hint: t('nav.group.rpa'),                 route: '/erp/rpa/rpa-botlar' },
+      { label: t('nav.rpa-surecleri'),         hint: t('nav.group.rpa'),                 route: '/erp/rpa/rpa-surecleri' },
+      // Omni-Channel
+      { label: t('nav.omni-kanal'),            hint: t('nav.group.omni-channel'),        route: '/erp/omni-channel/omni-kanal' },
+      { label: t('nav.siparis-yonetimi-omni'), hint: t('nav.group.omni-channel'),        route: '/erp/omni-channel/siparis-yonetimi' },
+      // AI HR
+      { label: t('nav.ai-hr-yetenek'),         hint: t('nav.group.ai-hr'),               route: '/erp/ai-hr/ai-hr-yetenek' },
+      { label: t('nav.performans-ai'),         hint: t('nav.group.ai-hr'),               route: '/erp/ai-hr/performans-ai' },
+      // Akıllı Lojistik
+      { label: t('nav.filo-yonetimi'),         hint: t('nav.group.akilli-lojistik'),     route: '/erp/akilli-lojistik/filo-yonetimi' },
+      { label: t('nav.rota-optimizasyon'),     hint: t('nav.group.akilli-lojistik'),     route: '/erp/akilli-lojistik/rota-optimizasyon' },
+      // Dijital Bankacılık
+      { label: t('nav.banka-entegrasyon'),     hint: t('nav.group.dijital-bankacilik'),  route: '/erp/dijital-bankacilik/banka-entegrasyon' },
+      { label: t('nav.odeme-ag-gecigi'),       hint: t('nav.group.dijital-bankacilik'),  route: '/erp/dijital-bankacilik/odeme-ag-gecigi' },
+      // Kamu & Regülasyon
+      { label: t('nav.kamu-ihale'),            hint: t('nav.group.kamu-regulasyon'),     route: '/erp/kamu-regulasyon/kamu-ihale' },
+      { label: t('nav.regulasyon-uyum'),       hint: t('nav.group.kamu-regulasyon'),     route: '/erp/kamu-regulasyon/regulasyon-uyum' },
+      // Endüstri 4.0
+      { label: t('nav.akilli-fabrika'),        hint: t('nav.group.endustri40'),          route: '/erp/endustri40/akilli-fabrika' },
+      { label: t('nav.cobotlar'),              hint: t('nav.group.endustri40'),          route: '/erp/endustri40/cobotlar' },
+      // CSR
+      { label: t('nav.gonulluler'),            hint: t('nav.group.csr'),                 route: '/erp/csr/gonulluler' },
+      { label: t('nav.bagis-yonetimi'),        hint: t('nav.group.csr'),                 route: '/erp/csr/bagis-yonetimi' },
+      // Eğitim & İnovasyon
+      { label: t('nav.egitim-platform'),       hint: t('nav.group.egitim-inovasyon'),    route: '/erp/egitim-inovasyon/egitim-platform' },
+      { label: t('nav.gamification'),          hint: t('nav.group.egitim-inovasyon'),    route: '/erp/egitim-inovasyon/gamification' },
+      // AI Satış
+      { label: t('nav.ai-satis-tahmini'),      hint: t('nav.group.ai-satis'),            route: '/erp/ai-satis/ai-satis-tahmini' },
+      { label: t('nav.musteri-skorlama'),      hint: t('nav.group.ai-satis'),            route: '/erp/ai-satis/musteri-skorlama' },
+      // VR/AR
+      { label: t('nav.vr-egitim'),             hint: t('nav.group.vr-ar'),               route: '/erp/vr-ar/vr-egitim' },
+      { label: t('nav.ar-bakim'),              hint: t('nav.group.vr-ar'),               route: '/erp/vr-ar/ar-bakim' },
+      // Siber Güvenlik
+      { label: t('nav.tehdit-merkezi'),        hint: t('nav.group.siber-guvenlik'),      route: '/erp/siber-guvenlik/tehdit-merkezi' },
+      { label: t('nav.guvenlik-olaylari'),     hint: t('nav.group.siber-guvenlik'),      route: '/erp/siber-guvenlik/guvenlik-olaylari' },
+      // Dijital İletişim
+      { label: t('nav.isbirligi-araclari'),    hint: t('nav.group.dijital-iletisim'),    route: '/erp/dijital-iletisim/isbirligi-araclari' },
+      { label: t('nav.video-konferans'),       hint: t('nav.group.dijital-iletisim'),    route: '/erp/dijital-iletisim/video-konferans' },
+      // Akıllı Enerji
+      { label: t('nav.enerji-panel'),          hint: t('nav.group.akilli-enerji'),       route: '/erp/akilli-enerji/enerji-panel' },
+      { label: t('nav.sari-yonetimi'),         hint: t('nav.group.akilli-enerji'),       route: '/erp/akilli-enerji/sari-yonetimi' },
+      // Gümrük
+      { label: t('nav.gumruk-beyan'),          hint: t('nav.group.gumruk'),              route: '/erp/gumruk/gumruk-beyan' },
+      { label: t('nav.ithalat-ihracat'),       hint: t('nav.group.gumruk'),              route: '/erp/gumruk/ithalat-ihracat' },
+      // AI Müşteri
+      { label: t('nav.chatbot-musteri'),       hint: t('nav.group.ai-musteri'),          route: '/erp/ai-musteri/chatbot-musteri' },
+      { label: t('nav.duygu-analizi'),         hint: t('nav.group.ai-musteri'),          route: '/erp/ai-musteri/duygu-analizi' },
+      // Dijital Sağlık
+      { label: t('nav.saglik-takip'),          hint: t('nav.group.dijital-saglik'),      route: '/erp/dijital-saglik/saglik-takip' },
+      { label: t('nav.wellbeing-programi'),    hint: t('nav.group.dijital-saglik'),      route: '/erp/dijital-saglik/wellbeing-programi' },
+      // Tarım ERP
+      { label: t('nav.tarim-arazi'),           hint: t('nav.group.tarim-erp'),           route: '/erp/tarim-erp/tarim-arazi' },
+      { label: t('nav.hasat-planlama'),        hint: t('nav.group.tarim-erp'),           route: '/erp/tarim-erp/hasat-planlama' },
+      // Akıllı Şehir
+      { label: t('nav.sehir-hizmetleri'),      hint: t('nav.group.akilli-sehir'),        route: '/erp/akilli-sehir/sehir-hizmetleri' },
+      { label: t('nav.altyapi-yonetimi'),      hint: t('nav.group.akilli-sehir'),        route: '/erp/akilli-sehir/altyapi-yonetimi' },
+      // Fintech
+      { label: t('nav.kripto-fintech'),        hint: t('nav.group.fintech'),             route: '/erp/fintech/kripto-fintech' },
+      { label: t('nav.mikro-finans'),          hint: t('nav.group.fintech'),             route: '/erp/fintech/mikro-finans' },
+      // Kültür & Sanat
+      { label: t('nav.etkinlik-yonetimi'),     hint: t('nav.group.kultur-sanat'),        route: '/erp/kultur-sanat/etkinlik-yonetimi' },
+      { label: t('nav.koleksiyon-yonetimi'),   hint: t('nav.group.kultur-sanat'),        route: '/erp/kultur-sanat/koleksiyon-yonetimi' },
+      // Spor & Fitness
+      { label: t('nav.uye-fitness'),           hint: t('nav.group.spor-fitness'),        route: '/erp/spor-fitness/uye-fitness' },
+      { label: t('nav.antreyman-plani'),       hint: t('nav.group.spor-fitness'),        route: '/erp/spor-fitness/antreyman-plani' },
+      // Turizm
+      { label: t('nav.rezervasyon'),           hint: t('nav.group.turizm'),              route: '/erp/turizm/rezervasyon' },
+      { label: t('nav.oda-yonetimi'),          hint: t('nav.group.turizm'),              route: '/erp/turizm/oda-yonetimi' },
+      // Havacılık
+      { label: t('nav.ucus-yonetimi'),         hint: t('nav.group.havacilik'),           route: '/erp/havacilik/ucus-yonetimi' },
+      { label: t('nav.bakim-planlama-havac'),  hint: t('nav.group.havacilik'),           route: '/erp/havacilik/bakim-planlama' },
     ];
   });
 
