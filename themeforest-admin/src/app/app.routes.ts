@@ -5,6 +5,37 @@ import { OrdersPageComponent } from './pages/orders-page';
 import { ProductsPageComponent } from './pages/products-page';
 import { SettingsPageComponent } from './pages/settings-page';
 
+import { GenelMuhasebeComponent } from './pages/erp/finans/genel-muhasebe.component';
+import { AlacaklarComponent } from './pages/erp/finans/alacaklar.component';
+import { BorclarComponent } from './pages/erp/finans/borclar.component';
+import { ButceYonetimiComponent } from './pages/erp/finans/butce-yonetimi.component';
+import { SabitKiymetlerComponent } from './pages/erp/finans/sabit-kiymetler.component';
+import { SatisYonetimiComponent } from './pages/erp/satis/satis-yonetimi.component';
+import { CrmComponent } from './pages/erp/satis/crm.component';
+import { TeklifSiparisComponent } from './pages/erp/satis/teklif-siparis.component';
+import { KampanyaYonetimiComponent } from './pages/erp/satis/kampanya-yonetimi.component';
+import { TedarikciYonetimiComponent } from './pages/erp/satinalma/tedarikci-yonetimi.component';
+import { SatinalmaTaleplerComponent } from './pages/erp/satinalma/satinalma-talepler.component';
+import { SatinalmaSiparislerComponent } from './pages/erp/satinalma/satinalma-siparisler.component';
+import { FiyatSozlesmeComponent } from './pages/erp/satinalma/fiyat-sozlesme.component';
+import { EnvanterTakibiComponent } from './pages/erp/stok/envanter-takibi.component';
+import { DepoYonetimiComponent } from './pages/erp/stok/depo-yonetimi.component';
+import { LojistikSevkiyatComponent } from './pages/erp/stok/lojistik-sevkiyat.component';
+import { UretimPlanlamaComponent } from './pages/erp/uretim/uretim-planlama.component';
+import { IsEmirleriComponent } from './pages/erp/uretim/is-emirleri.component';
+import { KaliteKontrolComponent } from './pages/erp/uretim/kalite-kontrol.component';
+import { PersonelYonetimiComponent } from './pages/erp/ik/personel-yonetimi.component';
+import { BordroComponent } from './pages/erp/ik/bordro.component';
+import { IzinMesaiComponent } from './pages/erp/ik/izin-mesai.component';
+import { ProjePlanlamaComponent } from './pages/erp/proje/proje-planlama.component';
+import { KaynakYonetimiComponent } from './pages/erp/proje/kaynak-yonetimi.component';
+import { TeknikServisComponent } from './pages/erp/bakim/teknik-servis.component';
+import { ArizaTakibiComponent } from './pages/erp/bakim/ariza-takibi.component';
+import { OnlineSiparisComponent } from './pages/erp/eticaret/online-siparis.component';
+import { KpiTakibiComponent } from './pages/erp/analitik/kpi-takibi.component';
+import { YetkilendirmeComponent } from './pages/erp/uyum/yetkilendirme.component';
+import { DenetimIzleriComponent } from './pages/erp/uyum/denetim-izleri.component';
+
 export const routes: Routes = [
 	{ path: '', pathMatch: 'full', redirectTo: 'dashboard' },
 	{ path: 'dashboard', component: DashboardPageComponent },
@@ -12,5 +43,35 @@ export const routes: Routes = [
 	{ path: 'siparisler', component: OrdersPageComponent },
 	{ path: 'finans', component: FinancePageComponent },
 	{ path: 'ayarlar', component: SettingsPageComponent },
+	{ path: 'erp/finans/genel-muhasebe', component: GenelMuhasebeComponent },
+	{ path: 'erp/finans/alacaklar', component: AlacaklarComponent },
+	{ path: 'erp/finans/borclar', component: BorclarComponent },
+	{ path: 'erp/finans/butce-yonetimi', component: ButceYonetimiComponent },
+	{ path: 'erp/finans/sabit-kiymetler', component: SabitKiymetlerComponent },
+	{ path: 'erp/satis/satis-yonetimi', component: SatisYonetimiComponent },
+	{ path: 'erp/satis/crm', component: CrmComponent },
+	{ path: 'erp/satis/teklif-siparis', component: TeklifSiparisComponent },
+	{ path: 'erp/satis/kampanya-yonetimi', component: KampanyaYonetimiComponent },
+	{ path: 'erp/satinalma/tedarikci-yonetimi', component: TedarikciYonetimiComponent },
+	{ path: 'erp/satinalma/satinalma-talepler', component: SatinalmaTaleplerComponent },
+	{ path: 'erp/satinalma/satinalma-siparisler', component: SatinalmaSiparislerComponent },
+	{ path: 'erp/satinalma/fiyat-sozlesme', component: FiyatSozlesmeComponent },
+	{ path: 'erp/stok/envanter-takibi', component: EnvanterTakibiComponent },
+	{ path: 'erp/stok/depo-yonetimi', component: DepoYonetimiComponent },
+	{ path: 'erp/stok/lojistik-sevkiyat', component: LojistikSevkiyatComponent },
+	{ path: 'erp/uretim/uretim-planlama', component: UretimPlanlamaComponent },
+	{ path: 'erp/uretim/is-emirleri', component: IsEmirleriComponent },
+	{ path: 'erp/uretim/kalite-kontrol', component: KaliteKontrolComponent },
+	{ path: 'erp/ik/personel-yonetimi', component: PersonelYonetimiComponent },
+	{ path: 'erp/ik/bordro', component: BordroComponent },
+	{ path: 'erp/ik/izin-mesai', component: IzinMesaiComponent },
+	{ path: 'erp/proje/proje-planlama', component: ProjePlanlamaComponent },
+	{ path: 'erp/proje/kaynak-yonetimi', component: KaynakYonetimiComponent },
+	{ path: 'erp/bakim/teknik-servis', component: TeknikServisComponent },
+	{ path: 'erp/bakim/ariza-takibi', component: ArizaTakibiComponent },
+	{ path: 'erp/eticaret/online-siparis', component: OnlineSiparisComponent },
+	{ path: 'erp/analitik/kpi-takibi', component: KpiTakibiComponent },
+	{ path: 'erp/uyum/yetkilendirme', component: YetkilendirmeComponent },
+	{ path: 'erp/uyum/denetim-izleri', component: DenetimIzleriComponent },
 	{ path: '**', redirectTo: 'dashboard' }
 ];

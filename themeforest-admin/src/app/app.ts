@@ -1,6 +1,12 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, computed, effect, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+
+export interface NavGroup {
+  label: string;
+  icon: string;
+  children: { label: string; route: string }[];
+}
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
@@ -60,11 +66,79 @@ export class App {
   protected readonly i18n = inject(I18nService);
   protected readonly sidebarOpen = signal(true);
   protected readonly isDarkMode = signal(this.getInitialThemeMode());
+  protected readonly openGroups = signal<Set<string>>(new Set(['Finans']));
+
+  protected readonly navGroups: NavGroup[] = [
+    { label: 'Finans & Muhasebe', icon: 'account_balance', children: [
+      { label: 'Genel Muhasebe', route: '/erp/finans/genel-muhasebe' },
+      { label: 'Alacaklar', route: '/erp/finans/alacaklar' },
+      { label: 'Borçlar', route: '/erp/finans/borclar' },
+      { label: 'Bütçe Yönetimi', route: '/erp/finans/butce-yonetimi' },
+      { label: 'Sabit Kıymetler', route: '/erp/finans/sabit-kiymetler' },
+    ]},
+    { label: 'Satış & Pazarlama', icon: 'trending_up', children: [
+      { label: 'Satış Yönetimi', route: '/erp/satis/satis-yonetimi' },
+      { label: 'Müşteri İlişkileri (CRM)', route: '/erp/satis/crm' },
+      { label: 'Teklif ve Sipariş', route: '/erp/satis/teklif-siparis' },
+      { label: 'Kampanya Yönetimi', route: '/erp/satis/kampanya-yonetimi' },
+    ]},
+    { label: 'Satın Alma', icon: 'shopping_cart', children: [
+      { label: 'Tedarikçi Yönetimi', route: '/erp/satinalma/tedarikci-yonetimi' },
+      { label: 'Satın Alma Talepleri', route: '/erp/satinalma/satinalma-talepler' },
+      { label: 'Satın Alma Siparişleri', route: '/erp/satinalma/satinalma-siparisler' },
+      { label: 'Fiyat ve Sözleşme', route: '/erp/satinalma/fiyat-sozlesme' },
+    ]},
+    { label: 'Stok & Depo', icon: 'inventory_2', children: [
+      { label: 'Envanter Takibi', route: '/erp/stok/envanter-takibi' },
+      { label: 'Depo Yönetimi', route: '/erp/stok/depo-yonetimi' },
+      { label: 'Lojistik ve Sevkiyat', route: '/erp/stok/lojistik-sevkiyat' },
+    ]},
+    { label: 'Üretim & Planlama', icon: 'factory', children: [
+      { label: 'Üretim Planlama (MRP)', route: '/erp/uretim/uretim-planlama' },
+      { label: 'İş Emirleri', route: '/erp/uretim/is-emirleri' },
+      { label: 'Kalite Kontrol', route: '/erp/uretim/kalite-kontrol' },
+    ]},
+    { label: 'İnsan Kaynakları', icon: 'groups', children: [
+      { label: 'Personel Yönetimi', route: '/erp/ik/personel-yonetimi' },
+      { label: 'Bordro', route: '/erp/ik/bordro' },
+      { label: 'İzin ve Mesai', route: '/erp/ik/izin-mesai' },
+    ]},
+    { label: 'Proje Yönetimi', icon: 'assignment', children: [
+      { label: 'Proje Planlama', route: '/erp/proje/proje-planlama' },
+      { label: 'Kaynak Yönetimi', route: '/erp/proje/kaynak-yonetimi' },
+    ]},
+    { label: 'Bakım & Servis', icon: 'build', children: [
+      { label: 'Teknik Servis', route: '/erp/bakim/teknik-servis' },
+      { label: 'Arıza Takibi', route: '/erp/bakim/ariza-takibi' },
+    ]},
+    { label: 'E-Ticaret', icon: 'storefront', children: [
+      { label: 'Online Sipariş', route: '/erp/eticaret/online-siparis' },
+    ]},
+    { label: 'Analitik', icon: 'bar_chart', children: [
+      { label: 'KPI Takibi', route: '/erp/analitik/kpi-takibi' },
+    ]},
+    { label: 'Uyum & Güvenlik', icon: 'security', children: [
+      { label: 'Yetkilendirme', route: '/erp/uyum/yetkilendirme' },
+      { label: 'Denetim İzleri', route: '/erp/uyum/denetim-izleri' },
+    ]},
+  ];
   protected readonly fontSizeOptions: FontSizeOption[] = [
     { label: 'Kompakt', scale: 0.93 },
     { label: 'Standart', scale: 1 },
     { label: 'Buyuk', scale: 1.08 }
   ];
+
+  protected isGroupOpen(label: string): boolean {
+    return this.openGroups().has(label);
+  }
+
+  protected toggleGroup(label: string): void {
+    this.openGroups.update(set => {
+      const next = new Set(set);
+      next.has(label) ? next.delete(label) : next.add(label);
+      return next;
+    });
+  }
   protected readonly selectedFontSize = signal<FontSizeMode>(this.getInitialFontSizeMode());
   protected readonly globalQuery = signal('');
 

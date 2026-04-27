@@ -8,23 +8,27 @@
       </div>
     </div>
 
-    <mat-nav-list>
+    <mat-nav-list class="erp-nav">
       <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
         <mat-icon matListItemIcon>dashboard</mat-icon>
         <span matListItemTitle>{{ i18n.t('nav.dashboard') }}</span>
       </a>
-      <a mat-list-item routerLink="/urunler" routerLinkActive="active-link">
-        <mat-icon matListItemIcon>inventory_2</mat-icon>
-        <span matListItemTitle>{{ i18n.t('nav.products') }}</span>
-      </a>
-      <a mat-list-item routerLink="/siparisler" routerLinkActive="active-link">
-        <mat-icon matListItemIcon>shopping_bag</mat-icon>
-        <span matListItemTitle>{{ i18n.t('nav.orders') }}</span>
-      </a>
-      <a mat-list-item routerLink="/finans" routerLinkActive="active-link">
-        <mat-icon matListItemIcon>receipt_long</mat-icon>
-        <span matListItemTitle>{{ i18n.t('nav.finance') }}</span>
-      </a>
+
+      @for (group of navGroups; track group.label) {
+        <div class="nav-group-header" (click)="toggleGroup(group.label)">
+          <mat-icon>{{ group.icon }}</mat-icon>
+          <span>{{ group.label }}</span>
+          <mat-icon class="chevron">{{ isGroupOpen(group.label) ? 'expand_less' : 'expand_more' }}</mat-icon>
+        </div>
+        @if (isGroupOpen(group.label)) {
+          @for (item of group.children; track item.route) {
+            <a mat-list-item [routerLink]="item.route" routerLinkActive="active-link" class="nav-child">
+              <span matListItemTitle>{{ item.label }}</span>
+            </a>
+          }
+        }
+      }
+
       <a mat-list-item routerLink="/ayarlar" routerLinkActive="active-link">
         <mat-icon matListItemIcon>settings</mat-icon>
         <span matListItemTitle>{{ i18n.t('nav.settings') }}</span>
