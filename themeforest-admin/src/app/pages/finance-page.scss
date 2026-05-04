@@ -157,10 +157,24 @@ span.gider {
   }
 }
 
+@media (max-width: 1100px) {
+  .overview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (max-width: 900px) {
-  .overview-grid {
-    grid-template-columns: 1fr;
-  }
+  .overview-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .page-head.finance-head { padding: 14px; }
+  .glow-panel, .ledger-panel { border-radius: 14px; }
+  .tx-list article { flex-wrap: wrap; gap: 6px; }
+}
+
+@media (max-width: 480px) {
+  .page-head.finance-head { padding: 12px; }
+  .budget-card, .tx-card { border-radius: 14px; }
+  .budget-header { flex-wrap: wrap; }
 }
 
 /* =============================================

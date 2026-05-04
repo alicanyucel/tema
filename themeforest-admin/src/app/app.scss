@@ -838,28 +838,27 @@ html body.theme-dark {
 }
 
 @media (max-width: 1200px) {
+	.dashboard-sidebar { width: 260px; }
 }
 
 @media (max-width: 900px) {
-	.dashboard-sidebar {
-		width: 250px;
-	}
-
-	.search-box {
-		width: min(280px, 40vw);
-	}
+	.dashboard-sidebar { width: 240px; }
+	.search-box { width: min(260px, 36vw); }
 }
 
 @media (max-width: 700px) {
-	.profile-chip {
-		display: none;
-	}
+	.profile-chip { display: none; }
+	.dashboard-main { padding: 14px; }
+	.search-box { display: none; }
+	.dashboard-toolbar { padding: 10px 12px; gap: 8px; }
+	.sidebar-card { display: none; }
+}
 
-	.dashboard-main {
-		padding: 14px;
-	}
-
-	.search-box {
-		display: none;
-	}
+@media (max-width: 480px) {
+	.dashboard-sidebar { width: 220px; }
+	.dashboard-main { padding: 10px; }
+	.dashboard-toolbar { padding: 8px 10px; }
+	.brand h2 { font-size: 0.95rem; }
+	.brand p { display: none; }
+	.sidebar-lang .lang-btn { font-size: 0.72rem; padding: 4px 0; }
 }

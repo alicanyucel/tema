@@ -171,26 +171,24 @@ mat-chip.pasif {
   }
 }
 
-@media (max-width: 900px) {
-  .summary-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 1100px) {
+  .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 
-  .page-head.products-head {
-    align-items: start;
-    flex-direction: column;
-  }
+@media (max-width: 900px) {
+  .summary-grid { grid-template-columns: 1fr; }
+  .page-head.products-head { align-items: start; flex-direction: column; }
 }
 
 @media (max-width: 620px) {
-  .page-head.products-head {
-    padding: 14px;
-  }
+  .page-head.products-head { padding: 14px; }
+  .new-btn { width: 100%; justify-content: center; }
+  .products-table-wrap { overflow-x: auto; }
+}
 
-  .new-btn {
-    width: 100%;
-    justify-content: center;
-  }
+@media (max-width: 480px) {
+  .page-head.products-head { padding: 12px; border-radius: 14px; }
+  .table-actions { flex-wrap: wrap; gap: 6px; }
 }
 
 /* =============================================
