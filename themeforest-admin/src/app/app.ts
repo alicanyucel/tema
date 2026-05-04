@@ -1,5 +1,7 @@
 import { DOCUMENT } from '@angular/common';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, computed, effect, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { InboxModalComponent } from './shared/inbox-modal.component';
@@ -64,6 +66,7 @@ interface FontSizeOption {
   styleUrl: './app.scss'
 })
 export class App {
+  private readonly breakpointObserver = inject(BreakpointObserver);
   private readonly router = inject(Router);
   private readonly dialog = inject(MatDialog);
   private readonly document = inject(DOCUMENT);
@@ -72,6 +75,10 @@ export class App {
   protected readonly sidebarOpen = signal(true);
   protected readonly isDarkMode = signal(this.getInitialThemeMode());
   protected readonly openGroups = signal<Set<string>>(new Set(['nav.group.finans']));
+  protected readonly isCompactViewport = toSignal(this.breakpointObserver.observe('(max-width: 991px)'), {
+    initialValue: { matches: false, breakpoints: {} }
+  });
+  protected readonly sidebarMode = computed<'side' | 'over'>(() => (this.isCompactViewport().matches ? 'over' : 'side'));
 
   protected readonly navGroups: NavGroup[] = [
     { key: 'nav.group.finans', icon: 'account_balance', children: [
@@ -415,6 +422,12 @@ export class App {
       return next;
     });
   }
+
+  protected closeSidebarOnCompact(): void {
+    if (this.isCompactViewport().matches) {
+      this.sidebarOpen.set(false);
+    }
+  }
   protected readonly selectedFontSize = signal<FontSizeMode>(this.getInitialFontSizeMode());
   protected readonly globalQuery = signal('');
 
@@ -734,6 +747,10 @@ export class App {
   protected readonly notificationBadge = computed(() => this.notifications().filter((item) => item.unread).length);
   protected readonly messageBadge = computed(() => this.messages().filter((item) => item.unread).length);
 
+  private readonly viewportEffect = effect(() => {
+    this.sidebarOpen.set(!this.isCompactViewport().matches);
+  });
+
   private readonly themeEffect = effect(() => {
     const dark = this.isDarkMode();
     this.document.body.classList.toggle('theme-dark', dark);
@@ -782,6 +799,7 @@ export class App {
 
   protected openSearchResult(item: SearchItem): void {
     this.globalQuery.set('');
+    this.closeSidebarOnCompact();
     this.router.navigateByUrl(item.route);
   }
 

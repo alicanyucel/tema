@@ -1,5 +1,5 @@
-<mat-sidenav-container class="dashboard-shell">
-  <mat-sidenav class="dashboard-sidebar" mode="side" [opened]="sidebarOpen()">
+<mat-sidenav-container class="dashboard-shell" [hasBackdrop]="isCompactViewport().matches" (backdropClick)="closeSidebarOnCompact()">
+  <mat-sidenav class="dashboard-sidebar" [mode]="sidebarMode()" [opened]="sidebarOpen()" [disableClose]="!isCompactViewport().matches">
     <div class="brand">
       <div class="brand-logo">A</div>
       <div>
@@ -9,7 +9,7 @@
     </div>
 
     <mat-nav-list class="erp-nav">
-      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" (click)="closeSidebarOnCompact()">
         <mat-icon matListItemIcon>dashboard</mat-icon>
         <span matListItemTitle>{{ i18n.t('nav.dashboard') }}</span>
       </a>
@@ -22,19 +22,19 @@
         </div>
         @if (isGroupOpen(group.key)) {
           @for (item of group.children; track item.route) {
-            <a mat-list-item [routerLink]="item.route" routerLinkActive="active-link" class="nav-child">
+            <a mat-list-item [routerLink]="item.route" routerLinkActive="active-link" class="nav-child" (click)="closeSidebarOnCompact()">
               <span matListItemTitle>{{ i18n.t(item.key) }}</span>
             </a>
           }
         }
       }
 
-      <a mat-list-item routerLink="/ayarlar" routerLinkActive="active-link">
+      <a mat-list-item routerLink="/ayarlar" routerLinkActive="active-link" (click)="closeSidebarOnCompact()">
         <mat-icon matListItemIcon>settings</mat-icon>
         <span matListItemTitle>{{ i18n.t('nav.settings') }}</span>
       </a>
 
-      <a mat-list-item routerLink="/fiyatlandirma" routerLinkActive="active-link" class="pricing-nav-item">
+      <a mat-list-item routerLink="/fiyatlandirma" routerLinkActive="active-link" class="pricing-nav-item" (click)="closeSidebarOnCompact()">
         <mat-icon matListItemIcon>sell</mat-icon>
         <span matListItemTitle>Fiyatlandırma</span>
       </a>
