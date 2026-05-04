@@ -509,14 +509,127 @@ $radius-sm:  12px;
 }
 
 // ─── Responsive ──────────────────────────────────────────────
-@media (max-width: 900px) {
-  .plans-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+// Tablet geniş: 4 kolon → 2 kolon
+@media (max-width: 1200px) {
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 860px;
+  }
   .plan-card.popular { transform: scale(1); }
+  .plan-card.popular:hover { transform: translateY(-6px); }
 }
 
-@media (max-width: 600px) {
-  .plans-grid { grid-template-columns: 1fr; }
-  .billing-toggle { gap: 2px; }
-  .toggle-btn { padding: 8px 14px; font-size: 13px; }
-  .strip-content { padding: 20px; }
+// Tablet dar: 2 kolon
+@media (max-width: 900px) {
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 0 16px;
+  }
+  .plan-card {
+    padding: 24px 18px;
+  }
+  .plan-card.popular { transform: scale(1); }
+  .strip-content {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .trust-item {
+    min-width: 90px;
+    padding: 14px 12px;
+  }
+}
+
+// Büyük mobil: 1 kolon
+@media (max-width: 640px) {
+  .pricing-hero {
+    padding: 40px 16px 28px;
+  }
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  .hero-subtitle {
+    font-size: 14px;
+  }
+
+  .billing-toggle {
+    padding: 4px;
+    gap: 2px;
+  }
+  .toggle-btn {
+    padding: 8px 10px;
+    font-size: 12px;
+    gap: 4px;
+  }
+  .discount-tag {
+    display: none;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+    gap: 14px;
+    margin-top: 28px;
+  }
+  .plan-card {
+    padding: 22px 16px;
+    &:hover { transform: none; }
+    &.popular { transform: scale(1); &:hover { transform: none; } }
+  }
+  .plan-name { font-size: 17px; }
+  .price-amount { font-size: 1.9rem; }
+  .plan-limits { gap: 4px; }
+
+  .compare-strip {
+    padding: 0 16px;
+    margin-top: 32px;
+  }
+  .strip-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 16px;
+    gap: 14px;
+    > mat-icon { display: none; }
+  }
+  .contact-btn {
+    width: 100%;
+    justify-content: center !important;
+  }
+
+  .trust-section {
+    padding: 0 16px;
+    margin-top: 40px;
+  }
+  .trust-grid {
+    gap: 8px;
+  }
+  .trust-item {
+    min-width: 80px;
+    padding: 12px 8px;
+    flex: 1 1 calc(50% - 8px);
+    max-width: none;
+    mat-icon { font-size: 22px; width: 22px; height: 22px; }
+    span { font-size: 13px; }
+  }
+
+  .faq-section {
+    padding: 0 16px;
+    margin-top: 48px;
+  }
+  .faq-title { font-size: 20px; }
+  .faq-question { font-size: 14px; padding: 14px 16px; }
+  .faq-answer { padding: 0 16px 14px; }
+}
+
+// Küçük mobil
+@media (max-width: 400px) {
+  .toggle-btn {
+    padding: 7px 8px;
+    font-size: 11px;
+  }
+  .price-amount { font-size: 1.7rem; }
+  .trust-item {
+    flex: 1 1 calc(50% - 6px);
+  }
 }
