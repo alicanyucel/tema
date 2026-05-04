@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import Swal from 'sweetalert2';
 import { ErpField } from './erp-crud.component';
 import { I18nService } from '../../i18n.service';
 
@@ -87,7 +88,26 @@ export class ErpCrudDialogComponent {
         : this.i18n.t('erp.viewRecord');
   }
 
-  save() {
+  async save(): Promise<void> {
+    if (this.data.mode === 'edit') {
+      const result = await Swal.fire({
+        title: this.i18n.t('erp.updateConfirmTitle'),
+        text: this.i18n.t('erp.updateConfirmText'),
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: this.i18n.t('erp.updateConfirmButton'),
+        cancelButtonText: this.i18n.t('erp.cancel'),
+        confirmButtonColor: '#0369a1',
+        cancelButtonColor: '#64748b',
+        reverseButtons: true,
+        focusCancel: true
+      });
+
+      if (!result.isConfirmed) {
+        return;
+      }
+    }
+
     this.ref.close(this.row);
   }
 }
