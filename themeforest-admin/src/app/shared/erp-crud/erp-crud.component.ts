@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
+import Swal from 'sweetalert2';
 import { ErpCrudDialogComponent, ErpDialogData } from './erp-crud-dialog.component';
 import { I18nService } from '../../i18n.service';
 
@@ -203,7 +204,24 @@ export class ErpCrudComponent implements OnInit {
     this.dialog.open(ErpCrudDialogComponent, { width: '560px', data });
   }
 
-  deleteRow(row: Record<string, any>) {
+  async deleteRow(row: Record<string, any>) {
+    const result = await Swal.fire({
+      title: this.i18n.t('erp.deleteConfirmTitle'),
+      text: this.i18n.t('erp.deleteConfirmText'),
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: this.i18n.t('erp.deleteConfirmButton'),
+      cancelButtonText: this.i18n.t('erp.cancel'),
+      confirmButtonColor: '#dc2626',
+      cancelButtonColor: '#64748b',
+      reverseButtons: true,
+      focusCancel: true
+    });
+
+    if (!result.isConfirmed) {
+      return;
+    }
+
     this.rows.update(r => r.filter(item => item !== row));
   }
 }
