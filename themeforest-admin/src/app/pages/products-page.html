@@ -1,30 +1,30 @@
-<section class="page-head">
+<section class="page-head products-head">
   <div>
     <h1>{{ i18n.t('products.title') }}</h1>
     <p>{{ i18n.t('products.subtitle') }}</p>
   </div>
-  <button mat-flat-button>
+  <button class="new-btn" mat-flat-button>
     <mat-icon>add</mat-icon>
     {{ i18n.t('products.newProduct') }}
   </button>
 </section>
 
 <section class="summary-grid">
-  <mat-card appearance="outlined">
+  <mat-card class="summary-card" appearance="outlined">
     <p>{{ i18n.t('products.totalProducts') }}</p>
     <h3>1,942</h3>
   </mat-card>
-  <mat-card appearance="outlined">
+  <mat-card class="summary-card" appearance="outlined">
     <p>{{ i18n.t('products.lowStockAlert') }}</p>
     <h3>37</h3>
   </mat-card>
-  <mat-card appearance="outlined">
+  <mat-card class="summary-card" appearance="outlined">
     <p>{{ i18n.t('products.passiveProducts') }}</p>
     <h3>12</h3>
   </mat-card>
 </section>
 
-<mat-card appearance="outlined" class="table-wrap">
+<mat-card appearance="outlined" class="table-wrap products-table-wrap">
   <table mat-table [dataSource]="products" class="table">
     <ng-container matColumnDef="sku">
       <th mat-header-cell *matHeaderCellDef>SKU</th>

@@ -81,16 +81,18 @@ export interface ErpField {
         }
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef style="width:130px">{{ i18n.t('erp.actions') }}</th>
-          <td mat-cell *matCellDef="let row; let i = index">
-            <button mat-icon-button color="primary" [matTooltip]="i18n.t('erp.view')" (click)="openView(row)">
-              <mat-icon>visibility</mat-icon>
-            </button>
-            <button mat-icon-button color="accent" [matTooltip]="i18n.t('erp.edit')" (click)="openEdit(row)">
-              <mat-icon>edit</mat-icon>
-            </button>
-            <button mat-icon-button color="warn" [matTooltip]="i18n.t('erp.delete')" (click)="deleteRow(row)">
-              <mat-icon>delete</mat-icon>
-            </button>
+          <td mat-cell *matCellDef="let row; let i = index" class="actions-cell">
+            <div class="action-group">
+              <button mat-icon-button color="primary" [matTooltip]="i18n.t('erp.view')" (click)="openView(row)">
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <button mat-icon-button color="accent" [matTooltip]="i18n.t('erp.edit')" (click)="openEdit(row)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" [matTooltip]="i18n.t('erp.delete')" (click)="deleteRow(row)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
           </td>
         </ng-container>
 
@@ -119,6 +121,8 @@ export interface ErpField {
     .add-btn { display: flex; align-items: center; gap: 4px; height: 46px; border-radius: 10px; }
     .table-wrap { border-radius: 18px; overflow: hidden; }
     .erp-table { width: 100%; background: transparent; }
+    .actions-cell { white-space: nowrap; }
+    .action-group { display: inline-flex; align-items: center; gap: 2px; flex-wrap: nowrap; }
     .empty-state { padding: 12px 16px; opacity: .7; margin: 0; }
     .badge { padding: 3px 10px; border-radius: 99px; font-size: .8rem; font-weight: 600; background: rgba(100,116,139,.12); color: #475569; }
     .badge-aktif { background: rgba(34,197,94,.16); color: #166534; }

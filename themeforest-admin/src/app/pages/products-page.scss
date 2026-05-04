@@ -1,9 +1,23 @@
-.page-head {
+.page-head.products-head {
   display: flex;
   justify-content: space-between;
   align-items: end;
   gap: 12px;
+  position: relative;
+  overflow: hidden;
   margin-bottom: 14px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(30, 64, 175, 0.18);
+  background:
+    radial-gradient(circle at 94% 12%, rgba(96, 165, 250, 0.18) 0%, transparent 38%),
+    radial-gradient(circle at 8% 84%, rgba(6, 182, 212, 0.14) 0%, transparent 38%),
+    linear-gradient(145deg, rgba(239, 246, 255, 0.96), rgba(236, 254, 255, 0.9));
+
+  h1 {
+    font-size: clamp(1.35rem, 2.2vw, 2rem);
+    letter-spacing: -0.03em;
+  }
 
   h1,
   p {
@@ -12,7 +26,34 @@
 
   p {
     margin-top: 4px;
-    opacity: 0.66;
+    opacity: 0.72;
+    max-width: 66ch;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    right: -100px;
+    top: -120px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.26) 0%, rgba(37, 99, 235, 0) 70%);
+    pointer-events: none;
+  }
+}
+
+.new-btn {
+  border-radius: 12px;
+  background: linear-gradient(150deg, #2563eb, #0ea5e9);
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.24);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 30px rgba(37, 99, 235, 0.3);
+    filter: saturate(1.05);
   }
 }
 
@@ -21,48 +62,133 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   margin-bottom: 14px;
+}
 
-  mat-card {
-    border-radius: 16px;
+.summary-card {
+  border-radius: 16px;
+  border: 1px solid rgba(30, 64, 175, 0.16);
+  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.1);
+  animation: product-rise 430ms ease both;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 
-    p,
-    h3 {
-      margin: 0;
-    }
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(30, 64, 175, 0.16);
+  }
 
-    p {
-      opacity: 0.66;
-      margin-bottom: 8px;
-    }
+  &:nth-child(1) {
+    background: linear-gradient(155deg, rgba(219, 234, 254, 0.96), rgba(186, 230, 253, 0.74));
+    animation-delay: 50ms;
+  }
+
+  &:nth-child(2) {
+    background: linear-gradient(155deg, rgba(224, 242, 254, 0.96), rgba(125, 211, 252, 0.64));
+    animation-delay: 120ms;
+  }
+
+  &:nth-child(3) {
+    background: linear-gradient(155deg, rgba(236, 254, 255, 0.96), rgba(103, 232, 249, 0.62));
+    animation-delay: 190ms;
+  }
+
+  p,
+  h3 {
+    margin: 0;
+  }
+
+  p {
+    opacity: 0.72;
+    margin-bottom: 8px;
+    font-size: 0.81rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 700;
   }
 }
 
-.table-wrap {
+.products-table-wrap {
   border-radius: 18px;
   overflow: auto;
+  border: 1px solid rgba(30, 64, 175, 0.16);
+  background:
+    radial-gradient(circle at 96% 4%, rgba(14, 165, 233, 0.13) 0%, transparent 26%),
+    color-mix(in srgb, var(--app-surface) 94%, #fff);
 }
 
 .table {
   background: transparent;
 }
 
+.table .mat-mdc-cell,
+.table .mat-mdc-header-cell {
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+.table .mat-mdc-header-cell {
+  font-size: 0.77rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.table .mat-mdc-row:nth-child(even) {
+  background: rgba(191, 219, 254, 0.08);
+}
+
+.table .mat-mdc-row:hover {
+  background: rgba(37, 99, 235, 0.08);
+}
+
 mat-chip.aktif {
   background: rgba(34, 197, 94, 0.16);
   color: #166534;
+  font-weight: 700;
 }
 
 mat-chip.az-stok {
   background: rgba(251, 191, 36, 0.2);
   color: #92400e;
+  font-weight: 700;
 }
 
 mat-chip.pasif {
   background: rgba(148, 163, 184, 0.2);
   color: #334155;
+  font-weight: 700;
+}
+
+@keyframes product-rise {
+  from {
+    opacity: 0;
+    transform: translateY(9px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @media (max-width: 900px) {
   .summary-grid {
     grid-template-columns: 1fr;
+  }
+
+  .page-head.products-head {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 620px) {
+  .page-head.products-head {
+    padding: 14px;
+  }
+
+  .new-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

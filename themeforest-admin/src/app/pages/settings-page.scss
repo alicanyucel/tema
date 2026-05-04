@@ -1,5 +1,12 @@
-.page-head {
+.page-head.settings-head {
   margin-bottom: 14px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background:
+    radial-gradient(circle at 95% 20%, rgba(56, 189, 248, 0.16) 0%, transparent 36%),
+    radial-gradient(circle at 10% 86%, rgba(20, 184, 166, 0.14) 0%, transparent 38%),
+    linear-gradient(145deg, rgba(240, 249, 255, 0.96), rgba(236, 253, 245, 0.9));
 
   h1,
   p {
@@ -8,7 +15,7 @@
 
   p {
     margin-top: 4px;
-    opacity: 0.66;
+    opacity: 0.74;
   }
 }
 
@@ -20,8 +27,18 @@
 
 .panel {
   border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
   display: grid;
   gap: 10px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+}
+
+.info-panel {
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(241, 245, 249, 0.9));
+}
+
+.notify-panel {
+  background: linear-gradient(155deg, rgba(236, 254, 255, 0.96), rgba(204, 251, 241, 0.7));
 }
 
 mat-form-field {
@@ -33,12 +50,19 @@ mat-form-field {
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
+  border-bottom: 1px dashed rgba(100, 116, 139, 0.3);
+
+  &:last-child {
+    border-bottom: 0;
+  }
 }
 
-// Modül Yönetimi
-.module-panel {
+.module-panel.control-panel {
   margin-top: 14px;
   padding: 20px;
+  background:
+    radial-gradient(circle at 100% 0, rgba(14, 165, 233, 0.14) 0%, transparent 30%),
+    linear-gradient(150deg, rgba(248, 250, 252, 0.96), rgba(236, 253, 245, 0.9));
 }
 
 .module-panel-header {
@@ -59,6 +83,7 @@ mat-form-field {
       font-size: 20px;
       width: 20px;
       height: 20px;
+      color: #0369a1;
     }
   }
 }
@@ -66,7 +91,7 @@ mat-form-field {
 .module-panel-desc {
   margin: 0;
   font-size: 0.85rem;
-  opacity: 0.66;
+  opacity: 0.68;
 }
 
 .module-panel-actions {
@@ -80,6 +105,7 @@ mat-form-field {
     align-items: center;
     gap: 4px;
     font-size: 0.82rem;
+    border-radius: 10px;
   }
 }
 
@@ -95,10 +121,11 @@ mat-form-field {
   gap: 8px;
   padding: 8px 12px;
   border-radius: 10px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(148, 163, 184, 0.3);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
   user-select: none;
+  background: rgba(255, 255, 255, 0.72);
 
   span {
     font-size: 0.88rem;
@@ -106,12 +133,14 @@ mat-form-field {
   }
 
   &:hover {
-    background: var(--mat-sys-surface-container-high, rgba(0, 0, 0, 0.06));
+    background: rgba(236, 253, 245, 0.88);
+    border-color: rgba(14, 116, 144, 0.36);
+    transform: translateY(-1px);
   }
 
   &--active {
-    border-color: var(--mat-sys-primary, #1976d2);
-    background: var(--mat-sys-primary-container, rgba(25, 118, 210, 0.08));
+    border-color: #0e7490;
+    background: rgba(207, 250, 254, 0.78);
   }
 }
 

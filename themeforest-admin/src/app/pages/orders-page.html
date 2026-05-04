@@ -1,18 +1,18 @@
-<section class="page-head">
+<section class="page-head orders-head">
   <h1>{{ i18n.t('orders.title') }}</h1>
   <p>{{ i18n.t('orders.subtitle') }}</p>
 </section>
 
 <section class="kpi-grid">
-  <mat-card appearance="outlined">
+  <mat-card class="kpi-card" appearance="outlined">
     <p>{{ i18n.t('orders.todayIncoming') }}</p>
     <h3>218</h3>
   </mat-card>
-  <mat-card appearance="outlined">
+  <mat-card class="kpi-card" appearance="outlined">
     <p>{{ i18n.t('orders.inShipping') }}</p>
     <h3>74</h3>
   </mat-card>
-  <mat-card appearance="outlined">
+  <mat-card class="kpi-card" appearance="outlined">
     <p>{{ i18n.t('orders.returnWaiting') }}</p>
     <h3>9</h3>
   </mat-card>
@@ -29,7 +29,7 @@
   />
 </mat-form-field>
 
-<mat-card appearance="outlined" class="table-wrap">
+<mat-card appearance="outlined" class="table-wrap orders-table-wrap">
   <table mat-table [dataSource]="filteredOrders()" class="table">
     <ng-container matColumnDef="orderNo">
       <th mat-header-cell *matHeaderCellDef>{{ i18n.t('orders.columnNo') }}</th>

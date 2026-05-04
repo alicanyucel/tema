@@ -1,24 +1,24 @@
-<section class="page-head">
+<section class="page-head finance-head">
   <h1>{{ i18n.t('finance.title') }}</h1>
   <p>{{ i18n.t('finance.subtitle') }}</p>
 </section>
 
 <section class="overview-grid">
-  <mat-card appearance="outlined">
+  <mat-card class="metric-card" appearance="outlined">
     <p>{{ i18n.t('finance.monthIncome') }}</p>
     <h3>{{ 128450 | currency: '$' }}</h3>
   </mat-card>
-  <mat-card appearance="outlined">
+  <mat-card class="metric-card" appearance="outlined">
     <p>{{ i18n.t('finance.monthExpense') }}</p>
     <h3>{{ 48920 | currency: '$' }}</h3>
   </mat-card>
-  <mat-card appearance="outlined">
+  <mat-card class="metric-card" appearance="outlined">
     <p>{{ i18n.t('finance.netProfit') }}</p>
     <h3>{{ 79530 | currency: '$' }}</h3>
   </mat-card>
 </section>
 
-<mat-card appearance="outlined" class="budget-card">
+<mat-card appearance="outlined" class="budget-card glow-panel">
   <h3>{{ i18n.t('finance.budgetUsage') }}</h3>
 
   <div class="row">
@@ -40,7 +40,7 @@
   <mat-progress-bar mode="determinate" [value]="44"></mat-progress-bar>
 </mat-card>
 
-<mat-card appearance="outlined" class="tx-card">
+<mat-card appearance="outlined" class="tx-card ledger-panel">
   <h3>{{ i18n.t('finance.recentTransactions') }}</h3>
   <div class="tx-list">
     @for (tx of transactions; track tx.label) {

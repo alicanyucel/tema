@@ -1,4 +1,4 @@
-import { DecimalPipe, NgClass } from '@angular/common';
+import { DecimalPipe } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -58,7 +58,6 @@ interface TeamLoad {
   standalone: true,
   imports: [
     DecimalPipe,
-    NgClass,
     MatButtonModule,
     MatCardModule,
     MatChipsModule,
