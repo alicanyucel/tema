@@ -106,6 +106,7 @@ export interface ErpField {
       }
 
       <mat-paginator
+        class="erp-paginator"
         [length]="filteredRows().length"
         [pageSize]="pageSize"
         [pageSizeOptions]="[5, 10, 25]"
@@ -122,6 +123,7 @@ export interface ErpField {
     .add-btn { display: flex; align-items: center; gap: 4px; height: 46px; border-radius: 10px; }
     .table-wrap { border-radius: 18px; overflow: hidden; }
     .erp-table { width: 100%; background: transparent; }
+    .erp-paginator { width: fit-content; margin: 10px auto 4px; background: transparent; border-radius: 12px; }
     .actions-cell { white-space: nowrap; }
     .action-group { display: inline-flex; align-items: center; gap: 2px; flex-wrap: nowrap; }
     .empty-state { padding: 12px 16px; opacity: .7; margin: 0; }
