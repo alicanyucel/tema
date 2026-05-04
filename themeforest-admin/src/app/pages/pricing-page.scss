@@ -19,6 +19,7 @@ $radius-sm:  12px;
   padding: 0 0 80px;
   color: $text;
   font-family: inherit;
+  overflow-x: hidden;
 }
 
 // ─── Hero ────────────────────────────────────────────────────
@@ -76,6 +77,7 @@ $radius-sm:  12px;
   padding: 6px;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 100%;
 }
 
 .toggle-btn {
@@ -118,6 +120,7 @@ $radius-sm:  12px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
+  width: min(100%, 1280px);
   max-width: 1280px;
   margin: 56px auto 0;
   padding: 0 24px;
@@ -533,6 +536,16 @@ $radius-sm:  12px;
   .plan-card.popular { transform: scale(1); }
   .strip-content { flex-wrap: wrap; gap: 14px; }
   .trust-item { min-width: 90px; padding: 14px 12px; }
+  .billing-toggle {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 460px);
+    margin-inline: auto;
+  }
+  .toggle-btn {
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 // SM ≤ 767px: 1 kolon
@@ -541,12 +554,18 @@ $radius-sm:  12px;
   .hero-title { font-size: 1.6rem; }
   .hero-subtitle { font-size: 14px; }
 
-  .billing-toggle { padding: 4px; gap: 2px; }
+  .billing-toggle {
+    padding: 4px;
+    gap: 6px;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
   .toggle-btn { padding: 8px 10px; font-size: 12px; gap: 4px; }
   .discount-tag { display: none; }
 
   .plans-grid {
     grid-template-columns: 1fr;
+    width: min(100%, 430px);
     padding: 0 16px;
     gap: 14px;
     margin-top: 28px;
@@ -556,8 +575,16 @@ $radius-sm:  12px;
     &:hover { transform: none; }
     &.popular { transform: scale(1); &:hover { transform: none; } }
   }
+  .plan-header {
+    gap: 12px;
+    margin-bottom: 22px;
+  }
   .plan-name { font-size: 17px; }
   .price-amount { font-size: 1.9rem; }
+  .price-row {
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
   .plan-limits { gap: 4px; }
 
   .compare-strip { padding: 0 16px; margin-top: 32px; }
@@ -589,8 +616,26 @@ $radius-sm:  12px;
 
 // XS ≤ 575px
 @media (max-width: 575px) {
-  .toggle-btn { padding: 7px 8px; font-size: 11px; }
+  .pricing-page { padding-bottom: 56px; }
+  .pricing-hero { padding: 28px 12px 22px; }
+  .hero-badge { padding-inline: 14px; margin-bottom: 18px; }
+  .hero-title { font-size: 1.45rem; }
+  .hero-subtitle { margin-bottom: 24px; }
+  .toggle-btn { padding: 9px 8px; font-size: 11px; }
+  .plans-grid { width: 100%; padding: 0 12px; }
+  .plan-card { border-radius: 18px; padding: 20px 14px; }
+  .plan-icon-wrap {
+    width: 44px;
+    height: 44px;
+
+    mat-icon { font-size: 22px; width: 22px; height: 22px; }
+  }
+  .plan-name { font-size: 16px; }
   .price-amount { font-size: 1.7rem; }
+  .limit-item { padding: 5px 8px; }
+  .compare-strip,
+  .trust-section,
+  .faq-section { padding-inline: 12px; }
   .trust-item { flex: 1 1 calc(50% - 6px); }
   .faq-title { font-size: 18px; }
 }

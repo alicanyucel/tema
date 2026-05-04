@@ -72,11 +72,11 @@ export class App {
   private readonly document = inject(DOCUMENT);
   protected readonly i18n = inject(I18nService);
   protected readonly moduleSelection = inject(ModuleSelectionService);
-  protected readonly sidebarOpen = signal(true);
+  protected readonly sidebarOpen = signal(!this.getInitialCompactViewport());
   protected readonly isDarkMode = signal(this.getInitialThemeMode());
   protected readonly openGroups = signal<Set<string>>(new Set(['nav.group.finans']));
   protected readonly isCompactViewport = toSignal(this.breakpointObserver.observe('(max-width: 991px)'), {
-    initialValue: { matches: false, breakpoints: {} }
+    initialValue: { matches: this.getInitialCompactViewport(), breakpoints: {} }
   });
   protected readonly sidebarMode = computed<'side' | 'over'>(() => (this.isCompactViewport().matches ? 'over' : 'side'));
 
@@ -883,5 +883,11 @@ export class App {
     }
 
     return 'Standart';
+  }
+
+  private getInitialCompactViewport(): boolean {
+    return typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+      ? window.matchMedia('(max-width: 991px)').matches
+      : false;
   }
 }

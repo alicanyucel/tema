@@ -856,7 +856,7 @@ html body.theme-dark {
 		height: auto;
 		min-height: 100dvh;
 	}
-	.dashboard-sidebar { width: 240px; }
+	.dashboard-sidebar { width: min(82vw, 320px); }
 	.search-box { width: min(260px, 36vw); }
 	.dashboard-toolbar { row-gap: 10px; }
 }
@@ -876,7 +876,7 @@ html body.theme-dark {
 
 // XS ≤ 575px
 @media (max-width: 575px) {
-	.dashboard-sidebar { width: 210px; }
+	.dashboard-sidebar { width: min(88vw, 280px); }
 	.dashboard-main { padding: 10px; }
 	.dashboard-toolbar {
 		padding: 8px 10px;
