@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { DashboardPageComponent } from './pages/dashboard-page';
 import { FinancePageComponent } from './pages/finance-page';
+import { PricingPageComponent } from './pages/pricing-page';
 import { OrdersPageComponent } from './pages/orders-page';
 import { ProductsPageComponent } from './pages/products-page';
 import { SettingsPageComponent } from './pages/settings-page';
@@ -181,6 +182,7 @@ import { SpamEngellenenComponent } from './pages/erp/email-yonetimi/spam-engelle
 export const routes: Routes = [
 	{ path: '', pathMatch: 'full', redirectTo: 'dashboard' },
 	{ path: 'dashboard', component: DashboardPageComponent },
+	{ path: 'fiyatlandirma', component: PricingPageComponent },
 	{ path: 'urunler', component: ProductsPageComponent },
 	{ path: 'siparisler', component: OrdersPageComponent },
 	{ path: 'finans', component: FinancePageComponent },

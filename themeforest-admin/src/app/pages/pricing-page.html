@@ -1,0 +1,194 @@
+<div class="pricing-page">
+
+  <!-- HERO -->
+  <section class="pricing-hero">
+    <div class="hero-badge">
+      <mat-icon>bolt</mat-icon>
+      SaaS Fiyatlandırma
+    </div>
+    <h1 class="hero-title">
+      İşinizi Büyütecek<br>
+      <span class="gradient-text">Doğru Planı Seçin</span>
+    </h1>
+    <p class="hero-subtitle">
+      14 gün ücretsiz deneyin. Kredi kartı gerekmez. İstediğiniz zaman iptal edin.
+    </p>
+
+    <!-- BILLING TOGGLE -->
+    <div class="billing-toggle">
+      @for (cycle of cycles; track cycle.key) {
+        <button
+          class="toggle-btn"
+          [class.active]="billingCycle() === cycle.key"
+          (click)="setBillingCycle(cycle.key)"
+          matRipple
+        >
+          {{ cycle.label }}
+          @if (cycle.discount) {
+            <span class="discount-tag">{{ cycle.discount }}</span>
+          }
+        </button>
+      }
+    </div>
+  </section>
+
+  <!-- PLANS GRID -->
+  <section class="plans-grid">
+    @for (plan of plans; track plan.id) {
+      <div
+        class="plan-card"
+        [class.popular]="plan.popular"
+        [class.enterprise-card]="plan.enterprise"
+        [style.--plan-color]="plan.color"
+      >
+        @if (plan.badge) {
+          <div class="plan-badge">
+            <mat-icon>star</mat-icon>
+            {{ plan.badge }}
+          </div>
+        }
+
+        <div class="plan-header">
+          <div class="plan-icon-wrap" [style.background]="plan.accentGradient">
+            <mat-icon>{{ plan.icon }}</mat-icon>
+          </div>
+          <div>
+            <h2 class="plan-name">{{ plan.name }}</h2>
+            <p class="plan-subtitle">{{ plan.subtitle }}</p>
+          </div>
+        </div>
+
+        <div class="plan-pricing">
+          @if (billingCycle() !== 'monthly') {
+            <div class="savings-chip">
+              <mat-icon>savings</mat-icon>
+              {{ formatPrice(savingsAmount()(plan) ) }} ₺ tasarruf
+            </div>
+          }
+          <div class="price-row">
+            <span class="price-amount">{{ formatPrice(currentPrice()(plan)) }}</span>
+            <div class="price-meta">
+              <span class="currency">₺</span>
+              <span class="price-period">
+                /
+                @if (billingCycle() === 'monthly') { ay }
+                @else if (billingCycle() === 'quarterly') { 3 ay }
+                @else if (billingCycle() === 'biannual') { 6 ay }
+                @else { yıl }
+              </span>
+            </div>
+          </div>
+          @if (billingCycle() !== 'monthly') {
+            <p class="monthly-equiv">
+              Aylık {{ formatPrice(monthlyEquivalent()(plan)) }} ₺ / kullanıcı
+            </p>
+          }
+        </div>
+
+        <div class="plan-limits">
+          <div class="limit-item">
+            <mat-icon>group</mat-icon>
+            <span>{{ plan.userLimit }}</span>
+          </div>
+          <div class="limit-item">
+            <mat-icon>storage</mat-icon>
+            <span>{{ plan.storageLimit }}</span>
+          </div>
+          <div class="limit-item">
+            <mat-icon>api</mat-icon>
+            <span>{{ plan.apiCalls }}</span>
+          </div>
+        </div>
+
+        <div class="plan-divider"></div>
+
+        <ul class="features-list">
+          @for (feature of plan.features; track feature.label) {
+            <li class="feature-item" [class.excluded]="!feature.included" [class.highlight]="feature.highlight && feature.included">
+              <mat-icon class="feat-icon">
+                {{ feature.included ? (feature.highlight ? 'verified' : 'check_circle') : 'cancel' }}
+              </mat-icon>
+              <span>{{ feature.label }}</span>
+            </li>
+          }
+        </ul>
+
+        <button
+          class="cta-btn"
+          mat-raised-button
+          [style.background]="plan.popular || plan.enterprise ? plan.accentGradient : ''"
+          matRipple
+        >
+          <mat-icon>{{ plan.enterprise ? 'support_agent' : 'arrow_forward' }}</mat-icon>
+          {{ plan.cta }}
+        </button>
+      </div>
+    }
+  </section>
+
+  <!-- COMPARE CTA STRIP -->
+  <section class="compare-strip">
+    <div class="strip-content">
+      <mat-icon>compare_arrows</mat-icon>
+      <div>
+        <strong>Hangi plan sizin için doğru?</strong>
+        <p>Tüm özellikleri karşılaştırmak için uzmanlarımızla görüşün.</p>
+      </div>
+      <button mat-stroked-button class="contact-btn" matRipple>
+        <mat-icon>headset_mic</mat-icon>
+        Uzmanla Görüş
+      </button>
+    </div>
+  </section>
+
+  <!-- TRUST BADGES -->
+  <section class="trust-section">
+    <h3>Güven & Güvenlik</h3>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <mat-icon>verified_user</mat-icon>
+        <span>ISO 27001</span>
+        <small>Sertifikalı</small>
+      </div>
+      <div class="trust-item">
+        <mat-icon>gpp_good</mat-icon>
+        <span>KVKK Uyumlu</span>
+        <small>Veri Koruma</small>
+      </div>
+      <div class="trust-item">
+        <mat-icon>lock</mat-icon>
+        <span>TLS 1.3</span>
+        <small>Şifreli İletişim</small>
+      </div>
+      <div class="trust-item">
+        <mat-icon>cloud_done</mat-icon>
+        <span>%99.9 Uptime</span>
+        <small>SLA Garantisi</small>
+      </div>
+      <div class="trust-item">
+        <mat-icon>support_agent</mat-icon>
+        <span>7/24 Destek</span>
+        <small>Enterprise</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h3 class="faq-title">Sık Sorulan Sorular</h3>
+    <div class="faq-list">
+      @for (item of faqItems; track item.q; let i = $index) {
+        <div class="faq-item" [class.open]="openFaq() === i" (click)="toggleFaq(i)">
+          <div class="faq-question">
+            <span>{{ item.q }}</span>
+            <mat-icon>{{ openFaq() === i ? 'expand_less' : 'expand_more' }}</mat-icon>
+          </div>
+          @if (openFaq() === i) {
+            <div class="faq-answer">{{ item.a }}</div>
+          }
+        </div>
+      }
+    </div>
+  </section>
+
+</div>
