@@ -153,3 +153,53 @@ mat-form-field {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
 }
+
+/* =============================================
+   Dark Theme Overrides
+   ============================================= */
+:host-context(body.theme-dark) {
+  .page-head.settings-head {
+    background:
+      radial-gradient(circle at 95% 20%, rgba(56, 189, 248, 0.2) 0%, transparent 36%),
+      radial-gradient(circle at 10% 86%, rgba(20, 184, 166, 0.15) 0%, transparent 38%),
+      linear-gradient(145deg, rgba(30, 41, 59, 0.94), rgba(21, 35, 51, 0.88));
+    border-color: rgba(148, 163, 184, 0.15);
+  }
+
+  .panel {
+    border-color: rgba(148, 163, 184, 0.15);
+  }
+
+  .info-panel {
+    background: linear-gradient(155deg, rgba(30, 41, 59, 0.94), rgba(21, 35, 51, 0.88));
+  }
+
+  .notify-panel {
+    background: linear-gradient(155deg, rgba(15, 50, 55, 0.94), rgba(10, 40, 45, 0.88));
+  }
+
+  .module-panel.control-panel {
+    background:
+      radial-gradient(circle at 100% 0, rgba(14, 165, 233, 0.2) 0%, transparent 30%),
+      linear-gradient(150deg, rgba(30, 41, 59, 0.94), rgba(21, 35, 51, 0.88));
+  }
+
+  .module-item {
+    background: rgba(30, 41, 59, 0.7);
+    border-color: rgba(148, 163, 184, 0.2);
+
+    &:hover {
+      background: rgba(30, 50, 70, 0.88);
+      border-color: rgba(14, 165, 233, 0.45);
+    }
+
+    &--active {
+      border-color: #06b6d4;
+      background: rgba(15, 60, 80, 0.88);
+
+      span {
+        color: #06b6d4;
+      }
+    }
+  }
+}

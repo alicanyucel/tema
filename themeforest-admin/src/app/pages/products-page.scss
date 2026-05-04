@@ -192,3 +192,66 @@ mat-chip.pasif {
     justify-content: center;
   }
 }
+
+/* =============================================
+   Dark Theme Overrides
+   ============================================= */
+:host-context(body.theme-dark) {
+  .page-head.products-head {
+    background:
+      radial-gradient(circle at 94% 12%, rgba(96, 165, 250, 0.2) 0%, transparent 38%),
+      radial-gradient(circle at 8% 84%, rgba(6, 182, 212, 0.2) 0%, transparent 38%),
+      linear-gradient(145deg, rgba(30, 41, 59, 0.94), rgba(21, 35, 51, 0.88));
+    border-color: rgba(148, 163, 184, 0.15);
+  }
+
+  .summary-card {
+    border-color: rgba(148, 163, 184, 0.15);
+
+    &:nth-child(1) {
+      background: linear-gradient(155deg, rgba(30, 50, 80, 0.94), rgba(25, 40, 70, 0.88));
+    }
+
+    &:nth-child(2) {
+      background: linear-gradient(155deg, rgba(25, 50, 75, 0.94), rgba(20, 40, 65, 0.88));
+    }
+
+    &:nth-child(3) {
+      background: linear-gradient(155deg, rgba(20, 50, 70, 0.94), rgba(15, 40, 60, 0.88));
+    }
+  }
+
+  .products-table-wrap {
+    background:
+      radial-gradient(circle at 96% 4%, rgba(14, 165, 233, 0.2) 0%, transparent 26%),
+      rgba(30, 41, 59, 0.88);
+    border-color: rgba(148, 163, 184, 0.15);
+  }
+
+  .table .mat-mdc-header-cell {
+    color: #cbd5e1;
+  }
+
+  .table .mat-mdc-row:nth-child(even) {
+    background: rgba(96, 165, 250, 0.06);
+  }
+
+  .table .mat-mdc-row:hover {
+    background: rgba(37, 99, 235, 0.12);
+  }
+
+  mat-chip.aktif {
+    background: rgba(34, 197, 94, 0.25);
+    color: #86efac;
+  }
+
+  mat-chip.az-stok {
+    background: rgba(251, 191, 36, 0.25);
+    color: #fde047;
+  }
+
+  mat-chip.pasif {
+    background: rgba(148, 163, 184, 0.2);
+    color: #cbd5e1;
+  }
+}
