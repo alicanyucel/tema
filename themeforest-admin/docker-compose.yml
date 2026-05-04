@@ -1,0 +1,9 @@
+services:
+  themeforest-admin:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: themeforest-admin
+    ports:
+      - "8080:80"
+    restart: unless-stopped

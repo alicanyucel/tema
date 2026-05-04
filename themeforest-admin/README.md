@@ -78,6 +78,32 @@ npm test
 
 ---
 
+## Docker
+
+### Docker image oluşturma
+
+```bash
+docker build -t themeforest-admin .
+```
+
+### Container çalıştırma
+
+```bash
+docker run --rm -p 8080:80 themeforest-admin
+```
+
+Uygulama `http://localhost:8080` adresinde yayınlanır.
+
+### Docker Compose
+
+```bash
+docker compose up --build
+```
+
+Angular route'larının doğrudan açılabilmesi için Nginx tarafında SPA fallback (`/index.html`) yapılandırılmıştır.
+
+---
+
 ## Proje Yapısı
 
 ```
@@ -227,6 +253,32 @@ npm run watch
 # Unit tests (Vitest)
 npm test
 ```
+
+---
+
+## Docker
+
+### Build the Docker image
+
+```bash
+docker build -t themeforest-admin .
+```
+
+### Run the container
+
+```bash
+docker run --rm -p 8080:80 themeforest-admin
+```
+
+The app is served at `http://localhost:8080`.
+
+### Docker Compose
+
+```bash
+docker compose up --build
+```
+
+Nginx is configured with SPA fallback to `/index.html`, so direct navigation to Angular routes works correctly.
 
 ---
 
