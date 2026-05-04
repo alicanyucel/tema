@@ -297,19 +297,22 @@ mat-chip.tamamlandi {
   }
 }
 
-@media (max-width: 1200px) {
+// LG ≤ 1199px
+@media (max-width: 1199px) {
   .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .content-grid { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 700px) {
+// SM ≤ 767px
+@media (max-width: 767px) {
   .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .analysis-grid { grid-template-columns: 1fr; }
   .bar-chart { gap: 6px; }
   .task-table { overflow-x: auto; display: block; }
 }
 
-@media (max-width: 480px) {
+// XS ≤ 575px
+@media (max-width: 575px) {
   .stat-grid { grid-template-columns: 1fr; }
   .revenue-card, .tasks-card, .activity-card, .workload-card { border-radius: 14px; }
   .chart-wrap { overflow-x: auto; }

@@ -144,19 +144,22 @@ mat-form-field {
   }
 }
 
-@media (max-width: 900px) {
+// MD ≤ 991px
+@media (max-width: 991px) {
   .settings-grid { grid-template-columns: 1fr; }
   .module-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
 }
 
-@media (max-width: 700px) {
+// SM ≤ 767px
+@media (max-width: 767px) {
   .page-head.settings-head { padding: 12px 14px; }
   .module-panel-header { flex-direction: column; align-items: flex-start; }
   .module-panel-actions { flex-wrap: wrap; }
   .toggle-row { flex-wrap: wrap; gap: 8px; }
 }
 
-@media (max-width: 480px) {
+// XS ≤ 575px
+@media (max-width: 575px) {
   .settings-grid { gap: 10px; }
   .module-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
   .panel { border-radius: 14px; }
